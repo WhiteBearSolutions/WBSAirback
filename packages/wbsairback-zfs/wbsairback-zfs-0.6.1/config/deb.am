@@ -1,0 +1,40 @@
+deb-local:
+	@(if test "${HAVE_DPKGBUILD}" = "no"; then \
+		echo -e "\n" \
+	"*** Required util ${DPKGBUILD} missing.  Please install the\n" \
+        "*** package for your distribution which provides ${DPKGBUILD},\n" \
+	"*** re-run configure, and try again.\n"; \
+                exit 1; \
+	fi; \
+	if test "${HAVE_ALIEN}" = "no"; then \
+		echo -e "\n" \
+	"*** Required util ${ALIEN} missing.  Please install the\n" \
+        "*** package for your distribution which provides ${ALIEN},\n" \
+	"*** re-run configure, and try again.\n"; \
+                exit 1; \
+	fi)
+
+deb-kmod: deb-local rpm-kmod
+if CONFIG_KERNEL
+	name=${PACKAGE}; \
+	version=${VERSION}-${RELEASE}; \
+	arch=`$(RPM) -qp $${name}-kmod-$${version}.src.rpm --qf %{arch} | tail -1`; \
+	pkg1=kmod-$${name}*$${version}.$${arch}.rpm; \
+	fakeroot $(ALIEN) --scripts --to-deb $$pkg1; \
+	$(RM) $$pkg1
+endif
+
+deb-utils: deb-local rpm-utils
+if CONFIG_USER
+	name=${PACKAGE}; \
+	version=${VERSION}-${RELEASE}; \
+	arch=`$(RPM) -qp $${name}-$${version}.src.rpm --qf %{arch} | tail -1`; \
+	pkg1=$${name}-$${version}.$${arch}.rpm; \
+	pkg2=$${name}-devel-$${version}.$${arch}.rpm; \
+	pkg3=$${name}-test-$${version}.$${arch}.rpm; \
+	pkg4=$${name}-dracut-$${version}.$${arch}.rpm; \
+	fakeroot $(ALIEN) --scripts --to-deb $$pkg1 $$pkg2 $$pkg3 $$pkg4; \
+	$(RM) $$pkg1 $$pkg2 $$pkg3 $$pkg4
+endif
+
+deb: deb-kmod deb-utils

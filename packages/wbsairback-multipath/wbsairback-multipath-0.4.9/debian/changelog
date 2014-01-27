@@ -1,0 +1,12 @@
+wbsairback-multipath (0.4.11) unstable; urgency=low
+
+  * Added H800 percs to blacklist.
+  * Fixed copying of /etc/multipath.conf at installation
+
+ -- Ricardo Lorenzo <ricardo.lorenzo@whitebearsolutions.com>  Sun, 20 Jun 2010 21:22:57 +0200
+ 
+wbsairback-multipath (0.4.10) unstable; urgency=low
+
+  * Initial release.
+
+ -- Ricardo Lorenzo <ricardo.lorenzo@whitebearsolutions.com>  Sun, 20 Jun 2010 21:22:57 +0200

@@ -1,0 +1,17 @@
+Source: wbsairback-zfs
+Section: otherosfs
+Priority: optional
+Maintainer: Ricardo Lorenzo <ricardo.lorenzo@whitebearsolutions.com>
+Build-Depends: debhelper (>= 7.0.50~)
+Standards-Version: 3.8.4
+Homepage: http://zfsonlinux.org/
+
+Package: wbsairback-zfs
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}, wbsairback-spl
+Suggests: wbsairback-zfs
+Provides: zfs-fuse
+Conflicts: zfs-fuse
+Replaces: zfs-fuse
+Description: ZFS kernel implementation for WBSAirback
+  ZFS is a combined file system and logical volume manager designed by Sun Microsystems. The features of ZFS include data integrity verification against data corruption modes, support for high storage capacities, integration of the concepts of filesystem and volume management, snapshots and copy-on-write clones, continuous integrity checking and automatic repair, RAID-Z and native NFSv4 ACLs.

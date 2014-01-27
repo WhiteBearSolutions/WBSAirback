@@ -1,0 +1,12 @@
+Package: wbsairback-iscsi-scst
+Version: 2.2.1
+Architecture: amd64
+Maintainer: Ricardo Lorenzo Rodríguez <ricardo.lorenzo@wbsgo.com>
+Installed-Size: 10892
+Depends: bash (>= 2.0), wbsairback-kernel-image (>= 3.0)
+Conflicts: iscsitarget, wbsairback-iscsi
+Section: admin
+Priority: important
+Homepage: http://www.wbslabs.com/wbsairback
+Description: WBSAirback iSCSI Target
+  iSCSI Target let you be able to share block devices over a network.

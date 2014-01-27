@@ -1,0 +1,13 @@
+Source: wbsairback-admin
+Section: admin
+Priority: important
+Maintainer: Ricardo Lorenzo Rodríguez <ricardo.lorenzo@wbsgo.com>
+Build-Depends: debhelper (>= 7)
+Standards-Version: 3.7.3
+Homepage: http://www.wbslabs.com/wbsairback
+
+Package: wbsairback-admin
+Architecture: any
+Depends: bc (>= 1.0), wbsairback-tomcat, wbsairback-mail-transport, wbsairback-rsync, wbsairback-winexe, postgresql, wbsairback-lvm2, wbsairback-parted, wbsairback-multipath, wbsairback-iscsi-scst, wbsairback-btrfs-tools, acl, krb5-user, wbsairback-zfs, xfsprogs, lsscsi, usbutils, pciutils,  samba (>= 3.4), samba-common-bin (>= 3.4), smbclient, smbfs (>= 3.4), libpam-ldap, libnss-ldap, winbind (>= 3.4), nscd, nfs-kernel-server, nfs-common, proftpd-basic, rrdtool, snmpd, snmp, heartbeat, cman, apt-show-versions, psmisc, drbd8-utils, open-iscsi, openvpn, sudo, ifenslave-2.6, expect, megacli, wbsairback-s3backer, libaio1, libfuse2, wbsairback-mongodb, wbsairback-mhvtl, firmware-bnx2x, wbsairback-mbuffer
+Description: WBSAirback Web Administration Interface
+  Web administration interface lets you manage and configure WBSAirback features and functions.

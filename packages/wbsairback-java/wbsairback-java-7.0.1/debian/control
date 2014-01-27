@@ -1,0 +1,14 @@
+Source: wbsairback-java
+Section: admin
+Priority: important
+Maintainer: Ricardo Lorenzo Rodríguez <ricardo.lorenzo@wbsgo.com>
+Homepage: http://java.oracle.com/
+
+Package: wbsairback-java
+Architecture: amd64
+Depends: bash (>= 2.0)
+Conflicts: sun-java6-jdk, sun-java6-jre, sun-java6-bin, gij, gij-4.1, kaffe, openjdk-6-jdk, openjdk-6-jre
+Replaces: sun-java6-jdk, sun-java6-jre, sun-java6-bin, gij, gij-4.1, kaffe, openjdk-6-jdk, openjdk-6-jre
+Provides: sun-java6-jdk, sun-java6-jre, sun-java6-bin, gij, gij-4.1, kaffe, openjdk-6-jdk, openjdk-6-jre
+Description: Java Development Environment for WBSAirback
+  Java Platform, Standard Edition (also known as Java 2 Platform).

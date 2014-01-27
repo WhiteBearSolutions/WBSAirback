@@ -1,0 +1,9 @@
+Manifest-Version: 1.0
+Specification-Title: Apache Tomcat
+Specification-Version: 7.0
+Specification-Vendor: Apache Software Foundation
+Implementation-Title: Apache Tomcat
+Implementation-Version: 7.0.22
+Implementation-Vendor: Apache Software Foundation
+X-Compile-Source-JDK: 1.6
+X-Compile-Target-JDK: 1.6

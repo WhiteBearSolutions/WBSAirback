@@ -1,0 +1,9 @@
+kernel//opt/git-clone/wbsairback/packages/wbsairback-iscsi-scst/wbsairback-iscsi-scst-2.2.0/scst-2.2.0/src/dev_handlers/scst_cdrom.ko
+kernel//opt/git-clone/wbsairback/packages/wbsairback-iscsi-scst/wbsairback-iscsi-scst-2.2.0/scst-2.2.0/src/dev_handlers/scst_changer.ko
+kernel//opt/git-clone/wbsairback/packages/wbsairback-iscsi-scst/wbsairback-iscsi-scst-2.2.0/scst-2.2.0/src/dev_handlers/scst_disk.ko
+kernel//opt/git-clone/wbsairback/packages/wbsairback-iscsi-scst/wbsairback-iscsi-scst-2.2.0/scst-2.2.0/src/dev_handlers/scst_modisk.ko
+kernel//opt/git-clone/wbsairback/packages/wbsairback-iscsi-scst/wbsairback-iscsi-scst-2.2.0/scst-2.2.0/src/dev_handlers/scst_tape.ko
+kernel//opt/git-clone/wbsairback/packages/wbsairback-iscsi-scst/wbsairback-iscsi-scst-2.2.0/scst-2.2.0/src/dev_handlers/scst_vdisk.ko
+kernel//opt/git-clone/wbsairback/packages/wbsairback-iscsi-scst/wbsairback-iscsi-scst-2.2.0/scst-2.2.0/src/dev_handlers/scst_raid.ko
+kernel//opt/git-clone/wbsairback/packages/wbsairback-iscsi-scst/wbsairback-iscsi-scst-2.2.0/scst-2.2.0/src/dev_handlers/scst_processor.ko
+kernel//opt/git-clone/wbsairback/packages/wbsairback-iscsi-scst/wbsairback-iscsi-scst-2.2.0/scst-2.2.0/src/dev_handlers/scst_user.ko

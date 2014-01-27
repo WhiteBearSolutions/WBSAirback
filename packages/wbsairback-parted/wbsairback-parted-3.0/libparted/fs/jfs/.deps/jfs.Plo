@@ -1,0 +1,150 @@
+jfs.lo: jfs.c ../../../lib/config.h ../../../include/parted/parted.h \
+ ../../../include/parted/constraint.h ../../../include/parted/device.h \
+ ../../../include/parted/natmath.h ../../../include/parted/disk.h \
+ ../../../include/parted/filesys.h ../../../include/parted/geom.h \
+ ../../../include/parted/timer.h ../../../lib/time.h /usr/include/time.h \
+ /usr/include/features.h /usr/include/bits/predefs.h \
+ /usr/include/sys/cdefs.h /usr/include/bits/wordsize.h \
+ /usr/include/gnu/stubs.h /usr/include/gnu/stubs-64.h \
+ /usr/lib/gcc/x86_64-linux-gnu/4.4.5/include/stddef.h \
+ /usr/include/bits/time.h /usr/include/bits/types.h \
+ /usr/include/bits/typesizes.h /usr/include/xlocale.h \
+ /usr/lib/gcc/x86_64-linux-gnu/4.4.5/include/stdbool.h \
+ ../../../include/parted/exception.h ../../../include/parted/unit.h \
+ /usr/lib/gcc/x86_64-linux-gnu/4.4.5/include/stdarg.h \
+ ../../../lib/stdio.h /usr/include/stdio.h /usr/include/libio.h \
+ /usr/include/_G_config.h ../../../lib/wchar.h /usr/include/wchar.h \
+ /usr/include/bits/stdio_lim.h /usr/include/bits/sys_errlist.h \
+ /usr/include/bits/stdio.h /usr/include/sys/types.h /usr/include/endian.h \
+ /usr/include/bits/endian.h /usr/include/bits/byteswap.h \
+ /usr/include/sys/select.h /usr/include/bits/select.h \
+ /usr/include/bits/sigset.h /usr/include/sys/sysmacros.h \
+ /usr/include/bits/pthreadtypes.h /usr/include/stdint.h \
+ /usr/include/bits/wchar.h ../../../lib/stdlib.h /usr/include/stdlib.h \
+ /usr/include/bits/waitflags.h /usr/include/bits/waitstatus.h \
+ ../../../lib/alloca.h ../../../lib/string.h /usr/include/string.h \
+ /usr/include/bits/string.h /usr/include/bits/string2.h \
+ ../../../include/parted/endian.h jfs_types.h jfs_superblock.h \
+ /usr/include/libintl.h /usr/include/locale.h /usr/include/bits/locale.h
+
+../../../lib/config.h:
+
+../../../include/parted/parted.h:
+
+../../../include/parted/constraint.h:
+
+../../../include/parted/device.h:
+
+../../../include/parted/natmath.h:
+
+../../../include/parted/disk.h:
+
+../../../include/parted/filesys.h:
+
+../../../include/parted/geom.h:
+
+../../../include/parted/timer.h:
+
+../../../lib/time.h:
+
+/usr/include/time.h:
+
+/usr/include/features.h:
+
+/usr/include/bits/predefs.h:
+
+/usr/include/sys/cdefs.h:
+
+/usr/include/bits/wordsize.h:
+
+/usr/include/gnu/stubs.h:
+
+/usr/include/gnu/stubs-64.h:
+
+/usr/lib/gcc/x86_64-linux-gnu/4.4.5/include/stddef.h:
+
+/usr/include/bits/time.h:
+
+/usr/include/bits/types.h:
+
+/usr/include/bits/typesizes.h:
+
+/usr/include/xlocale.h:
+
+/usr/lib/gcc/x86_64-linux-gnu/4.4.5/include/stdbool.h:
+
+../../../include/parted/exception.h:
+
+../../../include/parted/unit.h:
+
+/usr/lib/gcc/x86_64-linux-gnu/4.4.5/include/stdarg.h:
+
+../../../lib/stdio.h:
+
+/usr/include/stdio.h:
+
+/usr/include/libio.h:
+
+/usr/include/_G_config.h:
+
+../../../lib/wchar.h:
+
+/usr/include/wchar.h:
+
+/usr/include/bits/stdio_lim.h:
+
+/usr/include/bits/sys_errlist.h:
+
+/usr/include/bits/stdio.h:
+
+/usr/include/sys/types.h:
+
+/usr/include/endian.h:
+
+/usr/include/bits/endian.h:
+
+/usr/include/bits/byteswap.h:
+
+/usr/include/sys/select.h:
+
+/usr/include/bits/select.h:
+
+/usr/include/bits/sigset.h:
+
+/usr/include/sys/sysmacros.h:
+
+/usr/include/bits/pthreadtypes.h:
+
+/usr/include/stdint.h:
+
+/usr/include/bits/wchar.h:
+
+../../../lib/stdlib.h:
+
+/usr/include/stdlib.h:
+
+/usr/include/bits/waitflags.h:
+
+/usr/include/bits/waitstatus.h:
+
+../../../lib/alloca.h:
+
+../../../lib/string.h:
+
+/usr/include/string.h:
+
+/usr/include/bits/string.h:
+
+/usr/include/bits/string2.h:
+
+../../../include/parted/endian.h:
+
+jfs_types.h:
+
+jfs_superblock.h:
+
+/usr/include/libintl.h:
+
+/usr/include/locale.h:
+
+/usr/include/bits/locale.h:

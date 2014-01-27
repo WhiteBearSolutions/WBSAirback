@@ -1,0 +1,3 @@
+spa_boot.lo: ../../module/zfs/spa_boot.c ../../zfs_config.h
+
+../../zfs_config.h:

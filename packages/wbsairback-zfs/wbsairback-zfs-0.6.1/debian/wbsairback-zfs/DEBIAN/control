@@ -1,0 +1,14 @@
+Package: wbsairback-zfs
+Version: 0.6.1-1
+Architecture: amd64
+Maintainer: Ricardo Lorenzo <ricardo.lorenzo@whitebearsolutions.com>
+Installed-Size: 12536
+Depends: libc6 (>= 2.4), libselinux1 (>= 1.32), libuuid1 (>= 2.16), zlib1g (>= 1:1.1.4), wbsairback-spl
+Conflicts: zfs-fuse
+Replaces: zfs-fuse
+Provides: zfs-fuse
+Section: otherosfs
+Priority: optional
+Homepage: http://zfsonlinux.org/
+Description: ZFS kernel implementation for WBSAirback
+  ZFS is a combined file system and logical volume manager designed by Sun Microsystems. The features of ZFS include data integrity verification against data corruption modes, support for high storage capacities, integration of the concepts of filesystem and volume management, snapshots and copy-on-write clones, continuous integrity checking and automatic repair, RAID-Z and native NFSv4 ACLs.

@@ -1,0 +1,6 @@
+wbsairback-s3backer (12.00.06) 1.2; urgency=medium
+
+  * Se permite la recarga del contexto de tomcat en caliente.
+
+ -- Ricardo Lorenzo Rodríguez <ricardo.lorenzo@wbsgo.com>  Tue, 2 Nov 2010 00:25:59 +0200
+

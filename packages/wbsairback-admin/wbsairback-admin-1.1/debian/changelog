@@ -1,0 +1,533 @@
+wbsairback-admin (14-com.00.00) 1.2; urgency=medium
+
+  * First community version
+    
+ -- Jorge Gea Martínez <jorge.gea@wbsgo.com>  Tue, 30 Oct 2012 13:30:00 +0200
+ 
+wbsairback-admin (14.00.03) 1.2; urgency=medium
+
+  * Backup job list now covers all BD. Adjusted order by date, added copy jobs button, etc.
+  * Solved bug of discrepancy between job list and last job client list
+  * Solved bug of deleting pool volumes with Virtual Autochangers
+    
+ -- Jorge Gea Martínez <jorge.gea@wbsgo.com>  Tue, 30 Oct 2012 13:30:00 +0200
+ 
+wbsairback-admin (14.00.02) 1.2; urgency=medium
+
+  * New Recent backup jobs list
+    
+ -- Jorge Gea Martínez <jorge.gea@wbsgo.com>  Tue, 30 Oct 2012 13:30:00 +0200
+ 
+wbsairback-admin (14.00.01) 1.2; urgency=medium
+
+  * ReiserFs supported
+  * Ntfs supported
+  * Concurrent jobs through virtual devices over repositories with deduplication
+  * Solved long output of command reading through java
+  * Security issues with wbsairback user solved
+  * MongoDB reindexed with composite indexes to avoid ordering query problems
+  * Pool removing operation check if pool is recycle, scractch or copy of other pool
+  * Media Type now is unique by mountpoint
+    
+ -- Jorge Gea Martínez <jorge.gea@wbsgo.com>  Tue, 30 Oct 2012 13:30:00 +0200
+ 
+wbsairback-admin (14.00.00) 1.2; urgency=medium
+
+  * Vmware fileset tree optimized (vmware plugin)
+  * Vmware clients accepts some strange characters (\Domain\name)
+  * Script jobs control '--' names
+  * Improved tapes/library recognition (udev rules and new mtx config script)
+  * Aded swap activation on watchdog
+  * Improved BD and kernel parameters for better performance
+  * Improved NFS control routines
+  * Set timeout for df commands to 8
+  * Default packages repository set to 1.4
+  *******************
+  * Final adjustments
+  * Added fibre channel supoort for advanced storages
+  * HBAs WWN showed at iscsi section 
+  * ZFS Replication fully reviewed and improved
+  * NFS monitorization implemented
+  * Added mbuffer package for zfs replication performance purposes
+  * Updated BaculaBase64 decoding, now its accurated
+  * Solved NDMP recovery issues
+  * Solved Vmware plugin recovery issues
+  * Implemented mult-category for client and users
+  * Fully reviewed WBSAirback roles
+  * SNMP now in cluster
+  * Updates on snmp configuration, it is possible to choose version
+  * Maximum Reload requests of bacula dir added
+
+ -- Jorge Gea Martínez <jorge.gea@wbsgo.com>  Tue, 30 Oct 2012 13:30:00 +0200
+ 
+wbsairback-admin (14.00.00-rc10) 1.2; urgency=medium
+
+  * Advanced: solved multi-job updates when saving script jobs and advanced storage steps with already created group jobs
+  * JS Dialogs: faster, they show at first click and after that, information is loaded
+  * Advanced: Group jobs now are blocked, same way jobs do, when stop or cancel button are clicked
+  * Bugfix: Group job edition does not cause group deletion if a parameter is wrong
+  * Advanced wizard: Advanced storage steps now show only implied variables. Moreover, they are no mandatory.
+  * Jobs of groupjob window resized and checked for improve look and feel
+  * Bugfix: Working with more than one library cause no more problems (one mount, another also showed a tape mounted)
+  * Optimized space for little screens
+    
+ -- Jorge Gea Martínez <jorge.gea@wbsgo.com>  Tue, 30 Oct 2012 13:30:00 +0200
+ 
+wbsairback-admin (14.00.00-rc9) 1.2; urgency=medium
+
+  * Several minnor fixes
+  * Reviewed and improve quota and reservation interfaces (sliders)
+  * Taking care of mongodb on cluster operations
+  * Replications: time formatting fixed, solved dupped delta column
+    
+ -- Jorge Gea Martínez <jorge.gea@wbsgo.com>  Tue, 30 Oct 2012 13:30:00 +0200
+ 
+wbsairback-admin (14.00.00-rc8) 1.2; urgency=medium
+
+  * Fixed cluster breaking for drbd internal mode
+  * Interface adjustments: SaveClient/RestoreVmware jobs on summaries cannot edit, GroupJobs license message ok
+    
+ -- Jorge Gea Martínez <jorge.gea@wbsgo.com>  Tue, 30 Oct 2012 13:30:00 +0200
+ 
+wbsairback-admin (14.00.00-rc7) 1.2; urgency=medium
+
+  * Cluster mode set to broadcast, instead of multicast
+  * Fixed cluster breaking for drbd internal mode
+  * Scripts now shows variables setted
+  * Ntp configuration moved to rdata (cluster purposes)
+  * System_generic on advanced now is not editable
+  * Fixed problem on wbsairback-volumes when forcing mount of zpools with new zfs version
+  * Now recovery messages for zfs are real
+    
+ -- Jorge Gea Martínez <jorge.gea@wbsgo.com>  Tue, 30 Oct 2012 13:30:00 +0200
+ 
+wbsairback-admin (14.00.00-rc6) 1.2; urgency=medium
+
+  * Cluster meta-disk method adapted to internal
+  * Minor interface fixes
+    
+ -- Jorge Gea Martínez <jorge.gea@wbsgo.com>  Tue, 30 Oct 2012 13:30:00 +0200
+ 
+wbsairback-admin (14.00.00-rc5) 1.2; urgency=medium
+
+  * General update process implemented
+  * Readapted script process transformation from old script jobs
+  * Advanced backup files moved to rdata (for cluster purposes)
+  
+ -- Jorge Gea Martínez <jorge.gea@wbsgo.com>  Tue, 30 Oct 2012 13:30:00 +0200
+ 
+wbsairback-admin (14.00.00-rc4) 1.2; urgency=medium
+
+  * Cluster DRBD improvements
+  * Interface adjustments
+  
+ -- Jorge Gea Martínez <jorge.gea@wbsgo.com>  Tue, 30 Oct 2012 13:30:00 +0200
+ 
+wbsairback-admin (14.00.00-rc3) 1.2; urgency=medium
+
+  * Cluster DRBD fixed
+  * ZFS block mode for iSCSI implemented
+  * General interface adjustments
+  * bugfix: NFS now does not block daily report
+  * Hypervisor jobs now echoes more blogging
+  * Licensing for Advanced_Backup and Vmware applied
+  
+ -- Jorge Gea Martínez <jorge.gea@wbsgo.com>  Tue, 30 Oct 2012 13:30:00 +0200
+ 
+wbsairback-admin (14.00.00-rc2) 1.2; urgency=medium
+
+  * Vmware plugin added
+  * Several interface improvements
+  * Added new bacula adaptation commands
+  
+ -- Jorge Gea Martínez <jorge.gea@wbsgo.com>  Tue, 30 Oct 2012 13:30:00 +0200
+ 
+wbsairback-admin (14.00.00-rc1) 1.2; urgency=medium
+
+  * Restful: Backup section (without advanced) completed and tested
+  * Restful: Storage section complete and tested
+  * Restful: System section completed
+  * Adapted to new Bacula package
+  * Pool volumes *.add are now removed
+  * Updated bacula-sd format to aligned volumes
+  * Hidden Advanced Backup section
+  * Updated zpool graphics (real occupation)
+  * Updated new volume screen (easiest, client-side, snapshot-bar ...)
+  * Added L2ARC/ZIL management
+  * Updated Backup clients and Backup jobs graphics (greater)
+  
+ -- Jorge Gea Martínez <jorge.gea@wbsgo.com>  Tue, 30 Oct 2012 13:30:00 +0200
+
+wbsairback-admin (12.01.00) 1.2; urgency=medium
+
+  * Snmptrapd now is monitorized
+  * Snmptrapd and snmp now start after configure snmp trap server
+  * Fixed rossete_grey image
+  * Mongodb indexes now are created from java
+  * Replication: solved problem with append+whole files
+  * Replication: added launching interval
+  * Replication: added new grid for pagination
+  * Recovery: first level now shows file/directory and more data
+  * Cluster: moved config.xml to rdata => Solved problem with email server, email account, etc.
+  * Job scripts with '_' no more a problem
+  * CDP: job logs now are only showed if their start date is minnor than 3 days
+  * Adjustments for new zfs package
+  * Added firmware-bnx2x dependency
+  * Fixed problem of substitution (\\ by /)
+  * Fixed problem with local client restores after old catalog import
+  * Hidden warning message when mounting a tape already mounted
+  
+ -- Jorge Gea Martínez <jorge.gea@wbsgo.com>  Tue, 30 Oct 2012 13:30:00 +0200
+ 
+wbsairback-admin (12.00.76) 1.2; urgency=medium
+
+  * Rsync: added configuration params: append, checksum, whole-file, append-verify+progress
+  * Rsync: improved blocks on relaunch operation
+  * Rsync: added retention param to control command history db time of living
+  * Bugfix: Mail 'Intervention needed..' sended to administration email of system configuration
+  * Megaclie log now is removed afer watchdog monitoring
+  
+ -- Jorge Gea Martínez <jorge.gea@wbsgo.com>  Tue, 30 Oct 2012 13:30:00 +0200
+ 
+wbsairback-admin (12.00.75) 1.2; urgency=medium
+
+  * Airback-fd now can change file retention and job retention periods
+  * Solved report email sending server issue (set to localhost)
+  * Added log entries to CronTasks and ReportMail
+  * Added button to generate email report
+  * Bugfix: Solved problems on sincronizations with volume names with '_'
+
+ -- Jorge Gea Martínez <jorge.gea@wbsgo.com>  Tue, 30 Oct 2012 13:30:00 +0200
+ 
+wbsairback-admin (12.00.74) 1.2; urgency=medium
+
+  * Scsi rescan button added on storage libraries header
+  * Checking hypervisor jobs before remove any volume
+  * MongoDB package now is wbsairback-mongodb
+  
+ -- Jorge Gea Martínez <jorge.gea@wbsgo.com>  Tue, 30 Oct 2012 13:30:00 +0200
+ 
+
+wbsairback-admin (12.00.73) 1.2; urgency=medium
+
+  * MongoDB package changed: mongodb-10gen to mongodb-server
+  
+ -- Jorge Gea Martínez <jorge.gea@wbsgo.com>  Tue, 30 Oct 2012 13:30:00 +0200
+ 
+wbsairback-admin (12.00.72) 1.2; urgency=medium
+
+  * Bugfix: Clients search pagination issue solved
+  * Bugfix: Exports now exclude /etc/wbsairback-admin/license/
+  * Removed FTP anonymous option
+  * Added mongodb control
+  * Rsync process through command manager
+  * Syncronizations now showing at web interface
+  * MongoDB now is monitorized
+  * SCSI bus rescan, now on SCSIManager
+  * New SCSI methods to detect new devices only
+  
+ -- Jorge Gea Martínez <jorge.gea@wbsgo.com>  Tue, 30 Oct 2012 13:30:00 +0200
+
+wbsairback-admin (12.00.71) 1.2; urgency=medium
+
+  * Bugfix: Update packages, now always with --force-confnew 
+  * Bugfix: Cluster, removing volumes now working
+  * Bugfix: Scheduled jobs on summary now working
+ 
+ -- Jorge Gea Martínez <jorge.gea@wbsgo.com>  Tue, 30 Oct 2012 13:30:00 +0200
+ 
+wbsairback-admin (12.00.70) 1.2; urgency=medium
+
+  * Improvement: cluster allows now to specify network interface on slave node
+ 
+ -- Jorge Gea Martínez <jorge.gea@wbsgo.com>  Tue, 30 Oct 2012 13:30:00 +0200
+ 
+wbsairback-admin (12.00.69) 1.2; urgency=medium
+
+  * Bugfix: Summary > Scheduled jobs: level comes from bconsole status dir command again, not from job configuration file
+  * Bugfix: wbsairback-volumes mounts systems nfs/zfs even if they have the same name
+  * Bugfix: library storages have now correctly applied spool_size
+  * Bugfix: library storages with no spool_size selected applies: size = size / num_drives * 0.7 
+  * Bugfix: multipath devices, now ALWAYS by /dev/mapper
+  * Bugfix: last page on recover navigation now appears always
+  * Improvement: library storages can select spool_size units
+  * Improvement: cluster loads configuration file only once
+ 
+ -- Jorge Gea Martínez <jorge.gea@wbsgo.com>  Tue, 30 Oct 2012 13:30:00 +0200
+
+wbsairback-admin (12.00.68) 1.2; urgency=medium
+
+  * New Snmp traps configuration applied
+  * Snmp memory param added on system configuration
+  * Solved issue with get clients query on some method
+
+ -- Jorge Gea Martínez <jorge.gea@wbsgo.com>  Tue, 30 Oct 2012 13:30:00 +0200
+ 
+wbsairback-admin (12.00.67) 1.2; urgency=medium
+
+  * Solved problem of memory parameters that does not allow wbsairback-admin execute restarts on some environments
+  * Solved http client problem that blocks CDP section
+ 
+ -- Jorge Gea Martínez <jorge.gea@wbsgo.com>  Tue, 30 Oct 2012 13:30:00 +0200
+
+wbsairback-admin (12.00.66) 1.2; urgency=medium
+
+  * Watchdog zfs agg used percent alerts re-fixed
+  * Added more exception messages on VolumeDaemon and Watchdog
+  * Iscsi rescan script now does not block wbsairback-volumes and get killed if it is unfinished
+  * Solved problem of memory parameters that does not allow wbsairback-admin execute restarts on some environments
+  * Solved http client problem that blocks CDP section
+ 
+ -- Jorge Gea Martínez <jorge.gea@wbsgo.com>  Tue, 30 Oct 2012 13:30:00 +0200
+ 
+wbsairback-admin (12.00.65) 1.2; urgency=medium
+
+  * Fileset delta plugin correctly managed
+  * Fix: Watchdog zfs agg used percent alerts
+  * Snapshot of virutal machine clones, now is removed always after execution (if it succeeds and if it fails) 
+  * Watchdog now restarts after package instalation
+  * VolumeDaemon: launches scsi-rescan on new Thread and monitorizes it
+ 
+ -- Ricardo Lorenzo Rodríguez <ricardo.lorenzo@wbsgo.com>  Tue, 30 Oct 2012 13:30:00 +0200
+ 
+wbsairback-admin (12.00.64) 1.2; urgency=medium
+
+  * ZFSINTERFACES BRANCH
+  * Interfaces 2.0 for Advanced section
+  * New general Tree menu
+  * Reorganiced Advanced section
+  * New general layout, resize and collapse secctions is now possible
+  * Fixed bug on adding volume group quotas
+ 
+ -- Ricardo Lorenzo Rodríguez <ricardo.lorenzo@wbsgo.com>  Tue, 30 Oct 2012 13:30:00 +0200
+ 
+wbsairback-admin (12.00.63) 1.2; urgency=medium
+
+  * Changing interface language now stays on same page
+  * Fixed system console password checking
+  * BaculaConfiguration class tested deeply
+  * snmp.conf fixed (/rdata /boot)
+  * Watchdog now sends always emails from localhost
+  * Improved watchdog logging
+  * Fixed mulitpath package and /etc/multipath.conf
+  * Added PERC H810 and H800 to multipath blacklist
+  * Removed Watchdog 'Remaining capacity alarm' checking, avoiding correspondig email
+  * Solved Hypervisor interface issues
+  * Solved search clients interface bug
+  * Colored jobs blocked when are being stopped or paused.
+  * Solved interface bug on adding tapes to pools
+  * Solved interface issue on schedules virtual (minutes field)
+  * SNMP traps server now available on System Configuration
+  * Button for testing email sending added on system configuration
+ 
+ -- Jorge Gea Martínez <jorge.gea@wbsgo.com>  Tue, 30 Oct 2012 13:30:00 +0200
+ 
+wbsairback-admin (12.00.62) 1.2; urgency=medium
+
+  * Cluster: now it is possible to select master interface
+  * Storages fix: remote libraries with option 'autochanger = yes'
+  * Pools: Remote libraries fix => now it is possible to add 'tape volumes'
+ 
+ -- Jorge Gea Martínez <jorge.gea@wbsgo.com>  Tue, 30 Oct 2012 13:30:00 +0200
+ 
+wbsairback-admin (12.00.61) 1.2; urgency=medium
+
+  * Improved make_aggregate (-f option) 
+  * Rescan scsi drives on init for correct drives interpretation. Added /sbin/wbsairback-scsi-rescan
+  * Unmount opperation on volumes remove actions, now is out of background. Exception is throwed to end user if it fails 
+  * Blocked stop|pause actions over jobs for only clicking once (block files at /tmp/wbsairback-volume-status | command only once in system | detected cancel/incomplete estatus)
+  * Warning on System restart if there are jobs running
+  * Edit button on jobs summary
+  * Removed VTL and External options on Device menu
+  * Fixed: Problem that does not allow to change default gateway
+ 
+ -- Jorge Gea Martínez <jorge.gea@wbsgo.com>  Tue, 30 Oct 2012 13:30:00 +0200
+ 
+wbsairback-admin (12.00.60) 1.2; urgency=medium
+
+  * ZFS INTERFACES BRANCH!!!
+  * NEW Advanced Storage
+  * CIFS mounting on airback solved
+  * Storage with external volumes issues solved
+  
+ -- Ricardo Lorenzo Rodríguez <ricardo.lorenzo@wbsgo.com>  Tue, 30 Oct 2012 13:30:00 +0200
+
+wbsairback-admin (12.00.59) 1.2; urgency=medium
+
+  * Filesets: now it is possible to select compression type (GZIP or LZO)
+  * bconsole.conf permissions now ok after instalations
+  * Bugfix: free percent of XFS volumes with same name and different terminations (vol1, vol1a, vol1b ...)
+  * Rsync: now it is possible to specify relaunching interval
+  * List clients: fixed issue with clients without executed jobs
+  * Restoring: restoring local volumes now ovewrites correct path when needed
+  * CIFS: fixed some problems when mounting external volumes
+  * Storages: fixed issue on editing page with external volumes
+  
+ -- Jorge Gea Martínez <jorge.gea@wbsgo.com>  Tue, 30 Oct 2012 13:30:00 +0200
+ 
+wbsairback-admin (12.00.58) 1.2; urgency=medium
+
+  * ZFS pools, no problem if they are greater than 2TB
+  * Memory problem (133%) solved
+  * Rsync now deletes file after invoking
+  * Rsync max connections set to 0 (unlimited)
+  * Free percentage of XFS volumes fixed
+  * Fileset local links on backup jobs window fixed
+  * Fixed issue with backButton, causing, ocassionally, unknown error
+  * Fixed issue with recovery navigation, when path is '/'
+  * Removing volumes in background
+  * Volume which are being deleted marked in orange
+  * Wathdog monitorices volume deletion errors
+  
+ -- Jorge Gea Martínez <jorge.gea@wbsgo.com>  Tue, 30 Oct 2012 13:30:00 +0200
+ 
+wbsairback-admin (12.00.57) 1.2; urgency=medium
+
+  * ZFS sizes now are accurate
+  * Sliders on edit volumes, now perfect
+  * Added slider to new volume
+  * Changed charts on groups and volumes
+  * Added agregate monitorization to watchdog
+  * Added zfs damaged groups recover button
+  * Removing volumes now executes in background, watchdog mointors this action as it does with volume sync
+  
+ -- Jorge Gea Martínez <jorge.gea@wbsgo.com>  Tue, 30 Oct 2012 13:30:00 +0200
+ 
+wbsairback-admin (12.00.56) 1.2; urgency=medium
+
+  * Local restoring: now is possible to specify volume and path
+  * Slave node on cluster now mounts local volumes after reboot
+  
+ -- Jorge Gea Martínez <jorge.gea@wbsgo.com>  Tue, 30 Oct 2012 13:30:00 +0200
+ 
+wbsairback-admin (12.00.55) 1.2; urgency=medium
+
+  * New Interfaces ZFS incorporated
+  
+ -- Ricardo Lorenzo Rodríguez <ricardo.lorenzo@wbsgo.com>  Tue, 5 Nov 2012 13:00:00 +0200
+ 
+wbsairback-admin (12.00.54) 1.2; urgency=medium
+
+  * CDP volumes warning on remove
+  * CDP allows change volume on error
+  * CDP removing option added
+  * CDP Icons and some messages reviewed
+  * Raid monitoring detected properly, added logs, modified html message
+  * Raid monitoring: added batteries monitorization
+  * SystemStorage always has now 127.0.0.1 now, independent from Networking options
+  * Wizard: Config of hypervisors is deleted
+  * Hypervisors: only it is possible select vms or datastore
+  * Blanc spaces on pre-post scripts are no more a problem
+  * Hypervisors: Showing correctly number of vm's.
+  
+ -- Jorge Gea Martínez <jorge.gea@wbsgo.com>  Tue, 30 Oct 2012 13:30:00 +0200
+ 
+wbsairback-admin (12.00.53) 1.2; urgency=medium
+
+  * Fixed recovery of empty filesets
+  * Removed exclamation on SAN volumes
+  
+ -- Jorge Gea Martínez <jorge.gea@wbsgo.com>  Tue, 30 Oct 2012 13:30:00 +0200
+ 
+wbsairback-admin (12.00.52) 1.2; urgency=medium
+
+  * Network routes: fixed adding and deleting problems
+  * Added log messages to bacula-job
+  
+ -- Jorge Gea Martínez <jorge.gea@wbsgo.com>  Tue, 30 Oct 2012 11:09:00 +0200
+ 
+wbsairback-admin (12.00.51) 1.2; urgency=medium
+
+  * Network bonding: fixed error on gruping LACP types
+  * Restore pre-scripts: fixed
+  * Adjusted grid size
+  * NFS Shares, set fsid = 1
+  
+ -- Jorge Gea Martínez <jorge.gea@wbsgo.com>  Tue, 29 Oct 2012 11:00:00 +0200
+ 
+wbsairback-admin (12.00.50) 1.2; urgency=medium
+
+  * WSDL descriptions for web Services generated
+  * Grid for clients and jobs is now fluid
+  * Fixed some issues on zfs pools and volumes params regconition
+  * Improved compiling system. Now more consistent to avoiding errors on several scripts
+  
+ -- Jorge Gea Martínez <jorge.gea@wbsgo.com>  Tue, 16 Oct 2012 11:10:00 +0200
+
+wbsairback-admin (12.00.49) 1.2; urgency=medium
+
+  * Fixed several restoring issues
+  
+ -- Jorge Gea Martínez <jorge.gea@wbsgo.com>  Tue, 16 Oct 2012 11:10:00 +0200
+ 
+wbsairback-admin (12.00.48) 1.2; urgency=medium
+
+  * Atmos and S3 Working!
+  
+ -- Jorge Gea Martínez <jorge.gea@wbsgo.com>  Tue, 16 Oct 2012 11:10:00 +0200
+ 
+wbsairback-admin (12.00.47) 1.2; urgency=medium
+
+  * Fixed replication
+  * Devices assigned by id
+  * Removed zfs module managment previous changes
+  * Fixed wizard (external shares)
+  
+ -- Jorge Gea Martínez <jorge.gea@wbsgo.com>  Mon, 8 Nov 2012 19:10:00 +0200
+ 
+wbsairback-admin (12.00.46) 1.2; urgency=medium
+
+  * Implementation of several interface adjustments related with new zfs kernel module
+  * Wizard: iscsi targets now are removed
+  * Removing cloud disks, now works correctly
+  * Fixed dedup % calculation
+  
+ -- Jorge Gea Martínez <jorge.gea@wbsgo.com>  Mon, 8 Nov 2012 19:10:00 +0200
+ 
+wbsairback-admin (12.00.45) 1.2; urgency=medium
+
+  * ZFS kernel implementation
+  
+ -- Jorge Gea Martínez <jorge.gea@wbsgo.com>  Tue, 2 Nov 2010 00:25:59 +0200
+
+wbsairback-admin (12.00.44) 1.2; urgency=medium
+
+  * 12.00.44
+  * Se solucionan multiples problemas con el wizard
+  * Se solucionan problemas de 'ocultacion' de discos sin asignar
+  * Se soluciona el problema de los plugins VSS
+  
+  * 12.00.43
+  * Se añade, si no se introduce, la barra inicial a los volumenes compartidos externos
+  * Una categoría que tuvo usuarios, cuando se eliminan esos usuarios, ahora ya se puede eliminar 
+  * Se añaden logs para almacenamiento y watchdog. Se limita el log a 25 ficheros de 100Kb
+  * Se sincroniza la estracción de estadísticas con las interfaces reales del sistema
+  * Se corrige la monitorización de la memoria, tanto en el watchdog, como en las estadísticas
+  * Se refactoriza el Wizard y se corrigen algunos errores, se mejoran los mensajes de error
+  * Se corrige un error con los mensajes de wathdog con respecto a la monitorización de volúmenes no montados
+  * Se corrige la pantalla de resumen, donde no aparecían los volúmenes asociados a los trabajos planificados
+  * Se corrigen los volumenes SAN ZFS, que no aparecia antes desmontados, porque se montaban, ahora aparecen correctamente 
+   
+  * 12.00.42
+  * Se añade al watchdog la monitorización de volumenes no montados
+  * Se restablecen los directorios en el primer nivel del listado de restauracion de ficheros, pues lo contrario resultó problemático
+  
+  * 12.00.41
+  * Se muestra Velocidad de Storage Remotos también en Resumen
+  * La desconexión de volumen nfs no impide desmontaje
+  * Ya se permite formatear una cinta de un dispositivo de cinta(no libreria)
+  * Ya se pueden montar cintas en la librería mediante la interfaz
+  * Se permite elegir el drive al montar cintas en un pool
+  * Al poner archivos en un fileset al recuperar, ya no los muestra como directorios
+  * Al eliminar un volumen compartido externo también se elimina el directorio
+  * El usuario root de restful ya puede acceder sin problemas
+  * Los filesets para el cliente local se almacenan y se recuperan correctamente
+  * Las recuperaciones para el cliente local, funcionan correctamente para volumenes locales y compartidos externos
+  * Mejorada gestión de discos cloud tras reinicios del sistema
+  * Progresos en atmos, pero lejos de ser funcional
+  
+  * 12.00.40
+  * Se corrige el problema de reconocimiento del serial de las unidades de cinta.
+
+ -- Jorge Gea Martínez <jorge.gea@wbsgo.com>  Tue, 2 Nov 2010 00:25:59 +0200
+

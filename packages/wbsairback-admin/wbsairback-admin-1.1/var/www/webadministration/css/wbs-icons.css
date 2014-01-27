@@ -1,0 +1,1015 @@
+.wbs-icon-16 {
+    background-image: url(/images/wbs-icons-16.png);
+    background-repeat: no-repeat;
+    display: block;
+}
+
+.wbs-icon-16-copy_jobs {
+    width: 16px;
+    height: 16px;
+    background-image: url(/images/copy_jobs_16.png);
+    background-repeat: no-repeat;
+    display: block;
+}
+
+.wbs-icon-16-accept {
+    width: 16px;
+    height: 16px;
+    background-position: -5px -5px;
+}
+
+.wbs-icon-16-account_edit {
+    width: 16px;
+    height: 16px;
+    background-position: -31px -5px;
+}
+
+.wbs-icon-16-account_remove {
+    width: 16px;
+    height: 16px;
+    background-position: -57px -5px;
+}
+
+.wbs-icon-16-add {
+    width: 16px;
+    height: 16px;
+    background-position: -83px -5px;
+}
+
+.wbs-icon-16-advanced_admin {
+    width: 16px;
+    height: 16px;
+    background-position: -109px -5px;
+}
+
+.wbs-icon-16-advanced_backup {
+    width: 16px;
+    height: 16px;
+    background-position: -135px -5px;
+}
+
+.wbs-icon-16-advanced_configuration {
+    width: 16px;
+    height: 16px;
+    background-position: -161px -5px;
+}
+
+.wbs-icon-16-advanced_coordination {
+    width: 16px;
+    height: 16px;
+    background-position: -187px -5px;
+}
+
+.wbs-icon-16-advanced_inventory {
+    width: 16px;
+    height: 16px;
+    background-position: -213px -5px;
+}
+
+.wbs-icon-16-advanced {
+    width: 16px;
+    height: 16px;
+    background-position: -239px -5px;
+}
+
+.wbs-icon-16-agg_recover {
+    width: 16px;
+    height: 16px;
+    background-position: -265px -5px;
+}
+
+.wbs-icon-16-almacenamiento {
+    width: 16px;
+    height: 16px;
+    background-position: -291px -5px;
+}
+
+.wbs-icon-16-application_terminal {
+    width: 16px;
+    height: 16px;
+    background-position: -5px -31px;
+}
+
+.wbs-icon-16-application {
+    width: 16px;
+    height: 16px;
+    background-position: -31px -31px;
+}
+
+.wbs-icon-16-arrow_down {
+    width: 16px;
+    height: 16px;
+    background-position: -57px -31px;
+}
+
+.wbs-icon-16-arrow_left {
+    width: 16px;
+    height: 16px;
+    background-position: -83px -31px;
+}
+
+.wbs-icon-16-arrow_refresh {
+    width: 16px;
+    height: 16px;
+    background-position: -109px -31px;
+}
+
+.wbs-icon-16-arrow_undo {
+    width: 16px;
+    height: 16px;
+    background-position: -135px -31px;
+}
+
+.wbs-icon-16-arrow_up {
+    width: 16px;
+    height: 16px;
+    background-position: -161px -31px;
+}
+
+.wbs-icon-16-asterisk_orange {
+    width: 16px;
+    height: 16px;
+    background-position: -187px -31px;
+}
+
+.wbs-icon-16-backup {
+    width: 16px;
+    height: 16px;
+    background-position: -213px -31px;
+}
+
+.wbs-icon-16-bin_empty {
+    width: 16px;
+    height: 16px;
+    background-position: -239px -31px;
+}
+
+.wbs-icon-16-bluetooth {
+    width: 16px;
+    height: 16px;
+    background-position: -265px -31px;
+}
+
+.wbs-icon-16-book {
+    width: 16px;
+    height: 16px;
+    background-position: -291px -31px;
+}
+
+.wbs-icon-16-break {
+    width: 16px;
+    height: 16px;
+    background-position: -5px -57px;
+}
+
+.wbs-icon-16-brick_add {
+    width: 16px;
+    height: 16px;
+    background-position: -31px -57px;
+}
+
+.wbs-icon-16-brick_delete {
+    width: 16px;
+    height: 16px;
+    background-position: -57px -57px;
+}
+
+.wbs-icon-16-brick_edit {
+    width: 16px;
+    height: 16px;
+    background-position: -83px -57px;
+}
+
+.wbs-icon-16-brick {
+    width: 16px;
+    height: 16px;
+    background-position: -109px -57px;
+}
+
+.wbs-icon-16-calendar_add {
+    width: 16px;
+    height: 16px;
+    background-position: -135px -57px;
+}
+
+.wbs-icon-16-calendar_delete {
+    width: 16px;
+    height: 16px;
+    background-position: -161px -57px;
+}
+
+.wbs-icon-16-calendar_edit {
+    width: 16px;
+    height: 16px;
+    background-position: -187px -57px;
+}
+
+.wbs-icon-16-calendar_view_day {
+    width: 16px;
+    height: 16px;
+    background-position: -213px -57px;
+}
+
+.wbs-icon-16-calendar {
+    width: 16px;
+    height: 16px;
+    background-position: -239px -57px;
+}
+
+.wbs-icon-16-camera_add {
+    width: 16px;
+    height: 16px;
+    background-position: -265px -57px;
+}
+
+.wbs-icon-16-camera_delete {
+    width: 16px;
+    height: 16px;
+    background-position: -291px -57px;
+}
+
+.wbs-icon-16-camera {
+    width: 16px;
+    height: 16px;
+    background-position: -5px -83px;
+}
+
+.wbs-icon-16-cdp {
+    width: 16px;
+    height: 16px;
+    background-position: -31px -83px;
+}
+
+.wbs-icon-16-chart {
+    width: 16px;
+    height: 16px;
+    background-position: -57px -83px;
+}
+
+.wbs-icon-16-clean {
+    width: 16px;
+    height: 16px;
+    background-position: -83px -83px;
+}
+
+.wbs-icon-16-clock {
+    width: 16px;
+    height: 16px;
+    background-position: -109px -83px;
+}
+
+.wbs-icon-16-clouds {
+    width: 16px;
+    height: 16px;
+    background-position: -135px -83px;
+}
+
+.wbs-icon-16-cloud {
+    width: 16px;
+    height: 16px;
+    background-position: -161px -83px;
+}
+
+.wbs-icon-16-cog_add {
+    width: 16px;
+    height: 16px;
+    background-position: -187px -83px;
+}
+
+.wbs-icon-16-cog_delete {
+    width: 16px;
+    height: 16px;
+    background-position: -213px -83px;
+}
+
+.wbs-icon-16-cog_edit {
+    width: 16px;
+    height: 16px;
+    background-position: -239px -83px;
+}
+
+.wbs-icon-16-cog {
+    width: 16px;
+    height: 16px;
+    background-position: -265px -83px;
+}
+
+.wbs-icon-16-computer_add {
+    width: 16px;
+    height: 16px;
+    background-position: -291px -83px;
+}
+
+.wbs-icon-16-computer_delete {
+    width: 16px;
+    height: 16px;
+    background-position: -5px -109px;
+}
+
+.wbs-icon-16-computer_edit {
+    width: 16px;
+    height: 16px;
+    background-position: -31px -109px;
+}
+
+.wbs-icon-16-computer {
+    width: 16px;
+    height: 16px;
+    background-position: -57px -109px;
+}
+
+.wbs-icon-16-configuration {
+    width: 16px;
+    height: 16px;
+    background-position: -83px -109px;
+}
+
+.wbs-icon-16-connect_error {
+    width: 16px;
+    height: 16px;
+    background-position: -109px -109px;
+}
+
+.wbs-icon-16-connect {
+    width: 16px;
+    height: 16px;
+    background-position: -135px -109px;
+}
+
+.wbs-icon-16-control_pause {
+    width: 16px;
+    height: 16px;
+    background-position: -161px -109px;
+}
+
+.wbs-icon-16-control_restart {
+    width: 16px;
+    height: 16px;
+    background-position: -187px -109px;
+}
+
+.wbs-icon-16-control_start {
+    width: 16px;
+    height: 16px;
+    background-position: -213px -109px;
+}
+
+.wbs-icon-16-control_stop {
+    width: 16px;
+    height: 16px;
+    background-position: -239px -109px;
+}
+
+.wbs-icon-16-copy_delete {
+    width: 16px;
+    height: 16px;
+    background-position: -265px -109px;
+}
+
+.wbs-icon-16-copy {
+    width: 16px;
+    height: 16px;
+    background-position: -291px -109px;
+}
+
+.wbs-icon-16-cross {
+    width: 16px;
+    height: 16px;
+    background-position: -5px -135px;
+}
+
+.wbs-icon-16-database_add {
+    width: 16px;
+    height: 16px;
+    background-position: -31px -135px;
+}
+
+.wbs-icon-16-database_delete {
+    width: 16px;
+    height: 16px;
+    background-position: -57px -135px;
+}
+
+.wbs-icon-16-database_edit {
+    width: 16px;
+    height: 16px;
+    background-position: -83px -135px;
+}
+
+.wbs-icon-16-database_gear {
+    width: 16px;
+    height: 16px;
+    background-position: -109px -135px;
+}
+
+.wbs-icon-16-database_jobs {
+    width: 16px;
+    height: 16px;
+    background-position: -135px -135px;
+}
+
+.wbs-icon-16-database_refresh {
+    width: 16px;
+    height: 16px;
+    background-position: -161px -135px;
+}
+
+.wbs-icon-16-database {
+    width: 16px;
+    height: 16px;
+    background-position: -187px -135px;
+}
+
+.wbs-icon-16-datastore {
+    width: 16px;
+    height: 16px;
+    background-position: -213px -135px;
+}
+
+.wbs-icon-16-delete {
+    width: 16px;
+    height: 16px;
+    background-position: -239px -135px;
+}
+
+.wbs-icon-16-disconnect {
+    width: 16px;
+    height: 16px;
+    background-position: -265px -135px;
+}
+
+.wbs-icon-16-disk {
+    width: 16px;
+    height: 16px;
+    background-position: -291px -135px;
+}
+
+.wbs-icon-16-download_accept {
+    width: 16px;
+    height: 16px;
+    background-position: -5px -161px;
+}
+
+.wbs-icon-16-download_error {
+    width: 16px;
+    height: 16px;
+    background-position: -31px -161px;
+}
+
+.wbs-icon-16-download {
+    width: 16px;
+    height: 16px;
+    background-position: -57px -161px;
+}
+
+.wbs-icon-16-drive_accept {
+    width: 16px;
+    height: 16px;
+    background-position: -83px -161px;
+}
+
+.wbs-icon-16-drive_add {
+    width: 16px;
+    height: 16px;
+    background-position: -109px -161px;
+}
+
+.wbs-icon-16-drive_check {
+    width: 16px;
+    height: 16px;
+    background-position: -135px -161px;
+}
+
+.wbs-icon-16-drive_delete {
+    width: 16px;
+    height: 16px;
+    background-position: -161px -161px;
+}
+
+.wbs-icon-16-drive_edit {
+    width: 16px;
+    height: 16px;
+    background-position: -187px -161px;
+}
+
+.wbs-icon-16-drive_go {
+    width: 16px;
+    height: 16px;
+    background-position: -213px -161px;
+}
+
+.wbs-icon-16-drive_link {
+    width: 16px;
+    height: 16px;
+    background-position: -239px -161px;
+}
+
+.wbs-icon-16-drive_network_delete {
+    width: 16px;
+    height: 16px;
+    background-position: -265px -161px;
+}
+
+.wbs-icon-16-drive_network {
+    width: 16px;
+    height: 16px;
+    background-position: -291px -161px;
+}
+
+.wbs-icon-16-drive_user {
+    width: 16px;
+    height: 16px;
+    background-position: -5px -187px;
+}
+
+.wbs-icon-16-drive_web {
+    width: 16px;
+    height: 16px;
+    background-position: -31px -187px;
+}
+
+.wbs-icon-16-drive {
+    width: 16px;
+    height: 16px;
+    background-position: -57px -187px;
+}
+
+.wbs-icon-16-edit {
+    width: 16px;
+    height: 16px;
+    background-position: -83px -187px;
+}
+
+.wbs-icon-16-error {
+    width: 16px;
+    height: 16px;
+    background-position: -109px -187px;
+}
+
+.wbs-icon-16-ex_storage_add {
+    width: 16px;
+    height: 16px;
+    background-position: -135px -187px;
+}
+
+.wbs-icon-16-ex_storage_del {
+    width: 16px;
+    height: 16px;
+    background-position: -161px -187px;
+}
+
+.wbs-icon-16-ex_storage_edit {
+    width: 16px;
+    height: 16px;
+    background-position: -187px -187px;
+}
+
+.wbs-icon-16-ex_storage {
+    width: 16px;
+    height: 16px;
+    background-position: -213px -187px;
+}
+
+.wbs-icon-16-exclamation {
+    width: 16px;
+    height: 16px;
+    background-position: -239px -187px;
+}
+
+.wbs-icon-16-eye {
+    width: 16px;
+    height: 16px;
+    background-position: -265px -187px;
+}
+
+.wbs-icon-16-fileset_local {
+    width: 16px;
+    height: 16px;
+    background-position: -291px -187px;
+}
+
+.wbs-icon-16-fileset_ndmp {
+    width: 16px;
+    height: 16px;
+    background-position: -5px -213px;
+}
+
+.wbs-icon-16-file {
+    width: 16px;
+    height: 16px;
+    background-position: -31px -213px;
+}
+
+.wbs-icon-16-find {
+    width: 16px;
+    height: 16px;
+    background-position: -57px -213px;
+}
+
+.wbs-icon-16-folder_explore {
+    width: 16px;
+    height: 16px;
+    background-position: -83px -213px;
+}
+
+.wbs-icon-16-folder {
+    width: 16px;
+    height: 16px;
+    background-position: -109px -213px;
+}
+
+.wbs-icon-16-full_volume {
+    width: 16px;
+    height: 16px;
+    background-position: -135px -213px;
+}
+
+.wbs-icon-16-group_job {
+    width: 16px;
+    height: 16px;
+    background-position: -161px -213px;
+}
+
+.wbs-icon-16-ha {
+    width: 16px;
+    height: 16px;
+    background-position: -187px -213px;
+}
+
+.wbs-icon-16-help {
+    width: 16px;
+    height: 16px;
+    background-position: -213px -213px;
+}
+
+.wbs-icon-16-host {
+    width: 16px;
+    height: 16px;
+    background-position: -239px -213px;
+}
+
+.wbs-icon-16-hypervisor_edit {
+    width: 16px;
+    height: 16px;
+    background-position: -265px -213px;
+}
+
+.wbs-icon-16-hypervisor_job {
+    width: 16px;
+    height: 16px;
+    background-position: -291px -213px;
+}
+
+.wbs-icon-16-hypervisor {
+    width: 16px;
+    height: 16px;
+    background-position: -5px -239px;
+}
+
+.wbs-icon-16-information {
+    width: 16px;
+    height: 16px;
+    background-position: -31px -239px;
+}
+
+.wbs-icon-16-internet {
+    width: 16px;
+    height: 16px;
+    background-position: -57px -239px;
+}
+
+.wbs-icon-16-layers {
+    width: 16px;
+    height: 16px;
+    background-position: -83px -239px;
+}
+
+.wbs-icon-16-lorry {
+    width: 16px;
+    height: 16px;
+    background-position: -109px -239px;
+}
+
+.wbs-icon-16-network_add {
+    width: 16px;
+    height: 16px;
+    background-position: -135px -239px;
+}
+
+.wbs-icon-16-network_delete {
+    width: 16px;
+    height: 16px;
+    background-position: -161px -239px;
+}
+
+.wbs-icon-16-network {
+    width: 16px;
+    height: 16px;
+    background-position: -187px -239px;
+}
+
+.wbs-icon-16-package_go {
+    width: 16px;
+    height: 16px;
+    background-position: -213px -239px;
+}
+
+.wbs-icon-16-package {
+    width: 16px;
+    height: 16px;
+    background-position: -239px -239px;
+}
+
+.wbs-icon-16-page_add {
+    width: 16px;
+    height: 16px;
+    background-position: -265px -239px;
+}
+
+.wbs-icon-16-page_delete {
+    width: 16px;
+    height: 16px;
+    background-position: -291px -239px;
+}
+
+.wbs-icon-16-page_edit {
+    width: 16px;
+    height: 16px;
+    background-position: -5px -265px;
+}
+
+.wbs-icon-16-page {
+    width: 16px;
+    height: 16px;
+    background-position: -31px -265px;
+}
+
+.wbs-icon-16-remote_storage {
+    width: 16px;
+    height: 16px;
+    background-position: -57px -265px;
+}
+
+.wbs-icon-16-replication_edit {
+    width: 16px;
+    height: 16px;
+    background-position: -83px -265px;
+}
+
+.wbs-icon-16-resultset_next {
+    width: 16px;
+    height: 16px;
+    background-position: -109px -265px;
+}
+
+.wbs-icon-16-resultset_previous {
+    width: 16px;
+    height: 16px;
+    background-position: -135px -265px;
+}
+
+.wbs-icon-16-rosette_blue {
+    width: 16px;
+    height: 16px;
+    background-position: -161px -265px;
+}
+
+.wbs-icon-16-rosette_grey {
+    width: 16px;
+    height: 16px;
+    background-position: -187px -265px;
+}
+
+.wbs-icon-16-script_process {
+    width: 16px;
+    height: 16px;
+    background-position: -213px -265px;
+}
+
+.wbs-icon-16-scsi_rescan {
+    width: 16px;
+    height: 16px;
+    background-position: -239px -265px;
+}
+
+.wbs-icon-16-server_add {
+    width: 16px;
+    height: 16px;
+    background-position: -265px -265px;
+}
+
+.wbs-icon-16-server_delete {
+    width: 16px;
+    height: 16px;
+    background-position: -291px -265px;
+}
+
+.wbs-icon-16-server {
+    width: 16px;
+    height: 16px;
+    background-position: -5px -291px;
+}
+
+.wbs-icon-16-share_delete {
+    width: 16px;
+    height: 16px;
+    background-position: -31px -291px;
+}
+
+.wbs-icon-16-share_edit {
+    width: 16px;
+    height: 16px;
+    background-position: -57px -291px;
+}
+
+.wbs-icon-16-share {
+    width: 16px;
+    height: 16px;
+    background-position: -83px -291px;
+}
+
+.wbs-icon-16-shield_registered {
+    width: 16px;
+    height: 16px;
+    background-position: -109px -291px;
+}
+
+.wbs-icon-16-shield_unregistered {
+    width: 16px;
+    height: 16px;
+    background-position: -135px -291px;
+}
+
+.wbs-icon-16-shield {
+    width: 16px;
+    height: 16px;
+    background-position: -161px -291px;
+}
+
+.wbs-icon-16-step {
+    width: 16px;
+    height: 16px;
+    background-position: -187px -291px;
+}
+
+.wbs-icon-16-storage_inventory {
+    width: 16px;
+    height: 16px;
+    background-position: -213px -291px;
+}
+
+.wbs-icon-16-subscription {
+    width: 16px;
+    height: 16px;
+    background-position: -239px -291px;
+}
+
+.wbs-icon-16-system_config {
+    width: 16px;
+    height: 16px;
+    background-position: -265px -291px;
+}
+
+.wbs-icon-16-system {
+    width: 16px;
+    height: 16px;
+    background-position: -291px -291px;
+}
+
+.wbs-icon-16-tag_add {
+    width: 16px;
+    height: 16px;
+    background-position: -317px -5px;
+}
+
+.wbs-icon-16-tag_delete {
+    width: 16px;
+    height: 16px;
+    background-position: -317px -31px;
+}
+
+.wbs-icon-16-tag_edit {
+    width: 16px;
+    height: 16px;
+    background-position: -317px -57px;
+}
+
+.wbs-icon-16-tag {
+    width: 16px;
+    height: 16px;
+    background-position: -317px -83px;
+}
+
+.wbs-icon-16-tape_accept {
+    width: 16px;
+    height: 16px;
+    background-position: -317px -109px;
+}
+
+.wbs-icon-16-tape_arrow_refresh {
+    width: 16px;
+    height: 16px;
+    background-position: -317px -135px;
+}
+
+.wbs-icon-16-tape_cross {
+    width: 16px;
+    height: 16px;
+    background-position: -317px -161px;
+}
+
+.wbs-icon-16-tape_edit {
+    width: 16px;
+    height: 16px;
+    background-position: -317px -187px;
+}
+
+.wbs-icon-16-tape {
+    width: 16px;
+    height: 16px;
+    background-position: -317px -213px;
+}
+
+.wbs-icon-16-template_export {
+    width: 16px;
+    height: 16px;
+    background-position: -317px -239px;
+}
+
+.wbs-icon-16-template_import {
+    width: 16px;
+    height: 16px;
+    background-position: -317px -265px;
+}
+
+.wbs-icon-16-template_job {
+    width: 16px;
+    height: 16px;
+    background-position: -317px -291px;
+}
+
+.wbs-icon-16-tree_collapse {
+    width: 16px;
+    height: 16px;
+    background-position: -5px -317px;
+}
+
+.wbs-icon-16-tree_expand {
+    width: 16px;
+    height: 16px;
+    background-position: -31px -317px;
+}
+
+.wbs-icon-16-ui-anim_basicx16 {
+    width: 16px;
+    height: 16px;
+    background-position: -57px -317px;
+}
+
+.wbs-icon-16-user_add {
+    width: 16px;
+    height: 16px;
+    background-position: -83px -317px;
+}
+
+.wbs-icon-16-user_delete {
+    width: 16px;
+    height: 16px;
+    background-position: -109px -317px;
+}
+
+.wbs-icon-16-user_edit {
+    width: 16px;
+    height: 16px;
+    background-position: -135px -317px;
+}
+
+.wbs-icon-16-user {
+    width: 16px;
+    height: 16px;
+    background-position: -161px -317px;
+}
+
+.wbs-icon-16-vcenter {
+    width: 16px;
+    height: 16px;
+    background-position: -187px -317px;
+}
+
+.wbs-icon-16-vm {
+    width: 16px;
+    height: 16px;
+    background-position: -213px -317px;
+}
+
+.wbs-icon-16-web_services {
+    width: 16px;
+    height: 16px;
+    background-position: -239px -317px;
+}
+
+.wbs-icon-16-wizard {
+    width: 16px;
+    height: 16px;
+    background-position: -265px -317px;
+}

@@ -1,0 +1,5 @@
+/etc/zfs/zfs/vdev_id.conf.alias.example
+/etc/zfs/zfs/vdev_id.conf.sas_switch.example
+/etc/zfs/zfs/vdev_id.conf.sas_direct.example
+/etc/zfs/zfs/vdev_id.conf.multipath.example
+/etc/zfs/init.d/zfs

@@ -1,0 +1,12 @@
+wbsairback-spl (0.6.1-1) maverick; urgency=low
+
+  * Initial release for new kernel 3.2.43
+
+ -- Jorge Gea Martínez <jorge.gea@whiteebarsolutions.com>  Fri, 19 Aug 2011 16:16:54 +0200
+ 
+wbsairback-spl (0.6.0-1) maverick; urgency=low
+
+  * Initial release
+
+ -- Ricardo Lorenzo <ricardo.lorenzo@whiteebarsolutions.com>  Fri, 19 Aug 2011 16:16:54 +0200
+

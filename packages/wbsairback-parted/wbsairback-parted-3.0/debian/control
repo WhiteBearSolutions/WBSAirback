@@ -1,0 +1,14 @@
+Source: wbsairback-parted
+Section: admin
+Maintainer: Ricardo Lorenzo Rodríguez <ricardo.lorenzo@wbsgo.com>
+Priority: optional
+Homepage: http://www.wbslabs.com/wbslabs/live/proyectos/wbsairback.html
+
+Package: wbsairback-parted
+Architecture: any
+Depends: wbsairback-kernel-image, wbsairback-lvm2
+Conflicts: parted
+Replaces: parted
+Provides: parted
+Description: WBSAirback partitioning tool
+  WBSAirback partition tools can perepare disks and volumes.

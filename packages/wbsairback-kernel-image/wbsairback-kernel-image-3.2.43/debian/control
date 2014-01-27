@@ -1,0 +1,17 @@
+Source: wbsairback-kernel-image
+Section: admin
+Priority: optional
+Maintainer: Jorge Gea Martínez <jorge.gea@wbsgo.com>
+Build-Depends: debhelper (>= 7)
+Standards-Version: 3.7.3
+Homepage: http://www.kernel.org
+
+Package: wbsairback-kernel-image
+Architecture: amd64
+Depends: initramfs-tools (>= 0.55), module-init-tools (>= 0.9.13), wbsairback-plymouth-theme, firmware-qlogic
+Provides: linux-image, linux-image-2.6, firmware-qlogic
+Conflicts: firmware-qlogic
+Replaces: firmware-qlogic
+Description: WBSAirback Linux 3.2 image for AMD64 or Intel64 processors
+ This package provides the binary image and pre-built loadable modules for
+ WBSAirback Linux kernel 3.2 for AMD64 or Intel64 processors.

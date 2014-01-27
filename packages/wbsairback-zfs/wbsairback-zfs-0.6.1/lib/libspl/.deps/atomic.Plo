@@ -1,0 +1,6 @@
+atomic.lo: ../../lib/libspl/asm-x86_64/atomic.S ../../zfs_config.h \
+ ../../lib/libspl/include/ia32/sys/asm_linkage.h
+
+../../zfs_config.h:
+
+../../lib/libspl/include/ia32/sys/asm_linkage.h:

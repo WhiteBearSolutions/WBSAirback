@@ -1,0 +1,32 @@
+#!/bin/sh
+JAVA_HOME=/usr/share/wbsairback/java
+WSDL_DIR=/var/www/webadministration/wsdl
+CLASS_PATH=/var/www/webadministration/WEB-INF/classes
+WEBSERVICES_DIR=$CLASS_PATH/com/whitebearsolutions/imagine/wbsairback/rs/service/
+LIBRARY_PATH=/var/www/webadministration/WEB-INF/lib
+AXIS2_HOME=/var/axis2/
+
+mkdir -p $WSDL_DIR
+
+for f in "$LIBRARY_PATH"/*.jar
+do
+  CLASS_PATH="$CLASS_PATH":$f
+done
+
+for f in "$AXIS2_HOME"/lib/*.jar
+do
+  CLASS_PATH="$CLASS_PATH":$f
+done
+CLASS_PATH="$AXIS2_HOME":"$AXIS2_HOME/conf":"$JAVA_HOME/lib/tools.jar":"$CLASS_PATH"
+
+IP=`/sbin/ifconfig | grep "inet addr" | grep -v "127.0.0.1" | awk '{ print $2; }' | awk 'BEGIN { RS = ""; } ; { print $1; }' | awk 'BEGIN { FS = ":"; } ; { print $2; }'`
+
+for SERVICE in $(ls $WEBSERVICES_DIR); do
+    if [ "$SERVICE" != ${SERVICE%\.class*} ]; then
+		if [ "$SERVICE" != "WbsImagineServiceRs.class" ]; then 
+       		SERVICE_NAME=${SERVICE%\.*}
+       		$JAVA_HOME/bin/java -DWD -cp $CLASS_PATH org.apache.ws.java2wsdl.Java2WSDL -wv 2.0 -o $WSDL_DIR -l "http://$IP/resources/" -cn com.whitebearsolutions.imagine.wbsairback.rs.service.$SERVICE_NAME -sn $SERVICE_NAME
+		fi
+    fi
+  done
+

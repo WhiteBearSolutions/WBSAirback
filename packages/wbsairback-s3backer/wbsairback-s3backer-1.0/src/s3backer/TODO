@@ -1,0 +1,5 @@
+TODO
+
+- support alternate backends, generalize `--test' to `--backend=localfs', etc.
+
+$Id: TODO 381 2009-09-24 19:53:38Z archie.cobbs $

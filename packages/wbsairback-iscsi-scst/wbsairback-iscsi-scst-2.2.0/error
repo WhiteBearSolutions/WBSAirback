@@ -1,0 +1,344 @@
+In file included from /opt/git-clone/wbsairback/packages/wbsairback-iscsi-scst/wbsairback-iscsi-scst-2.2.0/kernel/iscsi.c:28:
+/opt/git-clone/wbsairback/packages/wbsairback-iscsi-scst/wbsairback-iscsi-scst-2.2.0/kernel/iscsi.h:31:18: error: scst.h: No existe el fichero o el directorio
+In file included from /opt/git-clone/wbsairback/packages/wbsairback-iscsi-scst/wbsairback-iscsi-scst-2.2.0/kernel/iscsi.h:35,
+                 from /opt/git-clone/wbsairback/packages/wbsairback-iscsi-scst/wbsairback-iscsi-scst-2.2.0/kernel/iscsi.c:28:
+/opt/git-clone/wbsairback/packages/wbsairback-iscsi-scst/wbsairback-iscsi-scst-2.2.0/kernel/iscsi_dbg.h:25:24: error: scst_debug.h: No existe el fichero o el directorio
+In file included from /opt/git-clone/wbsairback/packages/wbsairback-iscsi-scst/wbsairback-iscsi-scst-2.2.0/kernel/iscsi.c:28:
+/opt/git-clone/wbsairback/packages/wbsairback-iscsi-scst/wbsairback-iscsi-scst-2.2.0/kernel/iscsi.h:127:5: warning: "LINUX_VERSION_CODE" is not defined
+/opt/git-clone/wbsairback/packages/wbsairback-iscsi-scst/wbsairback-iscsi-scst-2.2.0/kernel/iscsi.h:127:27: warning: "KERNEL_VERSION" is not defined
+/opt/git-clone/wbsairback/packages/wbsairback-iscsi-scst/wbsairback-iscsi-scst-2.2.0/kernel/iscsi.h:127:41: error: missing binary operator before token "("
+/opt/git-clone/wbsairback/packages/wbsairback-iscsi-scst/wbsairback-iscsi-scst-2.2.0/kernel/iscsi.h:302:6: warning: "LINUX_VERSION_CODE" is not defined
+/opt/git-clone/wbsairback/packages/wbsairback-iscsi-scst/wbsairback-iscsi-scst-2.2.0/kernel/iscsi.h:302:28: warning: "KERNEL_VERSION" is not defined
+/opt/git-clone/wbsairback/packages/wbsairback-iscsi-scst/wbsairback-iscsi-scst-2.2.0/kernel/iscsi.h:302:42: error: missing binary operator before token "("
+In file included from /opt/git-clone/wbsairback/packages/wbsairback-iscsi-scst/wbsairback-iscsi-scst-2.2.0/kernel/iscsi.c:28:
+/opt/git-clone/wbsairback/packages/wbsairback-iscsi-scst/wbsairback-iscsi-scst-2.2.0/kernel/iscsi.h:573: warning: ‘struct scst_mgmt_cmd’ declared inside parameter list
+/opt/git-clone/wbsairback/packages/wbsairback-iscsi-scst/wbsairback-iscsi-scst-2.2.0/kernel/iscsi.h:573: warning: its scope is only this definition or declaration, which is probably not what you want
+/opt/git-clone/wbsairback/packages/wbsairback-iscsi-scst/wbsairback-iscsi-scst-2.2.0/kernel/iscsi.h: In function ‘cmnd_get_check’:
+/opt/git-clone/wbsairback/packages/wbsairback-iscsi-scst/wbsairback-iscsi-scst-2.2.0/kernel/iscsi.h:674: error: implicit declaration of function ‘TRACE_DBG’
+/opt/git-clone/wbsairback/packages/wbsairback-iscsi-scst/wbsairback-iscsi-scst-2.2.0/kernel/iscsi.h: In function ‘cmnd_put’:
+/opt/git-clone/wbsairback/packages/wbsairback-iscsi-scst/wbsairback-iscsi-scst-2.2.0/kernel/iscsi.h:703: error: implicit declaration of function ‘EXTRACHECKS_BUG_ON’
+/opt/git-clone/wbsairback/packages/wbsairback-iscsi-scst/wbsairback-iscsi-scst-2.2.0/kernel/iscsi.h: In function ‘conn_put’:
+/opt/git-clone/wbsairback/packages/wbsairback-iscsi-scst/wbsairback-iscsi-scst-2.2.0/kernel/iscsi.h:806: error: implicit declaration of function ‘sBUG_ON’
+/opt/git-clone/wbsairback/packages/wbsairback-iscsi-scst/wbsairback-iscsi-scst-2.2.0/kernel/iscsi.c:33:2: warning: #warning Patch put_page_callback-<kernel-version>.patch not applied on your kernel or CONFIG_TCP_ZERO_COPY_TRANSFER_COMPLETION_NOTIFICATION config option not set. ISCSI-SCST will be working with not the best performance. Refer README file for details.
+/opt/git-clone/wbsairback/packages/wbsairback-iscsi-scst/wbsairback-iscsi-scst-2.2.0/kernel/iscsi.c: At top level:
+/opt/git-clone/wbsairback/packages/wbsairback-iscsi-scst/wbsairback-iscsi-scst-2.2.0/kernel/iscsi.c:46: error: ‘TRACE_FUNCTION’ undeclared here (not in a function)
+/opt/git-clone/wbsairback/packages/wbsairback-iscsi-scst/wbsairback-iscsi-scst-2.2.0/kernel/iscsi.c:46: error: ‘TRACE_LINE’ undeclared here (not in a function)
+/opt/git-clone/wbsairback/packages/wbsairback-iscsi-scst/wbsairback-iscsi-scst-2.2.0/kernel/iscsi.c:46: error: ‘TRACE_PID’ undeclared here (not in a function)
+/opt/git-clone/wbsairback/packages/wbsairback-iscsi-scst/wbsairback-iscsi-scst-2.2.0/kernel/iscsi.c:46: error: ‘TRACE_OUT_OF_MEM’ undeclared here (not in a function)
+/opt/git-clone/wbsairback/packages/wbsairback-iscsi-scst/wbsairback-iscsi-scst-2.2.0/kernel/iscsi.c:46: error: ‘TRACE_MGMT’ undeclared here (not in a function)
+/opt/git-clone/wbsairback/packages/wbsairback-iscsi-scst/wbsairback-iscsi-scst-2.2.0/kernel/iscsi.c:46: error: ‘TRACE_MGMT_DEBUG’ undeclared here (not in a function)
+/opt/git-clone/wbsairback/packages/wbsairback-iscsi-scst/wbsairback-iscsi-scst-2.2.0/kernel/iscsi.c:46: error: ‘TRACE_MINOR’ undeclared here (not in a function)
+/opt/git-clone/wbsairback/packages/wbsairback-iscsi-scst/wbsairback-iscsi-scst-2.2.0/kernel/iscsi.c:46: error: ‘TRACE_SPECIAL’ undeclared here (not in a function)
+/opt/git-clone/wbsairback/packages/wbsairback-iscsi-scst/wbsairback-iscsi-scst-2.2.0/kernel/iscsi.c: In function ‘iscsi_set_not_received_data_len’:
+/opt/git-clone/wbsairback/packages/wbsairback-iscsi-scst/wbsairback-iscsi-scst-2.2.0/kernel/iscsi.c:73: error: implicit declaration of function ‘scst_cmd_set_write_not_received_data_len’
+/opt/git-clone/wbsairback/packages/wbsairback-iscsi-scst/wbsairback-iscsi-scst-2.2.0/kernel/iscsi.c: In function ‘req_del_from_write_timeout_list’:
+/opt/git-clone/wbsairback/packages/wbsairback-iscsi-scst/wbsairback-iscsi-scst-2.2.0/kernel/iscsi.c:82: error: implicit declaration of function ‘TRACE_ENTRY’
+/opt/git-clone/wbsairback/packages/wbsairback-iscsi-scst/wbsairback-iscsi-scst-2.2.0/kernel/iscsi.c:105: error: implicit declaration of function ‘TRACE_EXIT’
+/opt/git-clone/wbsairback/packages/wbsairback-iscsi-scst/wbsairback-iscsi-scst-2.2.0/kernel/iscsi.c: In function ‘iscsi_restart_cmnd’:
+/opt/git-clone/wbsairback/packages/wbsairback-iscsi-scst/wbsairback-iscsi-scst-2.2.0/kernel/iscsi.c:186: error: implicit declaration of function ‘scst_cmd_get_cdb’
+/opt/git-clone/wbsairback/packages/wbsairback-iscsi-scst/wbsairback-iscsi-scst-2.2.0/kernel/iscsi.c:186: error: subscripted value is neither array nor pointer
+/opt/git-clone/wbsairback/packages/wbsairback-iscsi-scst/wbsairback-iscsi-scst-2.2.0/kernel/iscsi.c:192: error: implicit declaration of function ‘TRACE_MGMT_DBG’
+/opt/git-clone/wbsairback/packages/wbsairback-iscsi-scst/wbsairback-iscsi-scst-2.2.0/kernel/iscsi.c:221: error: ‘SCST_PREPROCESS_STATUS_ERROR_SENSE_SET’ undeclared (first use in this function)
+/opt/git-clone/wbsairback/packages/wbsairback-iscsi-scst/wbsairback-iscsi-scst-2.2.0/kernel/iscsi.c:221: error: (Each undeclared identifier is reported only once
+/opt/git-clone/wbsairback/packages/wbsairback-iscsi-scst/wbsairback-iscsi-scst-2.2.0/kernel/iscsi.c:221: error: for each function it appears in.)
+/opt/git-clone/wbsairback/packages/wbsairback-iscsi-scst/wbsairback-iscsi-scst-2.2.0/kernel/iscsi.c:223: error: ‘SCST_PREPROCESS_STATUS_SUCCESS’ undeclared (first use in this function)
+/opt/git-clone/wbsairback/packages/wbsairback-iscsi-scst/wbsairback-iscsi-scst-2.2.0/kernel/iscsi.c:227: error: implicit declaration of function ‘scst_restart_cmd’
+/opt/git-clone/wbsairback/packages/wbsairback-iscsi-scst/wbsairback-iscsi-scst-2.2.0/kernel/iscsi.c:227: error: ‘SCST_CONTEXT_THREAD’ undeclared (first use in this function)
+/opt/git-clone/wbsairback/packages/wbsairback-iscsi-scst/wbsairback-iscsi-scst-2.2.0/kernel/iscsi.c: In function ‘iscsi_create_tm_clone’:
+/opt/git-clone/wbsairback/packages/wbsairback-iscsi-scst/wbsairback-iscsi-scst-2.2.0/kernel/iscsi.c:248: error: implicit declaration of function ‘PRINT_ERROR’
+/opt/git-clone/wbsairback/packages/wbsairback-iscsi-scst/wbsairback-iscsi-scst-2.2.0/kernel/iscsi.c:250: error: implicit declaration of function ‘TRACE_EXIT_HRES’
+/opt/git-clone/wbsairback/packages/wbsairback-iscsi-scst/wbsairback-iscsi-scst-2.2.0/kernel/iscsi.c: In function ‘cmnd_free’:
+/opt/git-clone/wbsairback/packages/wbsairback-iscsi-scst/wbsairback-iscsi-scst-2.2.0/kernel/iscsi.c:361: error: implicit declaration of function ‘PRINT_CRIT_ERROR’
+/opt/git-clone/wbsairback/packages/wbsairback-iscsi-scst/wbsairback-iscsi-scst-2.2.0/kernel/iscsi.c:372: error: implicit declaration of function ‘sBUG’
+/opt/git-clone/wbsairback/packages/wbsairback-iscsi-scst/wbsairback-iscsi-scst-2.2.0/kernel/iscsi.c: In function ‘cmnd_done’:
+/opt/git-clone/wbsairback/packages/wbsairback-iscsi-scst/wbsairback-iscsi-scst-2.2.0/kernel/iscsi.c:445: error: implicit declaration of function ‘scst_tgt_cmd_done’
+/opt/git-clone/wbsairback/packages/wbsairback-iscsi-scst/wbsairback-iscsi-scst-2.2.0/kernel/iscsi.c:446: error: ‘SCST_CONTEXT_DIRECT_ATOMIC’ undeclared (first use in this function)
+/opt/git-clone/wbsairback/packages/wbsairback-iscsi-scst/wbsairback-iscsi-scst-2.2.0/kernel/iscsi.c:457: error: ‘SCST_PREPROCESS_STATUS_ERROR_FATAL’ undeclared (first use in this function)
+/opt/git-clone/wbsairback/packages/wbsairback-iscsi-scst/wbsairback-iscsi-scst-2.2.0/kernel/iscsi.c:458: error: ‘SCST_CONTEXT_THREAD’ undeclared (first use in this function)
+/opt/git-clone/wbsairback/packages/wbsairback-iscsi-scst/wbsairback-iscsi-scst-2.2.0/kernel/iscsi.c:464: error: implicit declaration of function ‘scst_aen_done’
+/opt/git-clone/wbsairback/packages/wbsairback-iscsi-scst/wbsairback-iscsi-scst-2.2.0/kernel/iscsi.c:481: error: implicit declaration of function ‘scst_free’
+/opt/git-clone/wbsairback/packages/wbsairback-iscsi-scst/wbsairback-iscsi-scst-2.2.0/kernel/iscsi.c: In function ‘iscsi_set_resid’:
+/opt/git-clone/wbsairback/packages/wbsairback-iscsi-scst/wbsairback-iscsi-scst-2.2.0/kernel/iscsi.c:860: error: implicit declaration of function ‘scst_get_resid’
+/opt/git-clone/wbsairback/packages/wbsairback-iscsi-scst/wbsairback-iscsi-scst-2.2.0/kernel/iscsi.c: In function ‘iscsi_init_status_rsp’:
+/opt/git-clone/wbsairback/packages/wbsairback-iscsi-scst/wbsairback-iscsi-scst-2.2.0/kernel/iscsi.c:982: error: implicit declaration of function ‘SCST_SENSE_VALID’
+/opt/git-clone/wbsairback/packages/wbsairback-iscsi-scst/wbsairback-iscsi-scst-2.2.0/kernel/iscsi.c: In function ‘iscsi_set_prelim_r2t_len_to_receive’:
+/opt/git-clone/wbsairback/packages/wbsairback-iscsi-scst/wbsairback-iscsi-scst-2.2.0/kernel/iscsi.c:1077: error: implicit declaration of function ‘TRACE_EXIT_RES’
+/opt/git-clone/wbsairback/packages/wbsairback-iscsi-scst/wbsairback-iscsi-scst-2.2.0/kernel/iscsi.c: In function ‘set_scst_preliminary_status_rsp’:
+/opt/git-clone/wbsairback/packages/wbsairback-iscsi-scst/wbsairback-iscsi-scst-2.2.0/kernel/iscsi.c:1124: error: implicit declaration of function ‘scst_set_cmd_error’
+/opt/git-clone/wbsairback/packages/wbsairback-iscsi-scst/wbsairback-iscsi-scst-2.2.0/kernel/iscsi.c: In function ‘create_reject_rsp’:
+/opt/git-clone/wbsairback/packages/wbsairback-iscsi-scst/wbsairback-iscsi-scst-2.2.0/kernel/iscsi.c:1165: error: implicit declaration of function ‘SCST_LOAD_SENSE’
+/opt/git-clone/wbsairback/packages/wbsairback-iscsi-scst/wbsairback-iscsi-scst-2.2.0/kernel/iscsi.c:1165: error: ‘scst_sense_invalid_message’ undeclared (first use in this function)
+/opt/git-clone/wbsairback/packages/wbsairback-iscsi-scst/wbsairback-iscsi-scst-2.2.0/kernel/iscsi.c:1165: error: too few arguments to function ‘set_scst_preliminary_status_rsp’
+/opt/git-clone/wbsairback/packages/wbsairback-iscsi-scst/wbsairback-iscsi-scst-2.2.0/kernel/iscsi.c: In function ‘cmnd_insert_data_wait_hash’:
+/opt/git-clone/wbsairback/packages/wbsairback-iscsi-scst/wbsairback-iscsi-scst-2.2.0/kernel/iscsi.c:1327: error: implicit declaration of function ‘PRINT_BUFFER’
+/opt/git-clone/wbsairback/packages/wbsairback-iscsi-scst/wbsairback-iscsi-scst-2.2.0/kernel/iscsi.c: In function ‘cmnd_prepare_get_rejected_immed_data’:
+/opt/git-clone/wbsairback/packages/wbsairback-iscsi-scst/wbsairback-iscsi-scst-2.2.0/kernel/iscsi.c:1386: error: implicit declaration of function ‘TRACE_DBG_FLAG’
+/opt/git-clone/wbsairback/packages/wbsairback-iscsi-scst/wbsairback-iscsi-scst-2.2.0/kernel/iscsi.c: In function ‘send_r2t’:
+/opt/git-clone/wbsairback/packages/wbsairback-iscsi-scst/wbsairback-iscsi-scst-2.2.0/kernel/iscsi.c:1630: error: ‘TRACE_DEBUG’ undeclared (first use in this function)
+/opt/git-clone/wbsairback/packages/wbsairback-iscsi-scst/wbsairback-iscsi-scst-2.2.0/kernel/iscsi.c: In function ‘iscsi_pre_exec’:
+/opt/git-clone/wbsairback/packages/wbsairback-iscsi-scst/wbsairback-iscsi-scst-2.2.0/kernel/iscsi.c:1651: error: ‘SCST_PREPROCESS_STATUS_SUCCESS’ undeclared (first use in this function)
+/opt/git-clone/wbsairback/packages/wbsairback-iscsi-scst/wbsairback-iscsi-scst-2.2.0/kernel/iscsi.c:1653: error: implicit declaration of function ‘scst_cmd_get_tgt_priv’
+/opt/git-clone/wbsairback/packages/wbsairback-iscsi-scst/wbsairback-iscsi-scst-2.2.0/kernel/iscsi.c:1653: warning: cast to pointer from integer of different size
+/opt/git-clone/wbsairback/packages/wbsairback-iscsi-scst/wbsairback-iscsi-scst-2.2.0/kernel/iscsi.c:1658: error: implicit declaration of function ‘scst_cmd_atomic’
+/opt/git-clone/wbsairback/packages/wbsairback-iscsi-scst/wbsairback-iscsi-scst-2.2.0/kernel/iscsi.c:1667: error: ‘SCST_PREPROCESS_STATUS_ERROR_SENSE_SET’ undeclared (first use in this function)
+/opt/git-clone/wbsairback/packages/wbsairback-iscsi-scst/wbsairback-iscsi-scst-2.2.0/kernel/iscsi.c: In function ‘nop_out_start’:
+/opt/git-clone/wbsairback/packages/wbsairback-iscsi-scst/wbsairback-iscsi-scst-2.2.0/kernel/iscsi.c:1716: error: implicit declaration of function ‘scst_alloc’
+/opt/git-clone/wbsairback/packages/wbsairback-iscsi-scst/wbsairback-iscsi-scst-2.2.0/kernel/iscsi.c:1717: warning: assignment makes pointer from integer without a cast
+/opt/git-clone/wbsairback/packages/wbsairback-iscsi-scst/wbsairback-iscsi-scst-2.2.0/kernel/iscsi.c:1719: error: implicit declaration of function ‘TRACE’
+/opt/git-clone/wbsairback/packages/wbsairback-iscsi-scst/wbsairback-iscsi-scst-2.2.0/kernel/iscsi.c: In function ‘cmnd_rx_continue’:
+/opt/git-clone/wbsairback/packages/wbsairback-iscsi-scst/wbsairback-iscsi-scst-2.2.0/kernel/iscsi.c:1774: error: ‘scst_data_direction’ undeclared (first use in this function)
+/opt/git-clone/wbsairback/packages/wbsairback-iscsi-scst/wbsairback-iscsi-scst-2.2.0/kernel/iscsi.c:1774: error: expected ‘;’ before ‘dir’
+/opt/git-clone/wbsairback/packages/wbsairback-iscsi-scst/wbsairback-iscsi-scst-2.2.0/kernel/iscsi.c:1775: warning: ISO C90 forbids mixed declarations and code
+/opt/git-clone/wbsairback/packages/wbsairback-iscsi-scst/wbsairback-iscsi-scst-2.2.0/kernel/iscsi.c:1784: error: ‘dir’ undeclared (first use in this function)
+/opt/git-clone/wbsairback/packages/wbsairback-iscsi-scst/wbsairback-iscsi-scst-2.2.0/kernel/iscsi.c:1784: error: implicit declaration of function ‘scst_cmd_get_data_direction’
+/opt/git-clone/wbsairback/packages/wbsairback-iscsi-scst/wbsairback-iscsi-scst-2.2.0/kernel/iscsi.c:1790: error: implicit declaration of function ‘scst_cmd_prelim_completed’
+/opt/git-clone/wbsairback/packages/wbsairback-iscsi-scst/wbsairback-iscsi-scst-2.2.0/kernel/iscsi.c:1802: error: ‘SCST_DATA_WRITE’ undeclared (first use in this function)
+/opt/git-clone/wbsairback/packages/wbsairback-iscsi-scst/wbsairback-iscsi-scst-2.2.0/kernel/iscsi.c:1803: error: implicit declaration of function ‘scst_cmd_get_write_fields’
+/opt/git-clone/wbsairback/packages/wbsairback-iscsi-scst/wbsairback-iscsi-scst-2.2.0/kernel/iscsi.c:1874: error: implicit declaration of function ‘scst_cmd_get_sg’
+/opt/git-clone/wbsairback/packages/wbsairback-iscsi-scst/wbsairback-iscsi-scst-2.2.0/kernel/iscsi.c:1874: warning: assignment makes pointer from integer without a cast
+/opt/git-clone/wbsairback/packages/wbsairback-iscsi-scst/wbsairback-iscsi-scst-2.2.0/kernel/iscsi.c:1875: error: implicit declaration of function ‘scst_cmd_get_sg_cnt’
+/opt/git-clone/wbsairback/packages/wbsairback-iscsi-scst/wbsairback-iscsi-scst-2.2.0/kernel/iscsi.c:1876: error: implicit declaration of function ‘scst_cmd_get_bufflen’
+/opt/git-clone/wbsairback/packages/wbsairback-iscsi-scst/wbsairback-iscsi-scst-2.2.0/kernel/iscsi.c:1883: error: too few arguments to function ‘set_scst_preliminary_status_rsp’
+/opt/git-clone/wbsairback/packages/wbsairback-iscsi-scst/wbsairback-iscsi-scst-2.2.0/kernel/iscsi.c: In function ‘scsi_cmnd_start’:
+/opt/git-clone/wbsairback/packages/wbsairback-iscsi-scst/wbsairback-iscsi-scst-2.2.0/kernel/iscsi.c:1910: error: ‘scst_data_direction’ undeclared (first use in this function)
+/opt/git-clone/wbsairback/packages/wbsairback-iscsi-scst/wbsairback-iscsi-scst-2.2.0/kernel/iscsi.c:1910: error: expected ‘;’ before ‘dir’
+/opt/git-clone/wbsairback/packages/wbsairback-iscsi-scst/wbsairback-iscsi-scst-2.2.0/kernel/iscsi.c:1911: warning: ISO C90 forbids mixed declarations and code
+/opt/git-clone/wbsairback/packages/wbsairback-iscsi-scst/wbsairback-iscsi-scst-2.2.0/kernel/iscsi.c:1924: error: implicit declaration of function ‘scst_rx_cmd’
+/opt/git-clone/wbsairback/packages/wbsairback-iscsi-scst/wbsairback-iscsi-scst-2.2.0/kernel/iscsi.c:1926: error: ‘SCST_NON_ATOMIC’ undeclared (first use in this function)
+/opt/git-clone/wbsairback/packages/wbsairback-iscsi-scst/wbsairback-iscsi-scst-2.2.0/kernel/iscsi.c:1934: error: implicit declaration of function ‘scst_cmd_set_tag’
+/opt/git-clone/wbsairback/packages/wbsairback-iscsi-scst/wbsairback-iscsi-scst-2.2.0/kernel/iscsi.c:1935: error: implicit declaration of function ‘scst_cmd_set_tgt_priv’
+/opt/git-clone/wbsairback/packages/wbsairback-iscsi-scst/wbsairback-iscsi-scst-2.2.0/kernel/iscsi.c:1945: error: ‘scst_sense_parameter_value_invalid’ undeclared (first use in this function)
+/opt/git-clone/wbsairback/packages/wbsairback-iscsi-scst/wbsairback-iscsi-scst-2.2.0/kernel/iscsi.c:1945: error: too few arguments to function ‘set_scst_preliminary_status_rsp’
+/opt/git-clone/wbsairback/packages/wbsairback-iscsi-scst/wbsairback-iscsi-scst-2.2.0/kernel/iscsi.c:1947: error: ‘dir’ undeclared (first use in this function)
+/opt/git-clone/wbsairback/packages/wbsairback-iscsi-scst/wbsairback-iscsi-scst-2.2.0/kernel/iscsi.c:1947: error: ‘SCST_DATA_BIDI’ undeclared (first use in this function)
+/opt/git-clone/wbsairback/packages/wbsairback-iscsi-scst/wbsairback-iscsi-scst-2.2.0/kernel/iscsi.c:1948: error: implicit declaration of function ‘scst_cmd_set_expected’
+/opt/git-clone/wbsairback/packages/wbsairback-iscsi-scst/wbsairback-iscsi-scst-2.2.0/kernel/iscsi.c:1949: error: implicit declaration of function ‘scst_cmd_set_expected_out_transfer_len’
+/opt/git-clone/wbsairback/packages/wbsairback-iscsi-scst/wbsairback-iscsi-scst-2.2.0/kernel/iscsi.c:1952: error: implicit declaration of function ‘scst_cmd_set_tgt_need_alloc_data_buf’
+/opt/git-clone/wbsairback/packages/wbsairback-iscsi-scst/wbsairback-iscsi-scst-2.2.0/kernel/iscsi.c:1956: error: ‘SCST_DATA_READ’ undeclared (first use in this function)
+/opt/git-clone/wbsairback/packages/wbsairback-iscsi-scst/wbsairback-iscsi-scst-2.2.0/kernel/iscsi.c:1963: error: ‘SCST_DATA_WRITE’ undeclared (first use in this function)
+/opt/git-clone/wbsairback/packages/wbsairback-iscsi-scst/wbsairback-iscsi-scst-2.2.0/kernel/iscsi.c:1967: error: ‘SCST_DATA_NONE’ undeclared (first use in this function)
+/opt/git-clone/wbsairback/packages/wbsairback-iscsi-scst/wbsairback-iscsi-scst-2.2.0/kernel/iscsi.c:1973: error: implicit declaration of function ‘scst_cmd_set_queue_type’
+/opt/git-clone/wbsairback/packages/wbsairback-iscsi-scst/wbsairback-iscsi-scst-2.2.0/kernel/iscsi.c:1973: error: ‘SCST_CMD_QUEUE_SIMPLE’ undeclared (first use in this function)
+/opt/git-clone/wbsairback/packages/wbsairback-iscsi-scst/wbsairback-iscsi-scst-2.2.0/kernel/iscsi.c:1976: error: ‘SCST_CMD_QUEUE_HEAD_OF_QUEUE’ undeclared (first use in this function)
+/opt/git-clone/wbsairback/packages/wbsairback-iscsi-scst/wbsairback-iscsi-scst-2.2.0/kernel/iscsi.c:1979: error: ‘SCST_CMD_QUEUE_ORDERED’ undeclared (first use in this function)
+/opt/git-clone/wbsairback/packages/wbsairback-iscsi-scst/wbsairback-iscsi-scst-2.2.0/kernel/iscsi.c:1982: error: ‘SCST_CMD_QUEUE_ACA’ undeclared (first use in this function)
+/opt/git-clone/wbsairback/packages/wbsairback-iscsi-scst/wbsairback-iscsi-scst-2.2.0/kernel/iscsi.c:1985: error: ‘SCST_CMD_QUEUE_UNTAGGED’ undeclared (first use in this function)
+/opt/git-clone/wbsairback/packages/wbsairback-iscsi-scst/wbsairback-iscsi-scst-2.2.0/kernel/iscsi.c:1994: error: implicit declaration of function ‘scst_cmd_set_tgt_sn’
+/opt/git-clone/wbsairback/packages/wbsairback-iscsi-scst/wbsairback-iscsi-scst-2.2.0/kernel/iscsi.c:2008: error: implicit declaration of function ‘scst_cmd_set_ext_cdb’
+/opt/git-clone/wbsairback/packages/wbsairback-iscsi-scst/wbsairback-iscsi-scst-2.2.0/kernel/iscsi.c:2021: error: implicit declaration of function ‘scst_cmd_get_queue_type’
+/opt/git-clone/wbsairback/packages/wbsairback-iscsi-scst/wbsairback-iscsi-scst-2.2.0/kernel/iscsi.c:2024: error: implicit declaration of function ‘scst_cmd_init_stage1_done’
+/opt/git-clone/wbsairback/packages/wbsairback-iscsi-scst/wbsairback-iscsi-scst-2.2.0/kernel/iscsi.c:2024: error: ‘SCST_CONTEXT_DIRECT’ undeclared (first use in this function)
+/opt/git-clone/wbsairback/packages/wbsairback-iscsi-scst/wbsairback-iscsi-scst-2.2.0/kernel/iscsi.c: In function ‘data_out_start’:
+/opt/git-clone/wbsairback/packages/wbsairback-iscsi-scst/wbsairback-iscsi-scst-2.2.0/kernel/iscsi.c:2086: error: too few arguments to function ‘set_scst_preliminary_status_rsp’
+/opt/git-clone/wbsairback/packages/wbsairback-iscsi-scst/wbsairback-iscsi-scst-2.2.0/kernel/iscsi.c:2109: error: ‘TRACE_DEBUG’ undeclared (first use in this function)
+/opt/git-clone/wbsairback/packages/wbsairback-iscsi-scst/wbsairback-iscsi-scst-2.2.0/kernel/iscsi.c: At top level:
+/opt/git-clone/wbsairback/packages/wbsairback-iscsi-scst/wbsairback-iscsi-scst-2.2.0/kernel/iscsi.c:2362: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘*’ token
+/opt/git-clone/wbsairback/packages/wbsairback-iscsi-scst/wbsairback-iscsi-scst-2.2.0/kernel/iscsi.c:2364:5: warning: "LINUX_VERSION_CODE" is not defined
+/opt/git-clone/wbsairback/packages/wbsairback-iscsi-scst/wbsairback-iscsi-scst-2.2.0/kernel/iscsi.c:2364:26: warning: "KERNEL_VERSION" is not defined
+/opt/git-clone/wbsairback/packages/wbsairback-iscsi-scst/wbsairback-iscsi-scst-2.2.0/kernel/iscsi.c:2364:40: error: missing binary operator before token "("
+/opt/git-clone/wbsairback/packages/wbsairback-iscsi-scst/wbsairback-iscsi-scst-2.2.0/kernel/iscsi.c:2370:5: warning: "LINUX_VERSION_CODE" is not defined
+/opt/git-clone/wbsairback/packages/wbsairback-iscsi-scst/wbsairback-iscsi-scst-2.2.0/kernel/iscsi.c:2370:26: warning: "KERNEL_VERSION" is not defined
+/opt/git-clone/wbsairback/packages/wbsairback-iscsi-scst/wbsairback-iscsi-scst-2.2.0/kernel/iscsi.c:2370:40: error: missing binary operator before token "("
+/opt/git-clone/wbsairback/packages/wbsairback-iscsi-scst/wbsairback-iscsi-scst-2.2.0/kernel/iscsi.c: In function ‘iscsi_cmnd_abort_fn’:
+/opt/git-clone/wbsairback/packages/wbsairback-iscsi-scst/wbsairback-iscsi-scst-2.2.0/kernel/iscsi.c:2377: error: implicit declaration of function ‘scst_sess_get_tgt_priv’
+/opt/git-clone/wbsairback/packages/wbsairback-iscsi-scst/wbsairback-iscsi-scst-2.2.0/kernel/iscsi.c:2377: error: dereferencing pointer to incomplete type
+/opt/git-clone/wbsairback/packages/wbsairback-iscsi-scst/wbsairback-iscsi-scst-2.2.0/kernel/iscsi.c:2379: warning: initialization makes pointer from integer without a cast
+/opt/git-clone/wbsairback/packages/wbsairback-iscsi-scst/wbsairback-iscsi-scst-2.2.0/kernel/iscsi.c:2411: error: implicit declaration of function ‘scst_cmd_put’
+/opt/git-clone/wbsairback/packages/wbsairback-iscsi-scst/wbsairback-iscsi-scst-2.2.0/kernel/iscsi.c:2413: error: implicit declaration of function ‘mempool_free’
+/opt/git-clone/wbsairback/packages/wbsairback-iscsi-scst/wbsairback-iscsi-scst-2.2.0/kernel/iscsi.c:2413: error: ‘iscsi_cmnd_abort_mempool’ undeclared (first use in this function)
+/opt/git-clone/wbsairback/packages/wbsairback-iscsi-scst/wbsairback-iscsi-scst-2.2.0/kernel/iscsi.c: In function ‘iscsi_on_abort_cmd’:
+/opt/git-clone/wbsairback/packages/wbsairback-iscsi-scst/wbsairback-iscsi-scst-2.2.0/kernel/iscsi.c:2425: error: implicit declaration of function ‘mempool_alloc’
+/opt/git-clone/wbsairback/packages/wbsairback-iscsi-scst/wbsairback-iscsi-scst-2.2.0/kernel/iscsi.c:2425: error: ‘iscsi_cmnd_abort_mempool’ undeclared (first use in this function)
+/opt/git-clone/wbsairback/packages/wbsairback-iscsi-scst/wbsairback-iscsi-scst-2.2.0/kernel/iscsi.c:2434:5: warning: "LINUX_VERSION_CODE" is not defined
+/opt/git-clone/wbsairback/packages/wbsairback-iscsi-scst/wbsairback-iscsi-scst-2.2.0/kernel/iscsi.c:2434:26: warning: "KERNEL_VERSION" is not defined
+/opt/git-clone/wbsairback/packages/wbsairback-iscsi-scst/wbsairback-iscsi-scst-2.2.0/kernel/iscsi.c:2434:40: error: missing binary operator before token "("
+/opt/git-clone/wbsairback/packages/wbsairback-iscsi-scst/wbsairback-iscsi-scst-2.2.0/kernel/iscsi.c:2441: error: implicit declaration of function ‘scst_cmd_get’
+/opt/git-clone/wbsairback/packages/wbsairback-iscsi-scst/wbsairback-iscsi-scst-2.2.0/kernel/iscsi.c: In function ‘conn_abort’:
+/opt/git-clone/wbsairback/packages/wbsairback-iscsi-scst/wbsairback-iscsi-scst-2.2.0/kernel/iscsi.c:2461: warning: passing argument 1 of ‘cancel_delayed_work_sync’ from incompatible pointer type
+include/linux/workqueue.h:381: note: expected ‘struct delayed_work *’ but argument is of type ‘struct work_struct *’
+/opt/git-clone/wbsairback/packages/wbsairback-iscsi-scst/wbsairback-iscsi-scst-2.2.0/kernel/iscsi.c: In function ‘execute_task_management’:
+/opt/git-clone/wbsairback/packages/wbsairback-iscsi-scst/wbsairback-iscsi-scst-2.2.0/kernel/iscsi.c:2506: error: storage size of ‘params’ isn’t known
+/opt/git-clone/wbsairback/packages/wbsairback-iscsi-scst/wbsairback-iscsi-scst-2.2.0/kernel/iscsi.c:2535: error: ‘SCST_NON_ATOMIC’ undeclared (first use in this function)
+/opt/git-clone/wbsairback/packages/wbsairback-iscsi-scst/wbsairback-iscsi-scst-2.2.0/kernel/iscsi.c:2553: error: ‘SCST_ABORT_TASK’ undeclared (first use in this function)
+/opt/git-clone/wbsairback/packages/wbsairback-iscsi-scst/wbsairback-iscsi-scst-2.2.0/kernel/iscsi.c:2561: error: implicit declaration of function ‘scst_rx_mgmt_fn’
+/opt/git-clone/wbsairback/packages/wbsairback-iscsi-scst/wbsairback-iscsi-scst-2.2.0/kernel/iscsi.c:2567: error: ‘SCST_ABORT_TASK_SET’ undeclared (first use in this function)
+/opt/git-clone/wbsairback/packages/wbsairback-iscsi-scst/wbsairback-iscsi-scst-2.2.0/kernel/iscsi.c:2578: error: ‘SCST_CLEAR_TASK_SET’ undeclared (first use in this function)
+/opt/git-clone/wbsairback/packages/wbsairback-iscsi-scst/wbsairback-iscsi-scst-2.2.0/kernel/iscsi.c:2589: error: ‘SCST_CLEAR_ACA’ undeclared (first use in this function)
+/opt/git-clone/wbsairback/packages/wbsairback-iscsi-scst/wbsairback-iscsi-scst-2.2.0/kernel/iscsi.c:2601: error: ‘SCST_TARGET_RESET’ undeclared (first use in this function)
+/opt/git-clone/wbsairback/packages/wbsairback-iscsi-scst/wbsairback-iscsi-scst-2.2.0/kernel/iscsi.c:2609: error: ‘SCST_LUN_RESET’ undeclared (first use in this function)
+/opt/git-clone/wbsairback/packages/wbsairback-iscsi-scst/wbsairback-iscsi-scst-2.2.0/kernel/iscsi.c:2506: warning: unused variable ‘params’
+/opt/git-clone/wbsairback/packages/wbsairback-iscsi-scst/wbsairback-iscsi-scst-2.2.0/kernel/iscsi.c: In function ‘logout_exec’:
+/opt/git-clone/wbsairback/packages/wbsairback-iscsi-scst/wbsairback-iscsi-scst-2.2.0/kernel/iscsi.c:2708: error: implicit declaration of function ‘PRINT_INFO’
+/opt/git-clone/wbsairback/packages/wbsairback-iscsi-scst/wbsairback-iscsi-scst-2.2.0/kernel/iscsi.c: In function ‘iscsi_alloc_data_buf’:
+/opt/git-clone/wbsairback/packages/wbsairback-iscsi-scst/wbsairback-iscsi-scst-2.2.0/kernel/iscsi.c:3155: error: ‘SCST_DATA_READ’ undeclared (first use in this function)
+/opt/git-clone/wbsairback/packages/wbsairback-iscsi-scst/wbsairback-iscsi-scst-2.2.0/kernel/iscsi.c:3156: error: implicit declaration of function ‘scst_cmd_set_no_sgv’
+/opt/git-clone/wbsairback/packages/wbsairback-iscsi-scst/wbsairback-iscsi-scst-2.2.0/kernel/iscsi.c: In function ‘iscsi_preprocessing_done’:
+/opt/git-clone/wbsairback/packages/wbsairback-iscsi-scst/wbsairback-iscsi-scst-2.2.0/kernel/iscsi.c:3164: warning: cast to pointer from integer of different size
+/opt/git-clone/wbsairback/packages/wbsairback-iscsi-scst/wbsairback-iscsi-scst-2.2.0/kernel/iscsi.c: In function ‘iscsi_xmit_response’:
+/opt/git-clone/wbsairback/packages/wbsairback-iscsi-scst/wbsairback-iscsi-scst-2.2.0/kernel/iscsi.c:3256: error: implicit declaration of function ‘scst_cmd_get_is_send_status’
+/opt/git-clone/wbsairback/packages/wbsairback-iscsi-scst/wbsairback-iscsi-scst-2.2.0/kernel/iscsi.c:3258: warning: cast to pointer from integer of different size
+/opt/git-clone/wbsairback/packages/wbsairback-iscsi-scst/wbsairback-iscsi-scst-2.2.0/kernel/iscsi.c:3260: error: implicit declaration of function ‘scst_cmd_get_status’
+/opt/git-clone/wbsairback/packages/wbsairback-iscsi-scst/wbsairback-iscsi-scst-2.2.0/kernel/iscsi.c:3261: error: implicit declaration of function ‘scst_cmd_get_sense_buffer’
+/opt/git-clone/wbsairback/packages/wbsairback-iscsi-scst/wbsairback-iscsi-scst-2.2.0/kernel/iscsi.c:3261: warning: initialization makes pointer from integer without a cast
+/opt/git-clone/wbsairback/packages/wbsairback-iscsi-scst/wbsairback-iscsi-scst-2.2.0/kernel/iscsi.c:3262: error: implicit declaration of function ‘scst_cmd_get_sense_buffer_len’
+/opt/git-clone/wbsairback/packages/wbsairback-iscsi-scst/wbsairback-iscsi-scst-2.2.0/kernel/iscsi.c:3271: error: implicit declaration of function ‘scst_cmd_aborted’
+/opt/git-clone/wbsairback/packages/wbsairback-iscsi-scst/wbsairback-iscsi-scst-2.2.0/kernel/iscsi.c:3278: error: implicit declaration of function ‘scst_set_delivery_status’
+/opt/git-clone/wbsairback/packages/wbsairback-iscsi-scst/wbsairback-iscsi-scst-2.2.0/kernel/iscsi.c:3279: error: ‘SCST_CMD_DELIVERY_ABORTED’ undeclared (first use in this function)
+/opt/git-clone/wbsairback/packages/wbsairback-iscsi-scst/wbsairback-iscsi-scst-2.2.0/kernel/iscsi.c:3292: error: implicit declaration of function ‘scst_check_convert_sense’
+/opt/git-clone/wbsairback/packages/wbsairback-iscsi-scst/wbsairback-iscsi-scst-2.2.0/kernel/iscsi.c:3295: warning: assignment makes pointer from integer without a cast
+/opt/git-clone/wbsairback/packages/wbsairback-iscsi-scst/wbsairback-iscsi-scst-2.2.0/kernel/iscsi.c:3300: warning: assignment makes pointer from integer without a cast
+/opt/git-clone/wbsairback/packages/wbsairback-iscsi-scst/wbsairback-iscsi-scst-2.2.0/kernel/iscsi.c:3304: error: implicit declaration of function ‘scst_cmd_get_adjusted_resp_data_len’
+/opt/git-clone/wbsairback/packages/wbsairback-iscsi-scst/wbsairback-iscsi-scst-2.2.0/kernel/iscsi.c:3320: error: ‘scst_sense_hardw_error’ undeclared (first use in this function)
+/opt/git-clone/wbsairback/packages/wbsairback-iscsi-scst/wbsairback-iscsi-scst-2.2.0/kernel/iscsi.c:3375: error: implicit declaration of function ‘scst_get_active_cmd_count’
+/opt/git-clone/wbsairback/packages/wbsairback-iscsi-scst/wbsairback-iscsi-scst-2.2.0/kernel/iscsi.c:3390: error: ‘SCST_TGT_RES_SUCCESS’ undeclared (first use in this function)
+/opt/git-clone/wbsairback/packages/wbsairback-iscsi-scst/wbsairback-iscsi-scst-2.2.0/kernel/iscsi.c: In function ‘iscsi_get_mgmt_response’:
+/opt/git-clone/wbsairback/packages/wbsairback-iscsi-scst/wbsairback-iscsi-scst-2.2.0/kernel/iscsi.c:3513: error: ‘SCST_MGMT_STATUS_SUCCESS’ undeclared (first use in this function)
+/opt/git-clone/wbsairback/packages/wbsairback-iscsi-scst/wbsairback-iscsi-scst-2.2.0/kernel/iscsi.c:3516: error: ‘SCST_MGMT_STATUS_TASK_NOT_EXIST’ undeclared (first use in this function)
+/opt/git-clone/wbsairback/packages/wbsairback-iscsi-scst/wbsairback-iscsi-scst-2.2.0/kernel/iscsi.c:3519: error: ‘SCST_MGMT_STATUS_LUN_NOT_EXIST’ undeclared (first use in this function)
+/opt/git-clone/wbsairback/packages/wbsairback-iscsi-scst/wbsairback-iscsi-scst-2.2.0/kernel/iscsi.c:3522: error: ‘SCST_MGMT_STATUS_FN_NOT_SUPPORTED’ undeclared (first use in this function)
+/opt/git-clone/wbsairback/packages/wbsairback-iscsi-scst/wbsairback-iscsi-scst-2.2.0/kernel/iscsi.c:3525: error: ‘SCST_MGMT_STATUS_REJECTED’ undeclared (first use in this function)
+/opt/git-clone/wbsairback/packages/wbsairback-iscsi-scst/wbsairback-iscsi-scst-2.2.0/kernel/iscsi.c:3526: error: ‘SCST_MGMT_STATUS_FAILED’ undeclared (first use in this function)
+/opt/git-clone/wbsairback/packages/wbsairback-iscsi-scst/wbsairback-iscsi-scst-2.2.0/kernel/iscsi.c: At top level:
+/opt/git-clone/wbsairback/packages/wbsairback-iscsi-scst/wbsairback-iscsi-scst-2.2.0/kernel/iscsi.c:3532: warning: ‘struct scst_mgmt_cmd’ declared inside parameter list
+/opt/git-clone/wbsairback/packages/wbsairback-iscsi-scst/wbsairback-iscsi-scst-2.2.0/kernel/iscsi.c: In function ‘iscsi_task_mgmt_fn_done’:
+/opt/git-clone/wbsairback/packages/wbsairback-iscsi-scst/wbsairback-iscsi-scst-2.2.0/kernel/iscsi.c:3534: error: implicit declaration of function ‘scst_mgmt_cmd_get_fn’
+/opt/git-clone/wbsairback/packages/wbsairback-iscsi-scst/wbsairback-iscsi-scst-2.2.0/kernel/iscsi.c:3536: error: implicit declaration of function ‘scst_mgmt_cmd_get_tgt_priv’
+/opt/git-clone/wbsairback/packages/wbsairback-iscsi-scst/wbsairback-iscsi-scst-2.2.0/kernel/iscsi.c:3536: warning: cast to pointer from integer of different size
+/opt/git-clone/wbsairback/packages/wbsairback-iscsi-scst/wbsairback-iscsi-scst-2.2.0/kernel/iscsi.c:3538: error: implicit declaration of function ‘scst_mgmt_cmd_get_status’
+/opt/git-clone/wbsairback/packages/wbsairback-iscsi-scst/wbsairback-iscsi-scst-2.2.0/kernel/iscsi.c:3541: error: ‘SCST_ABORT_TASK’ undeclared (first use in this function)
+/opt/git-clone/wbsairback/packages/wbsairback-iscsi-scst/wbsairback-iscsi-scst-2.2.0/kernel/iscsi.c:3551: error: ‘SCST_NEXUS_LOSS_SESS’ undeclared (first use in this function)
+/opt/git-clone/wbsairback/packages/wbsairback-iscsi-scst/wbsairback-iscsi-scst-2.2.0/kernel/iscsi.c:3552: error: ‘SCST_ABORT_ALL_TASKS_SESS’ undeclared (first use in this function)
+/opt/git-clone/wbsairback/packages/wbsairback-iscsi-scst/wbsairback-iscsi-scst-2.2.0/kernel/iscsi.c:3557: error: implicit declaration of function ‘scst_mgmt_cmd_set_tgt_priv’
+/opt/git-clone/wbsairback/packages/wbsairback-iscsi-scst/wbsairback-iscsi-scst-2.2.0/kernel/iscsi.c: In function ‘iscsi_scsi_aen’:
+/opt/git-clone/wbsairback/packages/wbsairback-iscsi-scst/wbsairback-iscsi-scst-2.2.0/kernel/iscsi.c:3565: error: ‘SCST_AEN_RES_SUCCESS’ undeclared (first use in this function)
+/opt/git-clone/wbsairback/packages/wbsairback-iscsi-scst/wbsairback-iscsi-scst-2.2.0/kernel/iscsi.c:3566: error: implicit declaration of function ‘scst_aen_get_lun’
+/opt/git-clone/wbsairback/packages/wbsairback-iscsi-scst/wbsairback-iscsi-scst-2.2.0/kernel/iscsi.c:3567: error: implicit declaration of function ‘scst_aen_get_sense’
+/opt/git-clone/wbsairback/packages/wbsairback-iscsi-scst/wbsairback-iscsi-scst-2.2.0/kernel/iscsi.c:3567: warning: initialization makes pointer from integer without a cast
+/opt/git-clone/wbsairback/packages/wbsairback-iscsi-scst/wbsairback-iscsi-scst-2.2.0/kernel/iscsi.c:3568: error: implicit declaration of function ‘scst_aen_get_sense_len’
+/opt/git-clone/wbsairback/packages/wbsairback-iscsi-scst/wbsairback-iscsi-scst-2.2.0/kernel/iscsi.c:3570: error: implicit declaration of function ‘scst_aen_get_sess’
+/opt/git-clone/wbsairback/packages/wbsairback-iscsi-scst/wbsairback-iscsi-scst-2.2.0/kernel/iscsi.c:3570: warning: initialization makes pointer from integer without a cast
+/opt/git-clone/wbsairback/packages/wbsairback-iscsi-scst/wbsairback-iscsi-scst-2.2.0/kernel/iscsi.c:3646: error: ‘SCST_AEN_RES_FAILED’ undeclared (first use in this function)
+/opt/git-clone/wbsairback/packages/wbsairback-iscsi-scst/wbsairback-iscsi-scst-2.2.0/kernel/iscsi.c: In function ‘iscsi_cpu_mask_changed_aen’:
+/opt/git-clone/wbsairback/packages/wbsairback-iscsi-scst/wbsairback-iscsi-scst-2.2.0/kernel/iscsi.c:3652: error: ‘SCST_AEN_RES_SUCCESS’ undeclared (first use in this function)
+/opt/git-clone/wbsairback/packages/wbsairback-iscsi-scst/wbsairback-iscsi-scst-2.2.0/kernel/iscsi.c:3653: warning: initialization makes pointer from integer without a cast
+/opt/git-clone/wbsairback/packages/wbsairback-iscsi-scst/wbsairback-iscsi-scst-2.2.0/kernel/iscsi.c:3654: warning: initialization makes pointer from integer without a cast
+/opt/git-clone/wbsairback/packages/wbsairback-iscsi-scst/wbsairback-iscsi-scst-2.2.0/kernel/iscsi.c: In function ‘iscsi_report_aen’:
+/opt/git-clone/wbsairback/packages/wbsairback-iscsi-scst/wbsairback-iscsi-scst-2.2.0/kernel/iscsi.c:3674: error: implicit declaration of function ‘scst_aen_get_event_fn’
+/opt/git-clone/wbsairback/packages/wbsairback-iscsi-scst/wbsairback-iscsi-scst-2.2.0/kernel/iscsi.c:3679: error: ‘SCST_AEN_SCSI’ undeclared (first use in this function)
+/opt/git-clone/wbsairback/packages/wbsairback-iscsi-scst/wbsairback-iscsi-scst-2.2.0/kernel/iscsi.c:3682: error: ‘SCST_AEN_CPU_MASK_CHANGED’ undeclared (first use in this function)
+/opt/git-clone/wbsairback/packages/wbsairback-iscsi-scst/wbsairback-iscsi-scst-2.2.0/kernel/iscsi.c:3687: error: ‘SCST_AEN_RES_NOT_SUPPORTED’ undeclared (first use in this function)
+/opt/git-clone/wbsairback/packages/wbsairback-iscsi-scst/wbsairback-iscsi-scst-2.2.0/kernel/iscsi.c: In function ‘iscsi_get_initiator_port_transport_id’:
+/opt/git-clone/wbsairback/packages/wbsairback-iscsi-scst/wbsairback-iscsi-scst-2.2.0/kernel/iscsi.c:3708: error: ‘SCSI_TRANSPORTID_PROTOCOLID_ISCSI’ undeclared (first use in this function)
+/opt/git-clone/wbsairback/packages/wbsairback-iscsi-scst/wbsairback-iscsi-scst-2.2.0/kernel/iscsi.c:3712: warning: cast to pointer from integer of different size
+/opt/git-clone/wbsairback/packages/wbsairback-iscsi-scst/wbsairback-iscsi-scst-2.2.0/kernel/iscsi.c: At top level:
+/opt/git-clone/wbsairback/packages/wbsairback-iscsi-scst/wbsairback-iscsi-scst-2.2.0/kernel/iscsi.c:3803: error: array type has incomplete element type
+/opt/git-clone/wbsairback/packages/wbsairback-iscsi-scst/wbsairback-iscsi-scst-2.2.0/kernel/iscsi.c:3821: error: variable ‘iscsi_template’ has initializer but incomplete type
+/opt/git-clone/wbsairback/packages/wbsairback-iscsi-scst/wbsairback-iscsi-scst-2.2.0/kernel/iscsi.c:3822: error: unknown field ‘name’ specified in initializer
+/opt/git-clone/wbsairback/packages/wbsairback-iscsi-scst/wbsairback-iscsi-scst-2.2.0/kernel/iscsi.c:3822: warning: excess elements in struct initializer
+/opt/git-clone/wbsairback/packages/wbsairback-iscsi-scst/wbsairback-iscsi-scst-2.2.0/kernel/iscsi.c:3822: warning: (near initialization for ‘iscsi_template’)
+/opt/git-clone/wbsairback/packages/wbsairback-iscsi-scst/wbsairback-iscsi-scst-2.2.0/kernel/iscsi.c:3823: error: unknown field ‘sg_tablesize’ specified in initializer
+/opt/git-clone/wbsairback/packages/wbsairback-iscsi-scst/wbsairback-iscsi-scst-2.2.0/kernel/iscsi.c:3823: warning: excess elements in struct initializer
+/opt/git-clone/wbsairback/packages/wbsairback-iscsi-scst/wbsairback-iscsi-scst-2.2.0/kernel/iscsi.c:3823: warning: (near initialization for ‘iscsi_template’)
+/opt/git-clone/wbsairback/packages/wbsairback-iscsi-scst/wbsairback-iscsi-scst-2.2.0/kernel/iscsi.c:3824: error: unknown field ‘threads_num’ specified in initializer
+/opt/git-clone/wbsairback/packages/wbsairback-iscsi-scst/wbsairback-iscsi-scst-2.2.0/kernel/iscsi.c:3824: warning: excess elements in struct initializer
+/opt/git-clone/wbsairback/packages/wbsairback-iscsi-scst/wbsairback-iscsi-scst-2.2.0/kernel/iscsi.c:3824: warning: (near initialization for ‘iscsi_template’)
+/opt/git-clone/wbsairback/packages/wbsairback-iscsi-scst/wbsairback-iscsi-scst-2.2.0/kernel/iscsi.c:3825: error: unknown field ‘no_clustering’ specified in initializer
+/opt/git-clone/wbsairback/packages/wbsairback-iscsi-scst/wbsairback-iscsi-scst-2.2.0/kernel/iscsi.c:3825: warning: excess elements in struct initializer
+/opt/git-clone/wbsairback/packages/wbsairback-iscsi-scst/wbsairback-iscsi-scst-2.2.0/kernel/iscsi.c:3825: warning: (near initialization for ‘iscsi_template’)
+/opt/git-clone/wbsairback/packages/wbsairback-iscsi-scst/wbsairback-iscsi-scst-2.2.0/kernel/iscsi.c:3826: error: unknown field ‘xmit_response_atomic’ specified in initializer
+/opt/git-clone/wbsairback/packages/wbsairback-iscsi-scst/wbsairback-iscsi-scst-2.2.0/kernel/iscsi.c:3826: warning: excess elements in struct initializer
+/opt/git-clone/wbsairback/packages/wbsairback-iscsi-scst/wbsairback-iscsi-scst-2.2.0/kernel/iscsi.c:3826: warning: (near initialization for ‘iscsi_template’)
+/opt/git-clone/wbsairback/packages/wbsairback-iscsi-scst/wbsairback-iscsi-scst-2.2.0/kernel/iscsi.c:3828: error: unknown field ‘tgtt_attrs’ specified in initializer
+/opt/git-clone/wbsairback/packages/wbsairback-iscsi-scst/wbsairback-iscsi-scst-2.2.0/kernel/iscsi.c:3828: warning: excess elements in struct initializer
+/opt/git-clone/wbsairback/packages/wbsairback-iscsi-scst/wbsairback-iscsi-scst-2.2.0/kernel/iscsi.c:3828: warning: (near initialization for ‘iscsi_template’)
+/opt/git-clone/wbsairback/packages/wbsairback-iscsi-scst/wbsairback-iscsi-scst-2.2.0/kernel/iscsi.c:3829: error: unknown field ‘tgt_attrs’ specified in initializer
+/opt/git-clone/wbsairback/packages/wbsairback-iscsi-scst/wbsairback-iscsi-scst-2.2.0/kernel/iscsi.c:3829: warning: excess elements in struct initializer
+/opt/git-clone/wbsairback/packages/wbsairback-iscsi-scst/wbsairback-iscsi-scst-2.2.0/kernel/iscsi.c:3829: warning: (near initialization for ‘iscsi_template’)
+/opt/git-clone/wbsairback/packages/wbsairback-iscsi-scst/wbsairback-iscsi-scst-2.2.0/kernel/iscsi.c:3830: error: unknown field ‘sess_attrs’ specified in initializer
+/opt/git-clone/wbsairback/packages/wbsairback-iscsi-scst/wbsairback-iscsi-scst-2.2.0/kernel/iscsi.c:3830: warning: excess elements in struct initializer
+/opt/git-clone/wbsairback/packages/wbsairback-iscsi-scst/wbsairback-iscsi-scst-2.2.0/kernel/iscsi.c:3830: warning: (near initialization for ‘iscsi_template’)
+/opt/git-clone/wbsairback/packages/wbsairback-iscsi-scst/wbsairback-iscsi-scst-2.2.0/kernel/iscsi.c:3831: error: unknown field ‘enable_target’ specified in initializer
+/opt/git-clone/wbsairback/packages/wbsairback-iscsi-scst/wbsairback-iscsi-scst-2.2.0/kernel/iscsi.c:3831: warning: excess elements in struct initializer
+/opt/git-clone/wbsairback/packages/wbsairback-iscsi-scst/wbsairback-iscsi-scst-2.2.0/kernel/iscsi.c:3831: warning: (near initialization for ‘iscsi_template’)
+/opt/git-clone/wbsairback/packages/wbsairback-iscsi-scst/wbsairback-iscsi-scst-2.2.0/kernel/iscsi.c:3832: error: unknown field ‘is_target_enabled’ specified in initializer
+/opt/git-clone/wbsairback/packages/wbsairback-iscsi-scst/wbsairback-iscsi-scst-2.2.0/kernel/iscsi.c:3832: warning: excess elements in struct initializer
+/opt/git-clone/wbsairback/packages/wbsairback-iscsi-scst/wbsairback-iscsi-scst-2.2.0/kernel/iscsi.c:3832: warning: (near initialization for ‘iscsi_template’)
+/opt/git-clone/wbsairback/packages/wbsairback-iscsi-scst/wbsairback-iscsi-scst-2.2.0/kernel/iscsi.c:3833: error: unknown field ‘add_target’ specified in initializer
+/opt/git-clone/wbsairback/packages/wbsairback-iscsi-scst/wbsairback-iscsi-scst-2.2.0/kernel/iscsi.c:3833: warning: excess elements in struct initializer
+/opt/git-clone/wbsairback/packages/wbsairback-iscsi-scst/wbsairback-iscsi-scst-2.2.0/kernel/iscsi.c:3833: warning: (near initialization for ‘iscsi_template’)
+/opt/git-clone/wbsairback/packages/wbsairback-iscsi-scst/wbsairback-iscsi-scst-2.2.0/kernel/iscsi.c:3834: error: unknown field ‘del_target’ specified in initializer
+/opt/git-clone/wbsairback/packages/wbsairback-iscsi-scst/wbsairback-iscsi-scst-2.2.0/kernel/iscsi.c:3834: warning: excess elements in struct initializer
+/opt/git-clone/wbsairback/packages/wbsairback-iscsi-scst/wbsairback-iscsi-scst-2.2.0/kernel/iscsi.c:3834: warning: (near initialization for ‘iscsi_template’)
+/opt/git-clone/wbsairback/packages/wbsairback-iscsi-scst/wbsairback-iscsi-scst-2.2.0/kernel/iscsi.c:3835: error: unknown field ‘mgmt_cmd’ specified in initializer
+/opt/git-clone/wbsairback/packages/wbsairback-iscsi-scst/wbsairback-iscsi-scst-2.2.0/kernel/iscsi.c:3835: warning: excess elements in struct initializer
+/opt/git-clone/wbsairback/packages/wbsairback-iscsi-scst/wbsairback-iscsi-scst-2.2.0/kernel/iscsi.c:3835: warning: (near initialization for ‘iscsi_template’)
+/opt/git-clone/wbsairback/packages/wbsairback-iscsi-scst/wbsairback-iscsi-scst-2.2.0/kernel/iscsi.c:3836: error: unknown field ‘tgtt_optional_attributes’ specified in initializer
+/opt/git-clone/wbsairback/packages/wbsairback-iscsi-scst/wbsairback-iscsi-scst-2.2.0/kernel/iscsi.c:3836: warning: excess elements in struct initializer
+/opt/git-clone/wbsairback/packages/wbsairback-iscsi-scst/wbsairback-iscsi-scst-2.2.0/kernel/iscsi.c:3836: warning: (near initialization for ‘iscsi_template’)
+/opt/git-clone/wbsairback/packages/wbsairback-iscsi-scst/wbsairback-iscsi-scst-2.2.0/kernel/iscsi.c:3837: error: unknown field ‘tgt_optional_attributes’ specified in initializer
+/opt/git-clone/wbsairback/packages/wbsairback-iscsi-scst/wbsairback-iscsi-scst-2.2.0/kernel/iscsi.c:3837: warning: excess elements in struct initializer
+/opt/git-clone/wbsairback/packages/wbsairback-iscsi-scst/wbsairback-iscsi-scst-2.2.0/kernel/iscsi.c:3837: warning: (near initialization for ‘iscsi_template’)
+/opt/git-clone/wbsairback/packages/wbsairback-iscsi-scst/wbsairback-iscsi-scst-2.2.0/kernel/iscsi.c:3840: error: unknown field ‘default_trace_flags’ specified in initializer
+/opt/git-clone/wbsairback/packages/wbsairback-iscsi-scst/wbsairback-iscsi-scst-2.2.0/kernel/iscsi.c:3840: warning: excess elements in struct initializer
+/opt/git-clone/wbsairback/packages/wbsairback-iscsi-scst/wbsairback-iscsi-scst-2.2.0/kernel/iscsi.c:3840: warning: (near initialization for ‘iscsi_template’)
+/opt/git-clone/wbsairback/packages/wbsairback-iscsi-scst/wbsairback-iscsi-scst-2.2.0/kernel/iscsi.c:3841: error: unknown field ‘trace_flags’ specified in initializer
+/opt/git-clone/wbsairback/packages/wbsairback-iscsi-scst/wbsairback-iscsi-scst-2.2.0/kernel/iscsi.c:3841: warning: excess elements in struct initializer
+/opt/git-clone/wbsairback/packages/wbsairback-iscsi-scst/wbsairback-iscsi-scst-2.2.0/kernel/iscsi.c:3841: warning: (near initialization for ‘iscsi_template’)
+/opt/git-clone/wbsairback/packages/wbsairback-iscsi-scst/wbsairback-iscsi-scst-2.2.0/kernel/iscsi.c:3844: error: unknown field ‘trace_tbl’ specified in initializer
+/opt/git-clone/wbsairback/packages/wbsairback-iscsi-scst/wbsairback-iscsi-scst-2.2.0/kernel/iscsi.c:3844: warning: excess elements in struct initializer
+/opt/git-clone/wbsairback/packages/wbsairback-iscsi-scst/wbsairback-iscsi-scst-2.2.0/kernel/iscsi.c:3844: warning: (near initialization for ‘iscsi_template’)
+/opt/git-clone/wbsairback/packages/wbsairback-iscsi-scst/wbsairback-iscsi-scst-2.2.0/kernel/iscsi.c:3845: error: unknown field ‘trace_tbl_help’ specified in initializer
+/opt/git-clone/wbsairback/packages/wbsairback-iscsi-scst/wbsairback-iscsi-scst-2.2.0/kernel/iscsi.c:3845: warning: excess elements in struct initializer
+/opt/git-clone/wbsairback/packages/wbsairback-iscsi-scst/wbsairback-iscsi-scst-2.2.0/kernel/iscsi.c:3845: warning: (near initialization for ‘iscsi_template’)
+/opt/git-clone/wbsairback/packages/wbsairback-iscsi-scst/wbsairback-iscsi-scst-2.2.0/kernel/iscsi.c:3848: error: unknown field ‘detect’ specified in initializer
+/opt/git-clone/wbsairback/packages/wbsairback-iscsi-scst/wbsairback-iscsi-scst-2.2.0/kernel/iscsi.c:3848: warning: excess elements in struct initializer
+/opt/git-clone/wbsairback/packages/wbsairback-iscsi-scst/wbsairback-iscsi-scst-2.2.0/kernel/iscsi.c:3848: warning: (near initialization for ‘iscsi_template’)
+/opt/git-clone/wbsairback/packages/wbsairback-iscsi-scst/wbsairback-iscsi-scst-2.2.0/kernel/iscsi.c:3849: error: unknown field ‘release’ specified in initializer
+/opt/git-clone/wbsairback/packages/wbsairback-iscsi-scst/wbsairback-iscsi-scst-2.2.0/kernel/iscsi.c:3849: warning: excess elements in struct initializer
+/opt/git-clone/wbsairback/packages/wbsairback-iscsi-scst/wbsairback-iscsi-scst-2.2.0/kernel/iscsi.c:3849: warning: (near initialization for ‘iscsi_template’)
+/opt/git-clone/wbsairback/packages/wbsairback-iscsi-scst/wbsairback-iscsi-scst-2.2.0/kernel/iscsi.c:3850: error: unknown field ‘xmit_response’ specified in initializer
+/opt/git-clone/wbsairback/packages/wbsairback-iscsi-scst/wbsairback-iscsi-scst-2.2.0/kernel/iscsi.c:3850: warning: excess elements in struct initializer
+/opt/git-clone/wbsairback/packages/wbsairback-iscsi-scst/wbsairback-iscsi-scst-2.2.0/kernel/iscsi.c:3850: warning: (near initialization for ‘iscsi_template’)
+/opt/git-clone/wbsairback/packages/wbsairback-iscsi-scst/wbsairback-iscsi-scst-2.2.0/kernel/iscsi.c:3852: error: unknown field ‘alloc_data_buf’ specified in initializer
+/opt/git-clone/wbsairback/packages/wbsairback-iscsi-scst/wbsairback-iscsi-scst-2.2.0/kernel/iscsi.c:3852: warning: excess elements in struct initializer
+/opt/git-clone/wbsairback/packages/wbsairback-iscsi-scst/wbsairback-iscsi-scst-2.2.0/kernel/iscsi.c:3852: warning: (near initialization for ‘iscsi_template’)
+/opt/git-clone/wbsairback/packages/wbsairback-iscsi-scst/wbsairback-iscsi-scst-2.2.0/kernel/iscsi.c:3854: error: unknown field ‘preprocessing_done’ specified in initializer
+/opt/git-clone/wbsairback/packages/wbsairback-iscsi-scst/wbsairback-iscsi-scst-2.2.0/kernel/iscsi.c:3854: warning: excess elements in struct initializer
+/opt/git-clone/wbsairback/packages/wbsairback-iscsi-scst/wbsairback-iscsi-scst-2.2.0/kernel/iscsi.c:3854: warning: (near initialization for ‘iscsi_template’)
+/opt/git-clone/wbsairback/packages/wbsairback-iscsi-scst/wbsairback-iscsi-scst-2.2.0/kernel/iscsi.c:3855: error: unknown field ‘pre_exec’ specified in initializer
+/opt/git-clone/wbsairback/packages/wbsairback-iscsi-scst/wbsairback-iscsi-scst-2.2.0/kernel/iscsi.c:3855: warning: excess elements in struct initializer
+/opt/git-clone/wbsairback/packages/wbsairback-iscsi-scst/wbsairback-iscsi-scst-2.2.0/kernel/iscsi.c:3855: warning: (near initialization for ‘iscsi_template’)
+/opt/git-clone/wbsairback/packages/wbsairback-iscsi-scst/wbsairback-iscsi-scst-2.2.0/kernel/iscsi.c:3856: error: unknown field ‘task_mgmt_affected_cmds_done’ specified in initializer
+/opt/git-clone/wbsairback/packages/wbsairback-iscsi-scst/wbsairback-iscsi-scst-2.2.0/kernel/iscsi.c:3856: warning: excess elements in struct initializer
+/opt/git-clone/wbsairback/packages/wbsairback-iscsi-scst/wbsairback-iscsi-scst-2.2.0/kernel/iscsi.c:3856: warning: (near initialization for ‘iscsi_template’)
+/opt/git-clone/wbsairback/packages/wbsairback-iscsi-scst/wbsairback-iscsi-scst-2.2.0/kernel/iscsi.c:3857: error: unknown field ‘task_mgmt_fn_done’ specified in initializer
+/opt/git-clone/wbsairback/packages/wbsairback-iscsi-scst/wbsairback-iscsi-scst-2.2.0/kernel/iscsi.c:3857: warning: excess elements in struct initializer
+/opt/git-clone/wbsairback/packages/wbsairback-iscsi-scst/wbsairback-iscsi-scst-2.2.0/kernel/iscsi.c:3857: warning: (near initialization for ‘iscsi_template’)
+/opt/git-clone/wbsairback/packages/wbsairback-iscsi-scst/wbsairback-iscsi-scst-2.2.0/kernel/iscsi.c:3858: error: unknown field ‘on_abort_cmd’ specified in initializer
+/opt/git-clone/wbsairback/packages/wbsairback-iscsi-scst/wbsairback-iscsi-scst-2.2.0/kernel/iscsi.c:3858: warning: excess elements in struct initializer
+/opt/git-clone/wbsairback/packages/wbsairback-iscsi-scst/wbsairback-iscsi-scst-2.2.0/kernel/iscsi.c:3858: warning: (near initialization for ‘iscsi_template’)
+/opt/git-clone/wbsairback/packages/wbsairback-iscsi-scst/wbsairback-iscsi-scst-2.2.0/kernel/iscsi.c:3859: error: unknown field ‘report_aen’ specified in initializer
+/opt/git-clone/wbsairback/packages/wbsairback-iscsi-scst/wbsairback-iscsi-scst-2.2.0/kernel/iscsi.c:3859: warning: excess elements in struct initializer
+/opt/git-clone/wbsairback/packages/wbsairback-iscsi-scst/wbsairback-iscsi-scst-2.2.0/kernel/iscsi.c:3859: warning: (near initialization for ‘iscsi_template’)
+/opt/git-clone/wbsairback/packages/wbsairback-iscsi-scst/wbsairback-iscsi-scst-2.2.0/kernel/iscsi.c:3860: error: unknown field ‘get_initiator_port_transport_id’ specified in initializer
+/opt/git-clone/wbsairback/packages/wbsairback-iscsi-scst/wbsairback-iscsi-scst-2.2.0/kernel/iscsi.c:3860: warning: excess elements in struct initializer
+/opt/git-clone/wbsairback/packages/wbsairback-iscsi-scst/wbsairback-iscsi-scst-2.2.0/kernel/iscsi.c:3860: warning: (near initialization for ‘iscsi_template’)
+/opt/git-clone/wbsairback/packages/wbsairback-iscsi-scst/wbsairback-iscsi-scst-2.2.0/kernel/iscsi.c:3861: error: unknown field ‘get_scsi_transport_version’ specified in initializer
+/opt/git-clone/wbsairback/packages/wbsairback-iscsi-scst/wbsairback-iscsi-scst-2.2.0/kernel/iscsi.c:3861: warning: excess elements in struct initializer
+/opt/git-clone/wbsairback/packages/wbsairback-iscsi-scst/wbsairback-iscsi-scst-2.2.0/kernel/iscsi.c:3861: warning: (near initialization for ‘iscsi_template’)
+/opt/git-clone/wbsairback/packages/wbsairback-iscsi-scst/wbsairback-iscsi-scst-2.2.0/kernel/iscsi.c: In function ‘iscsi_threads_pool_get’:
+/opt/git-clone/wbsairback/packages/wbsairback-iscsi-scst/wbsairback-iscsi-scst-2.2.0/kernel/iscsi.c:3896: error: implicit declaration of function ‘PRINT_WARNING’
+/opt/git-clone/wbsairback/packages/wbsairback-iscsi-scst/wbsairback-iscsi-scst-2.2.0/kernel/iscsi.c: In function ‘iscsi_init’:
+/opt/git-clone/wbsairback/packages/wbsairback-iscsi-scst/wbsairback-iscsi-scst-2.2.0/kernel/iscsi.c:4048: error: ‘iscsi_cmnd_abort_mempool’ undeclared (first use in this function)
+/opt/git-clone/wbsairback/packages/wbsairback-iscsi-scst/wbsairback-iscsi-scst-2.2.0/kernel/iscsi.c:4048: error: implicit declaration of function ‘mempool_create_kmalloc_pool’
+/opt/git-clone/wbsairback/packages/wbsairback-iscsi-scst/wbsairback-iscsi-scst-2.2.0/kernel/iscsi.c:4083: error: ‘SCST_SLAB_FLAGS’ undeclared (first use in this function)
+/opt/git-clone/wbsairback/packages/wbsairback-iscsi-scst/wbsairback-iscsi-scst-2.2.0/kernel/iscsi.c:4089: error: implicit declaration of function ‘scst_register_target_template’
+/opt/git-clone/wbsairback/packages/wbsairback-iscsi-scst/wbsairback-iscsi-scst-2.2.0/kernel/iscsi.c:4098: error: implicit declaration of function ‘scst_sysfs_get_sysfs_ops’
+/opt/git-clone/wbsairback/packages/wbsairback-iscsi-scst/wbsairback-iscsi-scst-2.2.0/kernel/iscsi.c:4098: warning: assignment makes pointer from integer without a cast
+/opt/git-clone/wbsairback/packages/wbsairback-iscsi-scst/wbsairback-iscsi-scst-2.2.0/kernel/iscsi.c:4116: error: implicit declaration of function ‘scst_unregister_target_template’
+/opt/git-clone/wbsairback/packages/wbsairback-iscsi-scst/wbsairback-iscsi-scst-2.2.0/kernel/iscsi.c: In function ‘iscsi_exit’:
+/opt/git-clone/wbsairback/packages/wbsairback-iscsi-scst/wbsairback-iscsi-scst-2.2.0/kernel/iscsi.c:4161: error: implicit declaration of function ‘mempool_destroy’
+/opt/git-clone/wbsairback/packages/wbsairback-iscsi-scst/wbsairback-iscsi-scst-2.2.0/kernel/iscsi.c:4161: error: ‘iscsi_cmnd_abort_mempool’ undeclared (first use in this function)
+make[2]: *** [/opt/git-clone/wbsairback/packages/wbsairback-iscsi-scst/wbsairback-iscsi-scst-2.2.0/kernel/iscsi.o] Error 1
+make[1]: *** [_module_/opt/git-clone/wbsairback/packages/wbsairback-iscsi-scst/wbsairback-iscsi-scst-2.2.0/kernel] Error 2
+make: *** [mods] Error 2

@@ -1,0 +1,11 @@
+Source: wbsairback-plymouth-theme
+Section: admin
+Maintainer: Ricardo Lorenzo Rodríguez <ricardo.lorenzo@wbsgo.com>
+Priority: optional
+Homepage: http://www.wbslabs.com/wbslabs/live/proyectos/wbsairback.html
+
+Package: wbsairback-plymouth-theme
+Architecture: amd64
+Depends: wbsairback-kernel-image, plymouth
+Description: WBSAirback plymouth theme
+  WBSAirback plymouth theme.

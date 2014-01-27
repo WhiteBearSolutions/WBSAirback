@@ -1,0 +1,19 @@
+Source: wbsairback-multipath
+Section: admin
+Priority: optional
+Maintainer: Ricardo Lorenzo <ricardo.lorenzo@whitebearsolutions.com>
+Uploaders: Ricardo Lorenzo <ricardo.lorenzo@whitebearsolutions.com>
+Build-Depends:
+ debhelper (>= 7.0.50~), libaio-dev, libdevmapper-dev
+Standards-Version: 3.8.4
+Homepage: http://http://christophe.varoqui.free.fr/
+
+Package: wbsairback-multipath
+Architecture: any
+Depends: wbsairback-lvm2
+Conflicts: multipath-tools
+Replaces: multipath-tools
+Description: Multipath utilities for block devices
+  These tools are in charge of maintaining the disk multipath device maps
+ and react to path and map events.
+

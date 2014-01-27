@@ -1,0 +1,259 @@
+#!/bin/sh
+# postinst script for webadministration
+#
+# see: dh_installdeb(1)
+
+set -e
+
+# summary of how this script can be called:
+#        * <postinst> `configure' <most-recently-configured-version>
+#        * <old-postinst> `abort-upgrade' <new version>
+#        * <conflictor's-postinst> `abort-remove' `in-favour' <package>
+#          <new-version>
+#        * <postinst> `abort-remove'
+#        * <deconfigured's-postinst> `abort-deconfigure' `in-favour'
+#          <failed-install-package> <version> `removing'
+#          <conflicting-package> <version>
+# for details, see http://www.debian.org/doc/debian-policy/ or
+# the debian-policy package
+
+make_web_xml() {
+  CLASSES=/var/www/webadministration/WEB-INF/classes
+  CLASSES_SERVLETS=/var/www/webadministration/WEB-INF/classes/com/whitebearsolutions/imagine/wbsairback/servlets
+  WEB_XML=/var/www/webadministration/WEB-INF/web.xml
+
+  cat /dev/null > $WEB_XML
+
+  echo "<?xml version=\"1.0\" encoding=\"UTF-8\"?>" >>$WEB_XML
+  echo "<web-app xmlns=\"http://java.sun.com/xml/ns/javaee\"" >>$WEB_XML
+  echo "  xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"" >>$WEB_XML
+  echo "  xsi:schemaLocation=\"http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd\"" >>$WEB_XML
+  echo "  version=\"2.5\">" >>$WEB_XML
+
+  for SERVLET in $(ls $CLASSES_SERVLETS); do
+    if [ "$SERVLET" != ${SERVLET%\.class*} ]; then
+       SERVLET_NAME=${SERVLET%\.*}
+       echo "" >>$WEB_XML
+       echo "  <servlet>" >>$WEB_XML
+       echo "    <servlet-name>$SERVLET_NAME</servlet-name>" >>$WEB_XML
+       echo "    <servlet-class>com.whitebearsolutions.imagine.wbsairback.servlets.$SERVLET_NAME</servlet-class>" >>$WEB_XML
+       echo "  </servlet>" >>$WEB_XML
+    fi
+  done
+
+  echo "  <servlet>" >>$WEB_XML 
+  echo "    <servlet-name>log4j-init</servlet-name>" >>$WEB_XML
+  echo "    <servlet-class>com.whitebearsolutions.imagine.wbsairback.util.Log4jInit</servlet-class>" >>$WEB_XML
+  echo "    <init-param>" >>$WEB_XML
+  echo "      <param-name>log4j-init-file</param-name>" >>$WEB_XML
+  echo "      <param-value>WEB-INF/classes/log4j.properties</param-value>" >>$WEB_XML
+  echo "    </init-param>" >>$WEB_XML
+  echo "    <load-on-startup>1</load-on-startup>" >>$WEB_XML
+  echo "  </servlet>" >>$WEB_XML
+
+  echo "" >>$WEB_XML
+  echo "<!-- The mapping servlet -->" >>$WEB_XML
+  for SERVLET in $(ls $CLASSES_SERVLETS); do
+    if [ "$SERVLET" != ${SERVLET%\.class*} ]; then
+       SERVLET_NAME=${SERVLET%\.*}
+       echo "  <servlet-mapping>" >>$WEB_XML
+       echo "    <servlet-name>$SERVLET_NAME</servlet-name>" >>$WEB_XML
+       if [ "$SERVLET_NAME" = "Login" ]; then
+         echo "    <url-pattern>/index.html</url-pattern>" >>$WEB_XML
+         echo "  </servlet-mapping>" >>$WEB_XML
+         echo "" >>$WEB_XML
+         echo "  <servlet-mapping>" >>$WEB_XML
+         echo "    <servlet-name>$SERVLET_NAME</servlet-name>" >>$WEB_XML
+         echo "    <url-pattern>/admin/$SERVLET_NAME</url-pattern>" >>$WEB_XML
+       else
+         echo "    <url-pattern>/admin/$SERVLET_NAME</url-pattern>" >>$WEB_XML
+       fi
+       echo "  </servlet-mapping>" >>$WEB_XML
+       echo "" >>$WEB_XML
+    fi
+  done
+
+  echo "   <servlet>" >>$WEB_XML
+  echo "  	<servlet-name>Airback REST Service</servlet-name>" >>$WEB_XML
+  echo "  	<servlet-class>com.sun.jersey.spi.container.servlet.ServletContainer</servlet-class>" >>$WEB_XML
+  echo "  	<init-param>" >>$WEB_XML
+  echo "  		<param-name>com.sun.jersey.config.property.packages</param-name>" >>$WEB_XML
+  echo "  		<param-value>com.whitebearsolutions.imagine.wbsairback.rs</param-value>" >>$WEB_XML
+  echo "  	</init-param>" >>$WEB_XML
+  echo "  	<load-on-startup>1</load-on-startup>" >>$WEB_XML
+  echo "    </servlet>" >>$WEB_XML
+  
+  echo "    <servlet-mapping>" >>$WEB_XML
+  echo "  	<servlet-name>Airback REST Service</servlet-name>" >>$WEB_XML
+  echo "  	<url-pattern>/resources/*</url-pattern>" >>$WEB_XML
+  echo "    </servlet-mapping>" >>$WEB_XML
+
+  echo "  <servlet-mapping>" >>$WEB_XML
+  echo "    <servlet-name>default</servlet-name>" >>$WEB_XML
+  echo "    <url-pattern>*.css</url-pattern>" >>$WEB_XML
+  echo "  </servlet-mapping>" >>$WEB_XML
+
+  echo "" >>$WEB_XML
+  echo "  <servlet-mapping>" >>$WEB_XML
+  echo "    <servlet-name>default</servlet-name>" >>$WEB_XML
+  echo "    <url-pattern>*.png</url-pattern>" >>$WEB_XML
+  echo "  </servlet-mapping>" >>$WEB_XML
+
+  echo "" >>$WEB_XML
+  echo "  <servlet-mapping>" >>$WEB_XML
+  echo "    <servlet-name>default</servlet-name>" >>$WEB_XML
+  echo "    <url-pattern>*.jpg</url-pattern>" >>$WEB_XML
+  echo "  </servlet-mapping>" >>$WEB_XML
+
+  echo "" >>$WEB_XML
+  echo "  <servlet-mapping>" >>$WEB_XML
+  echo "    <servlet-name>default</servlet-name>" >>$WEB_XML
+  echo "    <url-pattern>*.gif</url-pattern>" >>$WEB_XML
+  echo "  </servlet-mapping>" >>$WEB_XML
+
+  echo "" >>$WEB_XML
+  echo "  <servlet-mapping>" >>$WEB_XML
+  echo "    <servlet-name>default</servlet-name>" >>$WEB_XML
+  echo "    <url-pattern>*.js</url-pattern>" >>$WEB_XML
+  echo "  </servlet-mapping>" >>$WEB_XML
+
+  echo "" >>$WEB_XML
+  echo "  <welcome-file-list>" >>$WEB_XML
+  echo "    <welcome-file>index.html</welcome-file>" >>$WEB_XML
+  echo "  </welcome-file-list>" >>$WEB_XML
+
+  echo "" >>$WEB_XML
+  echo "</web-app>" >>$WEB_XML
+}
+
+case "$1" in
+    configure)
+       echo -n "Configuring WBSAirback admin: "
+       make_web_xml
+       if [ -x /etc/init.d/wbsairback-admin ]; then
+          insserv wbsairback-admin > /dev/null
+       fi
+       echo "done"
+       echo -n "Configuring WBS-Watchdog: "
+       if [ -x /etc/init.d/wbs-watchdog ]; then
+          insserv wbs-watchdog > /dev/null
+       fi
+       if [ -e /proc/version ]; then
+ 	      /etc/init.d/wbs-watchdog restart
+       fi
+       echo "done"
+       echo -n "Configuring WBSAirback stats: "
+       if [ -x /etc/init.d/rrdstats ]; then
+          insserv rrdstats > /dev/null
+       fi
+       echo "done"
+
+       echo -n "Creating default WBSAirback user: "
+       if [ -z "$(grep "^wbsairback:" /etc/passwd)" ]; then
+	       /usr/sbin/adduser --home /var/wbsairback --shell /bin/bash --gecos "WBSAirback console user" --disabled-password wbsairback > /dev/null
+	       echo "wbsairback\nwbsairback\n" | passwd wbsairback
+	       echo 'wbsairback ALL= (ALL) ALL' > /etc/sudoers.d/wbsairback
+	       chmod 0440 /etc/sudoers.d/wbsairback
+	       chown -R wbsairback:wbsairback /var/wbsairback
+	       usermod -a -G wbsairback wbsairback
+	       if [ -e /var/wbsairback/.bashrc ]; then
+	       		rm -f /var/wbsairback/.bashrc
+	       fi
+	   fi
+	   
+       if [ -e /etc/bacula/bconsole.conf ]; then
+           chmod 664 /etc/bacula/bconsole.conf
+       fi
+       if [ -e /usr/sbin/wbsairback-scsi-rescan ]; then
+           chmod 755 /usr/sbin/wbsairback-scsi-rescan
+       fi
+       if [ -e /usr/sbin/wbsairback-scsi-login ]; then
+           chmod 755 /usr/sbin/wbsairback-scsi-login
+       fi
+       if [ -e /usr/sbin/wbsairback-scsi-block ]; then
+           chmod 755 /usr/sbin/wbsairback-scsi-block
+       fi
+       if [ -e /usr/sbin/baculaBase64Decode ]; then
+           chmod 755 /usr/sbin/baculaBase64Decode
+       fi
+       if [ -e /etc/sudoers.d/bacula ]; then
+           chmod 400 /etc/sudoers.d/bacula
+       fi
+       echo "done"
+       echo -n "Configuring Bacula SD for plugins: "
+       if [ -e /etc/bacula/bacula-sd.conf ]; then
+		  if [ -z "$(grep "Plugin" /etc/bacula/bacula-sd.conf)" ]; then
+		    sed -n 'H;${x;s/^\n//;s/ Maximum Concurrent Jobs.*\n/ Plugin Directory = \"\/opt\/bacula\/plugins\"\n &/;p;}' /etc/bacula/bacula-sd.conf > /tmp/replaceSd 
+		    cat /tmp/replaceSd > /etc/bacula/bacula-sd.conf
+		    echo "reload" > bconsole
+		    rm /tmp/replaceSd
+		  fi
+		fi
+		echo "done"
+		if [ -e /rdata/config.xml ]; then
+         if [ -L /etc/wbsairback-admin/config.xml ]; then
+            rm /etc/wbsairback-admin/config.xml
+       		mv /rdata/config.xml /etc/wbsairback-admin/
+         fi
+       fi
+       if [ ! -e /rdata/advanced ]; then
+		 if [ -e /etc/wbsairback-admin/advanced ]; then
+		    mv /etc/wbsairback-admin/advanced /rdata/
+		 fi
+		 if [ ! -e /rdata/advanced ]; then
+		    mkdir /rdata/advanced
+		 fi
+		 ln -s /rdata/advanced /etc/wbsairback-admin/advanced
+	   fi
+       if [ ! -e /rdata/systemConfig.xml ]; then
+       	   if [ -e /etc/wbsairback-admin/config.xml ]; then
+       		 cp /etc/wbsairback-admin/config.xml /rdata/systemConfig.xml
+       		 /bin/ln -fs /rdata/systemConfig.xml /etc/wbsairback-admin/systemConfig.xml
+       	   fi
+       fi
+       if [ ! -e /rdata/ntp.conf ]; then
+         if [ -e /etc/ntp.conf ]; then
+            mv /etc/ntp.conf /rdata/
+       		/bin/ln -fs /rdata/ntp.conf /etc/ntp.conf
+         fi
+       fi
+       if [ ! -e /rdata/timezone ]; then
+         if [ -e /etc/ntp.conf ]; then
+            mv /etc/timezone /rdata/
+       		/bin/ln -fs /rdata/timezone /etc/timezone
+         fi
+       fi
+       if [ ! -e /rdata/snmp ]; then
+         mkdir -p /rdata/snmp
+       fi
+       if [ ! -e /rdata/snmp/snmpd.conf ]; then
+         if [ -e /etc/snmp/snmpd.conf ]; then
+           mv /etc/snmp/snmpd.conf /rdata/snmp/
+           /bin/ln -fs /rdata/snmp/snmpd.conf /etc/snmp/snmpd.conf
+         fi
+       fi
+       if [ ! -e /rdata/snmp/snmpd ]; then
+         if [ -e /etc/default/snmpd ]; then
+           mv /etc/default/snmpd /rdata/snmp/
+           /bin/ln -fs /rdata/snmp/snmpd /etc/default/snmpd
+         fi
+       fi
+
+       echo -n "Creating WebService WSDL "
+       bash /usr/sbin/gen-wsdl
+       echo "done"
+    ;;
+
+    abort-upgrade|abort-remove|abort-deconfigure)
+    ;;
+
+    *)
+        echo "postinst called with unknown argument \`$1'" >&2
+        exit 1
+    ;;
+esac
+
+# dh_installdeb will replace this with shell code automatically
+# generated by other debhelper scripts.
+
+exit 0

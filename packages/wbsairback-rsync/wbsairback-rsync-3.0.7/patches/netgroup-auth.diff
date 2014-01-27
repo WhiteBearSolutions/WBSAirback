@@ -1,0 +1,30 @@
+This allows you to use the samba style @netgroup names in hosts allow
+and hosts deny.
+
+This patch still needs autoconf support for portability.
+
+To use this patch, run these commands for a successful build:
+
+    patch -p1 <patches/netgroup-auth.diff
+    ./configure                           (optional if already run)
+    make
+
+based-on: 54f00c3f89fc147f2f9cba89d26a5bb1d20e783b
+diff --git a/access.c b/access.c
+--- a/access.c
++++ b/access.c
+@@ -19,11 +19,14 @@
+  */
+ 
+ #include "rsync.h"
++#include <netdb.h>
+ 
+ static int match_hostname(char *host, char *tok)
+ {
+ 	if (!host || !*host)
+ 		return 0;
++	if (*tok == '@' && tok[1])
++		return innetgr(tok + 1, host, NULL, NULL);
+ 	return wildmatch(tok, host);
+ }
+ 

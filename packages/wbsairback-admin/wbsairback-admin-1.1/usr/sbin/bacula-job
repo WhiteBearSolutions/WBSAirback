@@ -1,0 +1,11 @@
+#!/bin/sh
+CLASS_PATH=/var/www/webadministration/WEB-INF/classes
+LIBRARY_PATH=/var/www/webadministration/WEB-INF/lib
+JAVA_HOME=/usr/share/wbsairback/java
+
+for f in "$LIBRARY_PATH"/*.jar
+do
+  CLASS_PATH="$CLASS_PATH":$f
+done
+
+$JAVA_HOME/bin/java -Dlog4j.configuration=file:///var/www/webadministration/WEB-INF/classes/log4j.virtual.properties -DWD -cp $CLASS_PATH com.whitebearsolutions.imagine.wbsairback.util.JobLauncher $1 $2 $3

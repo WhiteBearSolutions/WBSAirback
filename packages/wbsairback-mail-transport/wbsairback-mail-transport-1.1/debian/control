@@ -1,0 +1,16 @@
+Source: wbsairback-mail-transport
+Section: admin
+Priority: optional
+Maintainer: Ricardo Lorenzo Rodríguez <ricardo.lorenzo@wbsgo.com>
+Build-Depends: debhelper (>= 7)
+Standards-Version: 3.7.3
+Homepage: http://www.wbslabs.com/wbsairback
+
+Package: wbsairback-mail-transport
+Architecture: amd64
+Depends: postfix (>= 2.4)
+Provides: exim4
+Conflicts: exim4
+Replaces: exim4
+Description: WBSAirback Mail Transport Agent
+  Virtual package who provides mail transprt feature for WBSAirback functions.

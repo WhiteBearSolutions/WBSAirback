@@ -1,0 +1,13 @@
+Source: wbsairback-s3backer
+Section: admin
+Priority: important
+Maintainer: Ricardo Lorenzo Rodríguez <ricardo.lorenzo@wbsgo.com>
+Build-Depends: debhelper (>= 7)
+Standards-Version: 3.7.3
+Homepage: http://www.wbslabs.com/wbsairback
+
+Package: wbsairback-s3backer
+Architecture: any
+Depends: libcurl-devel fuse-devel libopenssl-devel zlib-devel libexpat-devel pkg-config 
+Description: WBSAirback S3-atmos storage system
+  based on s3backer system

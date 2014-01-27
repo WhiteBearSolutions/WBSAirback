@@ -1,0 +1,9 @@
+# Compulsory line, this is a version 3 file
+version=3
+
+# examine the content of the downloads page as the directory listing
+# is not allowed anymore
+#
+# Forced regexp to match only to the current stable release
+http://www.mongodb.org/display/DOCS/Downloads \
+  http://downloads\.mongodb\.org/src/mongodb-src-r(1\.4[\d\.]+)\.tar\.gz

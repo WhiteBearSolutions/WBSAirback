@@ -1,0 +1,11 @@
+Source: wbsairback-mhvtl
+Section: admin
+Maintainer: Ricardo Lorenzo Rodríguez <ricardo.lorenzo@wbsgo.com>
+Priority: optional
+Homepage: http://www.wbslabs.com/wbslabs/live/proyectos/wbsairback.html
+
+Package: wbsairback-mhvtl
+Architecture: amd64
+Depends: wbsairback-kernel-image, mt-st
+Description: WBSAirback VTL emultation software
+  WBSAirback VTL emulation software.

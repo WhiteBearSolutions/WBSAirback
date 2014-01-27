@@ -1,0 +1,91 @@
+#! /bin/sh
+#########################################
+#.        .__--------___.         .     #
+# \.     /             C \       / \.  /#
+#   \   /           \__ ' \  .  /    \/ #
+#    \_|  \   |-\   / \ \C'_/ \/        #
+#------/ /-| /---| /-\ \----------------#
+#      '_))'_))  '_)) '_))              #
+#                                       #
+#########################################
+#        (c)WHITEBEARSOLUTIONS          #
+#      GNU Generic Public License       #
+#########################################
+#
+### BEGIN INIT INFO
+# Provides:          wbs-watchdog
+# Required-Start:    $syslog +bacula-fd +bacula-sd +bacula-dir +proftpd +iscsi-scst +nfs-kernel-server
+# Required-Stop:     $syslog
+# Default-Start:     2 3 4 5
+# Default-Stop:      0 1 6
+# Short-Description: Start WBSAirback watchdog monitor daemon at boot time
+# Description:       Enable WBSAirback watchdog monitor.
+### END INIT INFO
+#
+
+if [ -f /etc/default/functions ]; then
+  . /etc/default/functions
+fi
+
+DAEMON_CMD="/usr/share/wbsairback/java/bin/java -DWD"
+DAEMON_STATUS=0
+
+start() {
+    echo -n "Starting WBS-Watchdog ["
+    if [ $(ps ax | grep "$DAEMON_CMD" | grep -cv grep) -eq 0  ]; then
+        /usr/share/wbsairback/bin/watchdog > /dev/null 2>&1 &
+        service_wait 2
+        if [ $(ps ax | grep "$DAEMON_CMD" | grep -cv grep) -eq 0 ]; then
+            DAEMON_STATUS=1;
+        fi
+        echo -n "] "
+        if [ $DAEMON_STATUS -eq 0 ]; then
+            print_done
+        else
+            print_fail
+        fi
+    else
+       echo -n "already running] "
+       print_fail
+    fi
+}
+
+stop() {
+    echo -n "Stopping WBS-Watchdog ["
+    if [ $(ps ax | grep "$DAEMON_CMD" | grep -cv grep) -gt 0  ]; then
+       PID=$(ps ax | grep "$DAEMON_CMD" | grep -v grep | awk '{ print $1 }');
+       kill $PID || DAEMON_STATUS=1
+       service_wait 2
+       echo -n "] "
+       if [ $DAEMON_STATUS -eq 0 ]; then
+           print_done
+       else
+           print_fail
+       fi
+    else
+       echo -n "not running] "
+       print_fail
+    fi
+}
+
+case "$1" in
+  start)
+    start
+    ;;
+
+  stop)
+    stop
+    ;;
+
+ restart)
+    stop
+    sleep 1
+    start
+    ;;
+  *)
+    echo "Usage: /etc/init.d/wbs-watchdog {start|stop|restart}"
+    exit 1
+    ;;
+esac
+
+exit 0

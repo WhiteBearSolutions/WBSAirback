@@ -1,0 +1,12 @@
+wbsairback-iscsi-scst (2.2.1) unstable; urgency=low
+
+  * Updated for kernel 3.2.43
+
+ -- Jorge Gea Martínez <jorge.gea@wbsgo.com>  Tue, 16 Sep 2008 00:25:59 +0200
+
+wbsairback-iscsi-scst (2.1.0) unstable; urgency=low
+
+  * Initial release.
+
+ -- Ricardo Lorenzo Rodríguez <ricardo.lorenzo@wbsgo.com>  Tue, 16 Sep 2008 00:25:59 +0200
+

@@ -1,0 +1,11 @@
+[Plymouth Theme]
+Name=Wbsairback
+Description=WBSAirback theme.
+ModuleName=script
+
+[script]
+ImageDir=/usr/share/plymouth/themes/wbsairback
+ScriptFile=/usr/share/plymouth/themes/wbsairback/wbsairback.script
+
+[script-env-vars]
+example_env_var=example env var value

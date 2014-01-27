@@ -1,0 +1,15 @@
+VERSION: 5
+# VPD page format:
+# <page #> <Length> <x> <x+1>... <x+n>
+# NAA format is an 8 hex byte value seperated by ':'
+# Note: NAA is part of inquiry VPD 0x83
+#
+# Each 'record' is separated by one (or more) blank lines.
+# Each 'record' starts at column 1
+# Serial num max len is 10.
+# Compression: factor X enabled 0|1
+#     Where X is zlib compression factor 
+       1 = Fastest compression
+#      9 = Best compression
+#     enabled 0 == off, 1 == on
+

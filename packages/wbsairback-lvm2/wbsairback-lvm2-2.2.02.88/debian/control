@@ -1,0 +1,14 @@
+Source: wbsairback-lvm2
+Section: admin
+Maintainer: Ricardo Lorenzo Rodríguez <ricardo.lorenzo@wbsgo.com>
+Priority: optional
+Homepage: http://www.wbslabs.com/wbslabs/live/proyectos/wbsairback.html
+
+Package: wbsairback-lvm2
+Architecture: any
+Depends: wbsairback-kernel-image
+Conflicts: lvm2, dmsetup, libdevmapper
+Replaces: lvm2, dmsetup, libdevmapper
+Provides: lvm2, dmsetup, libdevmapper
+Description: WBSAirback LVM2
+  WBSAirback LVM2 refers to a new userspace toolset that provide logical volume management facilities.

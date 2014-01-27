@@ -1,0 +1,88 @@
+#! /bin/sh
+#########################################
+#.        .__--------___.         .     #
+# \.     /             C \       / \.  /#
+#   \   /           \__ ' \  .  /    \/ #
+#    \_|  \   |-\   / \ \C'_/ \/        #
+#------/ /-| /---| /-\ \----------------#
+#      '_))'_))  '_)) '_))              #
+#                                       #
+#########################################
+#        (c)WHITEBEARSOLUTIONS          #
+#      GNU Generic Public License       #
+#########################################
+#
+### BEGIN INIT INFO
+# Provides:          wbsairback-admin
+# Required-Start:    $syslog +wbsairback-volumes
+# Required-Stop:     $syslog
+# Default-Start:     2 3 4 5
+# Default-Stop:      0 1 6
+# Short-Description: Start WBSAirback administration daemon at boot time
+# Description:       Enable WBSAirback administration.
+### END INIT INFO
+#
+
+if [ -f /etc/default/functions ]; then
+  . /etc/default/functions
+fi
+
+export OBSR_HOME="/var/www/obs"
+export JAVA_HOME="/usr/share/wbsairback/java"
+export TOMCAT_HOME="/usr/share/wbsairback/tomcat"
+export CATALINA_HOME=$TOMCAT_HOME
+export CATALINA_OUT="$TOMCAT_HOME/logs/catalina.out"
+export JAVA_OPTS="-Xss128k -Xmx1024m -Xrs -XX:+UseConcMarkSweepGC -XX:+UseParNewGC -XX:NewRatio=4 -XX:SurvivorRatio=6 -XX:PermSize=128m -Dsun.net.inetaddr.ttl=3600 -Dsun.net.inetaddr.negative.ttl=300 -Dnetworkaddress.cache.negative.ttl=300 -Dnetworkaddress.cache.ttl=3600 -Djava.net.preferIPv4Stack=true -Djava.library.path=$TOMCAT_HOME/lib -Djava.library.path=$TOMCAT_HOME/lib"
+export CATALINA_OPTS="-Dtc.log.path=$OBSR_HOME/logs -Dtc.work.path=$OBSR_HOME/work -Dtc.obs.conf.path=$TOMCAT_HOME/conf -Djavax.servlet.context.tempdir=$OBSR_HOME/work"
+DAEMON_STATUS=0
+
+start() {
+    echo -n "Starting Web Administration ["
+    $TOMCAT_HOME/bin/catalina.sh start > /dev/null || DAEMON_STATUS=1
+    service_wait 2
+    echo -n "] "
+    if [ $DAEMON_STATUS -eq 0 ]; then
+        print_done
+    else
+        print_fail
+    fi
+}
+
+stop() {
+    echo -n "Stopping Web Administration ["
+    if [ `ps ax | grep $JAVA_HOME | grep -cv grep` -gt 0 ]; then
+       $TOMCAT_HOME/bin/catalina.sh stop > /dev/null || DAEMON_STATUS=1
+       service_wait 4
+       echo -n "] "
+       if [ $DAEMON_STATUS -eq 0 ]; then
+           print_done
+       else
+           print_fail
+       fi
+    else
+       echo -n "not running] "
+       print_fail
+    fi
+}
+
+case "$1" in
+  start)
+    start
+    ;;
+
+  stop)
+    stop
+    ;;
+
+ restart)
+    stop
+    sleep 5
+    start
+    ;;
+  *)
+    echo "Usage: /etc/init.d/wbsairback-admin {start|stop|restart}"
+    exit 1
+    ;;
+esac
+
+exit 0

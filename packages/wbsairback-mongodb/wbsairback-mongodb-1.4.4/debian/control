@@ -1,0 +1,32 @@
+Source: wbsairback-mongodb
+Section: database
+Priority: important
+Maintainer: Ricardo Lorenzo <ricardo.lorenzo@whitebearsolutions.com>
+Build-Depends: debhelper (>= 7), libpcre3, libpcre3-dev, scons, xulrunner-dev (>= 1.9) | xulrunner-1.9-dev | xulrunner-1.9.1-dev, libreadline-dev, libboost1.42-dev | libboost1.40-dev | libboost1.35-dev | libboost1.37-dev | libboost1.38-dev, libboost-thread1.42-dev | libboost-thread1.40-dev | libboost-thread1.38-dev | libboost-thread1.37-dev | libboost-thread1.35-dev, libboost-filesystem1.42-dev | libboost-filesystem1.40-dev | libboost-filesystem1.38-dev | libboost-filesystem1.37-dev | libboost-filesystem1.35-dev, libboost-program-options1.42-dev | libboost-program-options1.40-dev | libboost-program-options1.38-dev | libboost-program-options1.37-dev | libboost-program-options1.35-dev, libboost-date-time1.42-dev | libboost-date-time1.40-dev | libboost-date-time1.38-dev | libboost-date-time1.37-dev | libboost-date-time1.35-dev
+Standards-Version: 3.9.0
+Homepage: http://www.mongodb.org
+
+Package: wbsairback-mongodb
+Architecture: i386 amd64
+Depends: ${shlibs:Depends}, adduser
+Conflicts: mongodb-server, mongodb-clients, mongodb-10gen, mongodb
+Replaces: mongodb-server, mongodb-clients, mongodb-10gen, mongodb 
+Description: An object/document-oriented database (server package)
+ MongoDB is a high-performance, open source, schema-free 
+ document-oriented  data store that's easy to deploy, manage
+ and use. It's network accessible, written in C++ and offers
+ the following features :
+ .
+    * Collection oriented storage - easy storage of object-
+      style data
+    * Full index support, including on inner objects
+    * Query profiling
+    * Replication and fail-over support
+    * Efficient storage of binary data including large 
+      objects (e.g. videos)
+    * Auto-sharding for cloud-level scalability (Q209)
+ .
+ High performance, scalability, and reasonable depth of
+ functionality are the goals for the project.
+ .
+ This package contains the server itself.

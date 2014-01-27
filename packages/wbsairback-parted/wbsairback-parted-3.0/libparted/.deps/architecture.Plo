@@ -1,0 +1,58 @@
+architecture.lo: architecture.c ../lib/config.h architecture.h \
+ ../include/parted/disk.h ../include/parted/device.h \
+ ../include/parted/natmath.h ../include/parted/geom.h \
+ ../include/parted/timer.h ../lib/time.h /usr/include/time.h \
+ /usr/include/features.h /usr/include/bits/predefs.h \
+ /usr/include/sys/cdefs.h /usr/include/bits/wordsize.h \
+ /usr/include/gnu/stubs.h /usr/include/gnu/stubs-64.h \
+ /usr/lib/gcc/x86_64-linux-gnu/4.4.5/include/stddef.h \
+ /usr/include/bits/time.h /usr/include/bits/types.h \
+ /usr/include/bits/typesizes.h /usr/include/xlocale.h \
+ ../include/parted/constraint.h ../include/parted/filesys.h \
+ /usr/lib/gcc/x86_64-linux-gnu/4.4.5/include/stdbool.h
+
+../lib/config.h:
+
+architecture.h:
+
+../include/parted/disk.h:
+
+../include/parted/device.h:
+
+../include/parted/natmath.h:
+
+../include/parted/geom.h:
+
+../include/parted/timer.h:
+
+../lib/time.h:
+
+/usr/include/time.h:
+
+/usr/include/features.h:
+
+/usr/include/bits/predefs.h:
+
+/usr/include/sys/cdefs.h:
+
+/usr/include/bits/wordsize.h:
+
+/usr/include/gnu/stubs.h:
+
+/usr/include/gnu/stubs-64.h:
+
+/usr/lib/gcc/x86_64-linux-gnu/4.4.5/include/stddef.h:
+
+/usr/include/bits/time.h:
+
+/usr/include/bits/types.h:
+
+/usr/include/bits/typesizes.h:
+
+/usr/include/xlocale.h:
+
+../include/parted/constraint.h:
+
+../include/parted/filesys.h:
+
+/usr/lib/gcc/x86_64-linux-gnu/4.4.5/include/stdbool.h:

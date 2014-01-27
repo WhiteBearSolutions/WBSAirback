@@ -1,0 +1,28 @@
+Format: 1.8
+Date: Tue, 30 Oct 2012 13:30:00 +0200
+Source: wbsairback-admin
+Binary: wbsairback-admin
+Architecture: source amd64
+Version: 14-com.00.00
+Distribution: 1.2
+Urgency: medium
+Maintainer: Ricardo Lorenzo Rodríguez <ricardo.lorenzo@wbsgo.com>
+Changed-By: Jorge Gea Martínez <jorge.gea@wbsgo.com>
+Description: 
+ wbsairback-admin - WBSAirback Web Administration Interface
+Changes: 
+ wbsairback-admin (14-com.00.00) 1.2; urgency=medium
+ .
+   * First community version
+Checksums-Sha1: 
+ 78bac11798781ff5388b0b3dc090eec4a8ce131c 647 wbsairback-admin_14-com.00.00.dsc
+ 6c0dec10a015238b7a67c0560850e96cbf32f5ca 34436221 wbsairback-admin_14-com.00.00.tar.gz
+ bb2850c301600ad10306d86d11fdf46a05ea63d1 34377836 wbsairback-admin_14-com.00.00_amd64.deb
+Checksums-Sha256: 
+ 5075b44d639b78a653e4afca10b161dad5f9c2671e7024b0c799e00bff019042 647 wbsairback-admin_14-com.00.00.dsc
+ 8482c2c4caabc6455732105edfc552171340862f83c53cb7078472b87ab3a53d 34436221 wbsairback-admin_14-com.00.00.tar.gz
+ 4d76f2fcb59fd2fc857e68e31d5f2fb1a9ee50e86c62648dfb75255be9a18e21 34377836 wbsairback-admin_14-com.00.00_amd64.deb
+Files: 
+ 0be2a0cfe86f215b7b200bd72c167cb1 647 admin important wbsairback-admin_14-com.00.00.dsc
+ 492bd43719211d2221a4ff4d064b6602 34436221 admin important wbsairback-admin_14-com.00.00.tar.gz
+ 61f8689034060570d5f0a2da28a93b6b 34377836 admin important wbsairback-admin_14-com.00.00_amd64.deb

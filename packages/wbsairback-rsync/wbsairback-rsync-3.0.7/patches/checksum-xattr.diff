@@ -1,0 +1,246 @@
+This patch is the start of storing/using checksum information from
+extended attribute values.  The rsync code only reads the values
+at the moment.  There is also a perl script that can create them.
+
+To use this patch, run these commands for a successful build:
+
+    patch -p1 <patches/checksum-xattr.diff
+    ./configure                               (optional if already run)
+    make
+
+based-on: 54f00c3f89fc147f2f9cba89d26a5bb1d20e783b
+diff --git a/flist.c b/flist.c
+--- a/flist.c
++++ b/flist.c
+@@ -1297,7 +1297,8 @@ struct file_struct *make_file(const char *fname, struct file_list *flist,
+ 		memcpy(bp + basename_len, linkname, linkname_len);
+ #endif
+ 
+-	if (always_checksum && am_sender && S_ISREG(st.st_mode))
++	if (always_checksum && am_sender && S_ISREG(st.st_mode)
++	 && !get_sum_xattr(thisname, &st, tmp_sum))
+ 		file_checksum(thisname, tmp_sum, st.st_size);
+ 
+ 	if (am_sender)
+diff --git a/generator.c b/generator.c
+--- a/generator.c
++++ b/generator.c
+@@ -724,7 +724,8 @@ int unchanged_file(char *fn, struct file_struct *file, STRUCT_STAT *st)
+ 	   of the file time to determine whether to sync */
+ 	if (always_checksum > 0 && S_ISREG(st->st_mode)) {
+ 		char sum[MAX_DIGEST_LEN];
+-		file_checksum(fn, sum, st->st_size);
++		if (!get_sum_xattr(fn, st, sum))
++			file_checksum(fn, sum, st->st_size);
+ 		return memcmp(sum, F_SUM(file), checksum_len) == 0;
+ 	}
+ 
+diff --git a/support/xsums b/support/xsums
+new file mode 100644
+--- /dev/null
++++ b/support/xsums
+@@ -0,0 +1,119 @@
++#!/usr/bin/perl
++use strict;
++use warnings;
++
++use Getopt::Long;
++use Cwd qw(abs_path cwd);
++use Digest::MD4;
++use Digest::MD5;
++use File::ExtAttr ':all';
++
++our($recurse_opt, $help_opt);
++our $verbosity = 0;
++
++&Getopt::Long::Configure('bundling');
++&usage if !&GetOptions(
++    'recurse|r' => \$recurse_opt,
++    'verbose|v+' => \$verbosity,
++    'help|h' => \$help_opt,
++) || $help_opt;
++
++my $start_dir = cwd();
++
++my @dirs = @ARGV;
++@dirs = '.' unless @dirs;
++foreach (@dirs) {
++    $_ = abs_path($_);
++}
++
++$| = 1;
++
++my $md4 = Digest::MD4->new;
++my $md5 = Digest::MD5->new;
++
++while (@dirs) {
++    my $dir = shift @dirs;
++
++    if (!chdir($dir)) {
++	warn "Unable to chdir to $dir: $!\n";
++	next;
++    }
++    if (!opendir(DP, '.')) {
++	warn "Unable to opendir $dir: $!\n";
++	next;
++    }
++
++    if ($verbosity) {
++	my $reldir = $dir;
++	$reldir =~ s#^$start_dir(/|$)# $1 ? '' : '.' #eo;
++	print "scanning $reldir\n";
++    }
++
++    my @subdirs;
++    while (defined(my $fn = readdir(DP))) {
++	next if $fn =~ /^\.\.?$/ || -l $fn;
++	if (-d _) {
++	    push(@subdirs, "$dir/$fn");
++	    next;
++	}
++	next unless -f _;
++
++	my($size,$mtime) = (stat(_))[7,9];
++
++	my $sum4 = getfattr($fn, 'rsync.%md4');
++	my $sum5 = getfattr($fn, 'rsync.%md5');
++
++	foreach ($sum4, $sum5) {
++	    if (defined $_) {
++		if (length($_) == 24) {
++		    my($sz,$mt,$sum) = unpack('V2a16', $_);
++		    if ($sz != ($size & 0xFFFFFFFF)
++		     || $mt != ($mtime & 0xFFFFFFFF)) {
++			$_ = undef;
++		    } else {
++			$_ = $sum;
++		    }
++		} else {
++		    $_ = undef;
++		}
++	    }
++	}
++	if (!defined($sum4) || !defined($sum5)) {
++	    if (!open(IN, $fn)) {
++		print STDERR "Unable to read $fn: $!\n";
++		next;
++	    }
++
++	    while (sysread(IN, $_, 64*1024)) {
++		$md4->add($_);
++		$md5->add($_);
++	    }
++	    close IN;
++
++	    $sum4 = $md4->digest;
++	    $sum5 = $md5->digest;
++	    print " $fn\n" if $verbosity > 1;
++
++	    my $szmt = pack('V2', $size, $mtime); # 32-bits, may truncate
++	    setfattr($fn, 'rsync.%md4', $szmt.$sum4);
++	    setfattr($fn, 'rsync.%md5', $szmt.$sum5);
++	    #utime $mtime, $mtime, $fn; # Set mtime if it changes.
++	}
++    }
++
++    closedir DP;
++
++    unshift(@dirs, sort @subdirs) if $recurse_opt;
++}
++
++sub usage
++{
++    die <<EOT;
++Usage: rsyncsums [OPTIONS] [DIRS]
++
++Options:
++ -r, --recurse     Update checksums in subdirectories too.
++ -v, --verbose     Mention what we're doing.  Repeat for more info.
++ -h, --help        Display this help message.
++EOT
++}
+diff --git a/xattrs.c b/xattrs.c
+--- a/xattrs.c
++++ b/xattrs.c
+@@ -33,6 +33,8 @@ extern int read_only;
+ extern int list_only;
+ extern int preserve_xattrs;
+ extern int checksum_seed;
++extern int checksum_len;
++extern int protocol_version;
+ 
+ #define RSYNC_XAL_INITIAL 5
+ #define RSYNC_XAL_LIST_INITIAL 100
+@@ -68,6 +70,10 @@ extern int checksum_seed;
+ #define XACC_ACL_ATTR RSYNC_PREFIX "%" XACC_ACL_SUFFIX
+ #define XDEF_ACL_SUFFIX "dacl"
+ #define XDEF_ACL_ATTR RSYNC_PREFIX "%" XDEF_ACL_SUFFIX
++#define MD4_SUFFIX "md4"
++#define MD4_ATTR RSYNC_PREFIX "%" MD4_SUFFIX
++#define MD5_SUFFIX "md5"
++#define MD5_ATTR RSYNC_PREFIX "%" MD5_SUFFIX
+ 
+ typedef struct {
+ 	char *datum, *name;
+@@ -240,7 +246,9 @@ static int rsync_xal_get(const char *fname, item_list *xalp)
+ 			 || (am_root < 0
+ 			  && (strcmp(name+RPRE_LEN+1, XSTAT_SUFFIX) == 0
+ 			   || strcmp(name+RPRE_LEN+1, XACC_ACL_SUFFIX) == 0
+-			   || strcmp(name+RPRE_LEN+1, XDEF_ACL_SUFFIX) == 0)))
++			   || strcmp(name+RPRE_LEN+1, XDEF_ACL_SUFFIX) == 0
++			   || strcmp(name+RPRE_LEN+1, MD4_SUFFIX) == 0
++			   || strcmp(name+RPRE_LEN+1, MD5_SUFFIX) == 0)))
+ 				continue;
+ 		}
+ 
+@@ -913,6 +921,39 @@ int del_def_xattr_acl(const char *fname)
+ }
+ #endif
+ 
++int get_sum_xattr(const char *fname, STRUCT_STAT *stp, char *sum)
++{
++	const char *mdattr = protocol_version >= 30
++			   ? MD5_ATTR : MD4_ATTR;
++	char buf[256];
++	uint32 file_length, mtime;
++	int len;
++
++	len = sys_lgetxattr(fname, mdattr, buf, sizeof buf);
++	if (len < 0) {
++		if (errno == ENOTSUP || errno == ENOATTR)
++			return 0;
++		rsyserr(FERROR_XFER, errno, "failed to read xattr %s for %s",
++			mdattr, full_fname(fname));
++		return 0;
++	}
++	if (len != 4 + 4 + checksum_len) {
++		rprintf(FERROR, "Corrupt %s xattr attached to %s -- skipping\n",
++			mdattr, full_fname(fname));
++		return 0;
++	}
++
++	file_length = IVAL(buf, 0); /* 32-bit values -- trunctions are OK */
++	mtime = IVAL(buf, 4);
++
++	if ((uint32)stp->st_size != file_length || (uint32)stp->st_mtime != mtime)
++		return 0;
++
++	memcpy(sum, buf + 8, checksum_len);
++
++	return 1;
++}
++
+ int get_stat_xattr(const char *fname, int fd, STRUCT_STAT *fst, STRUCT_STAT *xst)
+ {
+ 	int mode, rdev_major, rdev_minor, uid, gid, len;
+diff -up a/proto.h b/proto.h
+--- a/proto.h
++++ b/proto.h
+@@ -393,6 +393,7 @@ int set_xattr(const char *fname, const s
+ char *get_xattr_acl(const char *fname, int is_access_acl, size_t *len_p);
+ int set_xattr_acl(const char *fname, int is_access_acl, const char *buf, size_t buf_len);
+ int del_def_xattr_acl(const char *fname);
++int get_sum_xattr(const char *fname, STRUCT_STAT *stp, char *sum);
+ int get_stat_xattr(const char *fname, int fd, STRUCT_STAT *fst, STRUCT_STAT *xst);
+ int set_stat_xattr(const char *fname, struct file_struct *file, mode_t new_mode);
+ int x_stat(const char *fname, STRUCT_STAT *fst, STRUCT_STAT *xst);

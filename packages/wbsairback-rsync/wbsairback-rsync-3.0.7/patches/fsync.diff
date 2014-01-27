@@ -1,0 +1,107 @@
+This patch from Sami Farin lets you specify --fsync if you want fsync()
+to be called on every file we write.
+
+To use this patch, run these commands for a successful build:
+
+    patch -p1 <patches/fsync.diff
+    ./configure                         (optional if already run)
+    make
+
+based-on: 54f00c3f89fc147f2f9cba89d26a5bb1d20e783b
+diff --git a/options.c b/options.c
+--- a/options.c
++++ b/options.c
+@@ -48,6 +48,7 @@ int append_mode = 0;
+ int keep_dirlinks = 0;
+ int copy_dirlinks = 0;
+ int copy_links = 0;
++int do_fsync = 0;
+ int preserve_links = 0;
+ int preserve_hard_links = 0;
+ int preserve_acls = 0;
+@@ -383,6 +384,7 @@ void usage(enum logcode F)
+   rprintf(F,"     --partial-dir=DIR       put a partially transferred file into DIR\n");
+   rprintf(F,"     --delay-updates         put all updated files into place at transfer's end\n");
+   rprintf(F," -m, --prune-empty-dirs      prune empty directory chains from the file-list\n");
++  rprintf(F,"     --fsync                 fsync every written file\n");
+   rprintf(F,"     --numeric-ids           don't map uid/gid values by user/group name\n");
+   rprintf(F,"     --timeout=SECONDS       set I/O timeout in seconds\n");
+   rprintf(F,"     --contimeout=SECONDS    set daemon connection timeout in seconds\n");
+@@ -626,6 +628,7 @@ static struct poptOption long_options[] = {
+   {"no-timeout",       0,  POPT_ARG_VAL,    &io_timeout, 0, 0, 0 },
+   {"contimeout",       0,  POPT_ARG_INT,    &connect_timeout, 0, 0, 0 },
+   {"no-contimeout",    0,  POPT_ARG_VAL,    &connect_timeout, 0, 0, 0 },
++  {"fsync",            0,  POPT_ARG_NONE,   &do_fsync, 0, 0, 0 },
+   {"rsh",             'e', POPT_ARG_STRING, &shell_cmd, 0, 0, 0 },
+   {"rsync-path",       0,  POPT_ARG_STRING, &rsync_path, 0, 0, 0 },
+   {"temp-dir",        'T', POPT_ARG_STRING, &tmpdir, 0, 0, 0 },
+@@ -2025,6 +2028,9 @@ void server_options(char **args, int *argc_p)
+ 			args[ac++] = tmpdir;
+ 		}
+ 
++		if (do_fsync)
++			args[ac++] = "--fsync";
++
+ 		if (basis_dir[0]) {
+ 			/* the server only needs this option if it is not the sender,
+ 			 *   and it may be an older version that doesn't know this
+diff --git a/receiver.c b/receiver.c
+--- a/receiver.c
++++ b/receiver.c
+@@ -39,6 +39,7 @@ extern int relative_paths;
+ extern int preserve_hard_links;
+ extern int preserve_perms;
+ extern int preserve_xattrs;
++extern int do_fsync;
+ extern int basis_dir_cnt;
+ extern int make_backups;
+ extern int cleanup_got_literal;
+@@ -302,6 +303,12 @@ static int receive_data(int f_in, char *fname_r, int fd_r, OFF_T size_r,
+ 		exit_cleanup(RERR_FILEIO);
+ 	}
+ 
++	if (do_fsync && fd != -1 && fsync(fd) != 0) {
++		rsyserr(FERROR, errno, "fsync failed on %s",
++			full_fname(fname));
++		exit_cleanup(RERR_FILEIO);
++	}
++
+ 	sum_len = sum_end(file_sum1);
+ 
+ 	if (mapbuf)
+diff --git a/t_stub.c b/t_stub.c
+--- a/t_stub.c
++++ b/t_stub.c
+@@ -21,6 +21,7 @@
+ 
+ #include "rsync.h"
+ 
++int do_fsync = 0;
+ int modify_window = 0;
+ int module_id = -1;
+ int relative_paths = 0;
+diff --git a/util.c b/util.c
+--- a/util.c
++++ b/util.c
+@@ -26,6 +26,7 @@
+ extern int verbose;
+ extern int dry_run;
+ extern int module_id;
++extern int do_fsync;
+ extern int modify_window;
+ extern int relative_paths;
+ extern int human_readable;
+@@ -334,6 +335,13 @@ int copy_file(const char *source, const char *dest, int ofd,
+ 			full_fname(source));
+ 	}
+ 
++	if (do_fsync && fsync(ofd) < 0) {
++		rsyserr(FERROR, errno, "fsync failed on %s",
++			full_fname(dest));
++		close(ofd);
++		return -1;
++	}
++
+ 	if (close(ofd) < 0) {
+ 		int save_errno = errno;
+ 		rsyserr(FERROR_XFER, errno, "close failed on %s",

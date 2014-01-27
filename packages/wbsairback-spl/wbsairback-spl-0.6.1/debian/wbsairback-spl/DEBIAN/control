@@ -1,0 +1,12 @@
+Package: wbsairback-spl
+Version: 0.6.1-1
+Architecture: amd64
+Maintainer: Ricardo Lorenzo <ricardo.lorenzo@whitebearsolutions.com>
+Installed-Size: 1332
+Depends: libc6 (>= 2.2.5)
+Suggests: wbsairback-zfs
+Section: otherosfs
+Priority: optional
+Homepage: http://zfsonlinux.org/
+Description: Solaris Porting Layer (SPL)
+ The Solaris Porting Layer (SPL) is a Linux kernel module which provides many of the Solaris kernel APIs. This shim layer makes it possible to run Solaris kernel code in the Linux kernel with relatively minimal modification. This can be particularly useful when you want to track upstream Solaris development closely and don’t want the overhead of maintaining a large patch which converts Solaris primitives to Linux primitives.

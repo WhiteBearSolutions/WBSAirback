@@ -1,0 +1,13 @@
+Source: wbsairback-rsync
+Section: admin
+Priority: important
+Maintainer: Ricardo Lorenzo Rodríguez <ricardo.lorenzo@wbsgo.com>
+Build-Depends: debhelper (>= 7)
+Standards-Version: 3.7.3
+Homepage: http://www.wbslabs.com/wbsairback
+
+Package: wbsairback-rsync
+Architecture: amd64
+Depends:
+Description: WBSAirback data synchronization tool
+  File level data synchronization tool.

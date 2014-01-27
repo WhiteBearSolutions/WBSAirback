@@ -1,0 +1,95 @@
+#!/bin/sh
+#########################################
+#.        .__--------___.         .     #
+# \.     /             C \       / \.  /#
+#   \   /           \__ ' \  .  /    \/ #
+#    \_|  \   |-\   / \ \C'_/ \/        #
+#------/ /-| /---| /-\ \----------------#
+#      '_))'_))  '_)) '_))              #
+#                                       #
+#########################################
+#        (c)WHITEBEARSOLUTIONS          #
+#      GNU Generic Public License       #
+#########################################
+#
+### BEGIN INIT INFO
+# Provides:          wbsairback-sync
+# Required-Start:    $syslog
+# Required-Stop:     $syslog
+# Default-Start:     2 3 4 5
+# Default-Stop:      0 1 6
+# Short-Description: Start WBSAirback volume sync daemon at boot time
+# Description:       Enable WBSAirback volume synchronization.
+### END INIT INFO
+
+if [ -f /etc/default/functions ]; then
+  . /etc/default/functions
+fi
+
+DAEMON_CMD="/usr/bin/rsync --daemon"
+DAEMON_CONFIG="/etc/wbsairback-admin/sync/rsyncd.conf"
+DAEMON_STATUS=0
+
+start() {
+    echo -n "Starting WBSAirback synchronization ["
+    if [ -f $DAEMON_CONFIG ]; then
+       if [ `ps ax | grep 'rsync --daemon' | grep -cv grep` -gt 0  ]; then
+          PID=$(ps ax | grep 'rsync --daemon' | grep -v grep | awk '{ print $1 }');
+          kill $PID || DAEMON_STATUS=1
+       fi
+       $DAEMON_CMD --config=$DAEMON_CONFIG
+       service_wait 2
+       if [ `ps ax | grep 'rsync --daemon' | grep -cv grep` -eq 0 ]; then
+          DAEMON_STATUS=1;
+       fi
+       echo -n "] "
+       if [ $DAEMON_STATUS -eq 0 ]; then
+          print_done
+       else
+          print_fail
+       fi
+    else
+       echo -n "unconfigured] "
+       print_fail
+    fi
+}
+
+stop() {
+    echo -n "Stopping WBSAirback synchronization ["
+    if [ `ps ax | grep 'rsync --daemon' | grep -cv grep` -gt 0  ]; then
+       PID=$(ps ax | grep 'rsync --daemon' | grep -v grep | awk '{ print $1 }');
+       kill $PID || DAEMON_STATUS=1
+       service_wait 2
+       echo -n "] "
+       if [ $DAEMON_STATUS -eq 0 ]; then
+           print_done
+       else
+           print_fail
+       fi
+    else
+       echo -n "not running] "
+       print_fail
+    fi
+}
+
+case "$1" in
+  start)
+    start
+    ;;
+
+  stop)
+    stop
+    ;;
+
+ restart)
+    stop
+    sleep 1
+    start
+    ;;
+  *)
+    echo "Usage: /etc/init.d/wbsairback-sync {start|stop|restart}"
+    exit 1
+    ;;
+esac
+
+exit 0

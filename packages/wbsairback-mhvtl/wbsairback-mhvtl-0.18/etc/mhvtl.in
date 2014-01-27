@@ -1,0 +1,433 @@
+#! /bin/bash
+# Copyright (c) 2005 Mark Harvey
+# All rights reserved.
+#
+# Author: Mark Harvey, 2005 - 2009
+#	  mark794@gmail.com
+#	  mark_harvey@symantec.com
+#
+# /etc/init.d/mhvtl
+#
+# Script to start mhvtl kernel module & vtltape userspace daemon
+#
+# Virtual tape & library system
+# 
+# Modification History:
+#    2010-04-26 hstadler - parsing 10th argument - function add_drive
+#
+#
+# $Id: mhvtl,v 1.12.2.3 2006-08-30 06:35:01 markh Exp $
+#
+### BEGIN INIT INFO
+# Provides:       mhvtl
+# Required-Start: $local_fs $syslog +wbsairback-volumes
+# Required-Stop:
+# Default-Start:  2 3 4 5
+# Default-Stop: 0 1 6
+# Description:    Script to start/stop mhvtl kernel modules & vtltape userspace daemons
+### END INIT INFO
+#
+# This is needed for RedHat ??
+# chkconfig: - 30 30
+#
+
+USER=@USR@
+MHVTL_CONFIG_PATH=@CONF_PATH@
+
+DEVICE_CONF=$MHVTL_CONFIG_PATH/device.conf
+
+OPTIONS=
+
+export PATH=$PATH:/usr/bin
+
+if [ -f /etc/rc.status ]; then
+	. /etc/rc.status
+	rc_reset
+fi
+
+# add_library(DevID, Channel, Target, Lun, Vend, Prod, ProdRev, S/No)
+add_library()
+{
+ID=$1
+CH=$2
+TARGET=$3
+LUN=$4
+printf "Library: %02d CHANNEL: %02d TARGET: %02d LUN: %02d\n" \
+		$ID $CH $TARGET $LUN >> $DEVICE_CONF
+echo " Vendor identification: $5" >> $DEVICE_CONF
+echo " Product identification: $6" >> $DEVICE_CONF
+echo " Product revision level: $7" >> $DEVICE_CONF
+echo " Unit serial number: $8" >> $DEVICE_CONF
+printf " NAA: %02d:22:33:44:ab:%02d:%02d:%02d\n" \
+		$ID $CH $TARGET $LUN >> $DEVICE_CONF
+echo "" >> $DEVICE_CONF
+}
+
+# add_drive(DevID, Channel, Target, Lun, Vend, Prod, ProdRev, S/No, LibID, Slot)
+add_drive()
+{
+ID=$1
+CH=$2
+TARGET=$3
+LUN=$4
+VENDORID=$5
+PRODUCTID=$6
+PRODUCTREV=$7
+UNITSERNO=$8
+LIB=$9
+
+# get arg 10 & 11
+shift 9
+SLOT=$1
+DENSITY=$2
+
+printf "Drive: %02d CHANNEL: %02d TARGET: %02d LUN: %02d\n" \
+		$ID $CH $TARGET $LUN >> $DEVICE_CONF
+printf " Library ID: %02d Slot: %02d\n" \
+		$LIB $SLOT >> $DEVICE_CONF
+echo " Vendor identification: $VENDORID" >> $DEVICE_CONF
+echo " Product identification: $PRODUCTID" >> $DEVICE_CONF
+echo " Product revision level: $PRODUCTREV" >> $DEVICE_CONF
+echo " Unit serial number: $UNITSERNO" >> $DEVICE_CONF
+printf " NAA: %02d:22:33:44:ab:%02d:%02d:%02d\n" \
+		$LIB $CH $TARGET $LUN >> $DEVICE_CONF
+echo " Compression: factor 1 enabled 1" >> $DEVICE_CONF
+}
+
+add_ibm_ultrium_drive()
+{
+# ID=$1 CH=$2 TARGET=$3 LUN=$4 UNITSERNO=$5 LIB=$6 SLOT=$7
+add_drive $1 $2 $3 $4 "IBM" "ULT3580-TD1" "550V" $5 $6 $7 42
+echo " READ_WRITE: LTO1"
+echo "" >> $DEVICE_CONF
+}
+
+add_ibm_ultrium_2_drive()
+{
+# ID=$1 CH=$2 TARGET=$3 LUN=$4 UNITSERNO=$5 LIB=$6 SLOT=$7
+add_drive $1 $2 $3 $4 "IBM" "ULT3580-TD2" "550V" $5 $6 $7 44
+echo " READ_WRITE: LTO1" >> $DEVICE_CONF
+echo " READ_WRITE: LTO2" >> $DEVICE_CONF
+echo "" >> $DEVICE_CONF
+}
+
+add_ibm_ultrium_3_drive()
+{
+# ID=$1 CH=$2 TARGET=$3 LUN=$4 UNITSERNO=$5 LIB=$6 SLOT=$7
+add_drive $1 $2 $3 $4 "IBM" "ULT3580-TD3" "550V" $5 $6 $7 46
+echo " READ_ONLY: LTO1" >> $DEVICE_CONF
+echo " READ_WRITE: LTO2" >> $DEVICE_CONF
+echo " READ_WRITE: LTO3" >> $DEVICE_CONF
+echo " WORM: LTO3" >> $DEVICE_CONF
+echo "" >> $DEVICE_CONF
+}
+
+add_ibm_ultrium_4_drive()
+{
+# ID=$1 CH=$2 TARGET=$3 LUN=$4 UNITSERNO=$5 LIB=$6 SLOT=$7
+add_drive $1 $2 $3 $4 "IBM" "ULT3580-TD4" "550V" $5 $6 $7 48
+echo " READ_ONLY: LTO1" >> $DEVICE_CONF
+echo " READ_ONLY: LTO2" >> $DEVICE_CONF
+echo " READ_WRITE: LTO3" >> $DEVICE_CONF
+echo " READ_WRITE: LTO4" >> $DEVICE_CONF
+echo " WORM: LTO3" >> $DEVICE_CONF
+echo " WORM: LTO4" >> $DEVICE_CONF
+echo " ENCRYPTION: LTO4" >> $DEVICE_CONF
+echo "" >> $DEVICE_CONF
+}
+
+add_ibm_ultrium_5_drive()
+{
+# ID=$1 CH=$2 TARGET=$3 LUN=$4 UNITSERNO=$5 LIB=$6 SLOT=$7
+add_drive $1 $2 $3 $4 "IBM" "ULT3580-TD5" "550V" $5 $6 $7 50
+echo " READ_ONLY: LTO2" >> $DEVICE_CONF
+echo " READ_ONLY: LTO3" >> $DEVICE_CONF
+echo " READ_WRITE: LTO4" >> $DEVICE_CONF
+echo " READ_WRITE: LTO5" >> $DEVICE_CONF
+echo " WORM: LTO4" >> $DEVICE_CONF
+echo " WORM: LTO5" >> $DEVICE_CONF
+echo " ENCRYPTION: LTO4" >> $DEVICE_CONF
+echo " ENCRYPTION: LTO5" >> $DEVICE_CONF
+echo "" >> $DEVICE_CONF
+}
+
+# Create a 'device.conf' if it does not exist...
+if [ ! -f $DEVICE_CONF ]; then
+
+mkdir -p $MHVTL_CONFIG_PATH
+cat > $DEVICE_CONF << VTL_CONF
+
+VERSION: 5
+
+# VPD page format:
+# <page #> <Length> <x> <x+1>... <x+n>
+# NAA format is an 8 hex byte value seperated by ':'
+# Note: NAA is part of inquiry VPD 0x83
+#
+# Each 'record' is separated by one (or more) blank lines.
+# Each 'record' starts at column 1
+# Serial num max len is 10.
+# Compression: factor X enabled 0|1
+#     Where X is zlib compression factor	1 = Fastest compression
+#						9 = Best compression
+#     enabled 0 == off, 1 == on
+
+VTL_CONF
+
+
+#         index channel target LUN Vendor ProdID ProdRev S/No
+add_library 10 0 0 0 "STK" "L700"  "550V"  "XYZZY_A"
+#         index channel target LUN Vendor ProdID ProdRev S/No Lib# Slot
+add_ibm_ultrium_5_drive 11 0 1 0 "XYZZY_A1" 10 1
+add_ibm_ultrium_5_drive 12 0 2 0 "XYZZY_A2" 10 2
+add_ibm_ultrium_4_drive 13 0 3 0 "XYZZY_A3" 10 3
+add_ibm_ultrium_4_drive 14 0 4 0 "XYZZY_A4" 10 4
+
+add_library 30 0 8 0 "SPECTRA" "PYTHON"  "550V"  "XYZZY_B"
+add_ibm_ultrium_4_drive 31 0 9 0 "XYZZY_B1" 30 1
+add_ibm_ultrium_4_drive 32 0 10 0 "XYZZY_B2" 30 2
+add_ibm_ultrium_4_drive 33 0 11 0 "XYZZY_B3" 30 3
+add_ibm_ultrium_4_drive 34 0 12 0 "XYZZY_B4" 30 4
+
+fi
+
+# Give up is device.conf is at wrong version..
+V=`grep VERSION: $DEVICE_CONF|awk '{print $2}'`
+if [ $V -lt 4 ]; then
+	echo " $DEVICE_CONF is not correct version"
+	exit 1;
+fi
+
+# Create a 'mhvtl.conf' if it does not exist...
+if [ ! -f $MHVTL_CONFIG_PATH/mhvtl.conf ]; then
+
+mkdir -p $MHVTL_CONFIG_PATH
+cat > $MHVTL_CONFIG_PATH/mhvtl.conf << VTL_CONF
+
+# Home directory for config file(s)
+MHVTL_CONFIG_PATH=$MHVTL_CONFIG_PATH
+
+# Default media capacity (500 M)
+CAPACITY=500
+
+# Set default verbosity [0|1|2|3]
+VERBOSE=0
+
+# Set kernel module debuging [0|1]
+VTL_DEBUG=0
+VTL_CONF
+fi
+
+# Upgrade mhvtl.conf with 'MHVTL_CONFIG_PATH' default
+EXIST=`grep MHVTL_CONFIG_PATH $MHVTL_CONFIG_PATH/mhvtl.conf | wc -l`
+if [ $EXIST -eq 0 ]; then
+	echo "" >> $MHVTL_CONFIG_PATH/mhvtl.conf
+	echo "# Default config directory" >> $MHVTL_CONFIG_PATH/mhvtl.conf
+	echo "MHVTL_CONFIG_PATH=$MHVTL_CONFIG_PATH" >> $MHVTL_CONFIG_PATH/mhvtl.conf
+fi
+
+. $MHVTL_CONFIG_PATH/mhvtl.conf
+
+# Earlier versions of mhvtl.conf may not contain the 'CAPACITY' string.
+# Update if nessessary..
+EXIST=`grep CAPACITY $MHVTL_CONFIG_PATH/mhvtl.conf|wc -l`
+if [ $EXIST -eq 0 ]; then
+	echo "" >> $MHVTL_CONFIG_PATH/mhvtl.conf
+	echo "# Default media capacity" >> $MHVTL_CONFIG_PATH/mhvtl.conf
+	echo CAPACITY=500 >> $MHVTL_CONFIG_PATH/mhvtl.conf
+fi
+
+# Now check for for 'library_contents'
+LIBLIST=`awk '$1 == "Library:" {print $2}' $DEVICE_CONF`
+for LIBID in $LIBLIST
+do
+	if [ ! -f $MHVTL_CONFIG_PATH/library_contents.$LIBID ]; then
+		echo
+		echo "Could not locate library config file: $MHVTL_CONFIG_PATH/library_contents.$LIBID"
+		echo "Creating a default one"
+		echo "Please stop mhvtl & edit $MHVTL_CONFIG_PATH/library_contents.$LIBID to suit your requirements"
+
+		echo "VERSION: 2" > $MHVTL_CONFIG_PATH/library_contents.$LIBID
+		echo "" > $MHVTL_CONFIG_PATH/library_contents.$LIBID
+		# Count number of drives in this library
+		DRV_COUNT=`grep "Library ID: $LIBID" $DEVICE_CONF|wc -l`
+		# Add a 'Drive X:' for each drive
+		for a in `seq 1 $DRV_COUNT`
+		do
+			printf "Drive %d:\n" $a >> $MHVTL_CONFIG_PATH/library_contents.$LIBID
+		done
+		cat >> $MHVTL_CONFIG_PATH/library_contents.$LIBID << CONF_SAMPLE
+
+Picker 1:
+
+MAP 1:
+MAP 2:
+MAP 3:
+MAP 4:
+
+# Slot 1 - ?, no gaps
+# Slot N: [barcode]
+# [barcode]
+# a barcode is comprised of three fields: [Leading] [identifier] [Trailing]
+# Leading "CLN" -- cleaning tape
+# Leading "W" -- WORM tape
+# Leading "NOBAR" -- will appear to have no barcode
+# If the barcode is at least 8 character long, then the last two characters are Trailing
+# Trailing "S3" - SDLT600
+# Trailing "X4" - AIT-4
+# Trailing "L1" - LTO 1, "L2" - LTO 2, "L3" - LTO 3, "L4" - LTO 4, "L5" - LTO 5
+# Training "LT" - LTO 3 WORM, "LU" LTO 4 WORM, "LV" LTO 5 WORM
+# Trailing "TA" - T10000+
+# Trailing "JA" - 3592+
+# Trailing "JB" - 3592E05+
+# Trailing "JW" - WORM 3592+
+# Trailing "JX" - WORM 3592E05+
+#
+CONF_SAMPLE
+
+		# LTO-4 Media
+		for a in `seq 1 20`; do
+			printf "Slot $a: E0%02d%02dL4\n" $LIBID $a \
+				>> $MHVTL_CONFIG_PATH/library_contents.$LIBID
+		done
+		printf "Slot 21: \n" >> $MHVTL_CONFIG_PATH/library_contents.$LIBID
+		printf "Slot 22: CLN%02d1L4\n" $LIBID >> $MHVTL_CONFIG_PATH/library_contents.$LIBID
+		printf "Slot 23: CLN%02d2L5\n" $LIBID >> $MHVTL_CONFIG_PATH/library_contents.$LIBID
+		for a in `seq 24 29`; do
+			printf "Slot $a:\n" \
+				>> $MHVTL_CONFIG_PATH/library_contents.$LIBID
+		done
+		# LTO-5 Media
+		for a in `seq 30 39`; do
+			printf "Slot $a: F0%02d%02dL5\n" $LIBID $a \
+				>> $MHVTL_CONFIG_PATH/library_contents.$LIBID
+		done
+	fi
+done
+
+case "$1" in
+    start)
+	if [ ! -e /sys/module/mhvtl  ]; then
+		modprobe mhvtl opts=$VTL_DEBUG
+	fi
+
+	if [ ! -e /sys/module/mhvtl/version  ]; then
+		echo "No kernel module loaded to feed these daemons."
+		echo ""
+		echo "Need mhvtl kernel module version at least 0.18.11"
+		echo ""
+		echo "Please see http://sites.google.com/site/linuxvtl2/"
+		exit 1
+	fi
+	vtlMidVersion=`cat /sys/module/mhvtl/version|awk -F. '{print $2}'`
+	if [ $vtlMidVersion -ne 18 ]; then
+		echo "Incorrect kernel module for these daemons."
+		echo -e "Should be at 0.18.11\n"
+		echo -e "Please see http://sites.google.com/site/linuxvtl2/\n"
+		exit 1
+	fi
+	vtllsbVersion=`cat /sys/module/mhvtl/version|awk -F. '{print $3}'`
+	if [ $vtllsbVersion -lt 11 ]; then
+		echo "Incorrect kernel module for these daemons."
+		echo -e "Should be at least 0.18.11\n"
+		echo -e "Please see http://sites.google.com/site/linuxvtl2/\n"
+		exit 1
+	fi
+
+	# Load sg driver if not already loaded..
+	if [ ! -e /sys/module/sg ]; then
+		/sbin/modprobe sg
+		sleep 1
+	fi
+
+	# Should be proof against 'vi vtltape' match
+	if [ ! -z "`ps -eo cmd|awk '/vtllibrary|vtltape/ {print $1}'|egrep 'vtltape|vtllibrary'`" ];
+	then
+		echo "mhvtl already running..."
+		exit 1
+	fi
+
+	chown -R $USER:$USER $MHVTL_CONFIG_PATH
+
+	# Build Library media
+	make_vtl_media $USER
+	if [ $? != 0 ]; then
+		echo "make_vtl_media failed.."
+		exit 1
+	fi
+
+	# Build Library config - No. of drives & serial Nos etc..
+	# This also loads each tape daemon.
+	build_library_config $USER
+	if [ $? != 0 ]; then
+		echo "build_library_config failed.. Could not start daemons"
+		exit 1
+	fi
+
+	if [ -f /etc/rc.status ]; then
+		rc_status -v
+	fi
+	;;
+
+    stop)
+        echo "shutdown of mhvtl"
+
+	if [ -z "`ps --user $USER|grep -v TIME`" ]; then
+		echo "mhvtl not running..."
+		exit 0
+	fi
+
+	for a in `ps -eo cmd |awk '/^vtltape -q/ {print $3}'`
+	do
+		echo "   Sending exit to $a"
+		vtlcmd $a exit
+		usleep 100 > /dev/null 2>&1 /dev/null
+	done
+
+	for a in `ps -eo cmd |awk '/^vtllibrary -q/ {print $3}'`
+	do
+		echo "   Sending exit to $a"
+		vtlcmd $a exit
+		usleep 100 > /dev/null 2>&1 /dev/null
+	done
+
+	if [ -f /etc/rc.status ]; then
+		rc_status -v
+	fi
+	;;
+    shutdown)
+	# Remove kernel module (mhvtl) along with messageQ key.
+        echo "Removing mhvtl kernel module"
+	for a in `ps -eo cmd |awk '/^vtltape -q/ {print $3}'`
+	do
+		echo "   Sending exit to $a"
+		vtlcmd $a exit
+		usleep 100 > /dev/null 2>&1 /dev/null
+	done
+
+	for a in `ps -eo cmd |awk '/^vtllibrary -q/ {print $3}'`
+	do
+		echo "   Sending exit to $a"
+		vtlcmd $a exit
+		usleep 100 > /dev/null 2>&1 /dev/null
+	done
+
+	# Sleep long enough for the daemons to see the exit commands.
+	sleep 1
+
+	rmmod mhvtl
+	Q_EXISTS=`ipcs -q|grep 4d61726b|awk '{print $2}'`
+	if [ "X$Q_EXISTS" != "X" ]; then
+		ipcrm -q $Q_EXISTS
+	fi
+	if [ -f /etc/rc.status ]; then
+		rc_status -v
+	fi
+	;;
+    *)
+	echo "Usage: $0 {start|stop|shutdown}"
+	exit 1
+esac
+if [ -f /etc/rc.status ]; then
+	rc_exit
+fi

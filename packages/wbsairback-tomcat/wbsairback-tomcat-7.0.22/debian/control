@@ -1,0 +1,13 @@
+Source: wbsairback-tomcat
+Section: admin
+Priority: important
+Maintainer: Ricardo Lorenzo Rodríguez <ricardo.lorenzo@wbsgo.com>
+Homepage: http://www.wbslabs.com/wbslabs/live/proyectos/wbsagnitio.html
+
+Package: wbsairback-tomcat
+Architecture: any
+Depends: bash (>= 2.0), wbsairback-java
+Conflicts: tomcat, tomcat6
+Replaces: tomcat, tomcat6
+Description: WBSAirback Apache Tomcat servlet container
+  Apache Tomcat is the servlet container that is used in the official Reference Implementation for the Java Servlet and JavaServer Pages technologies.

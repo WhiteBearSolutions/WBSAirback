@@ -1,0 +1,66 @@
+Description: Upstream changes introduced in version 1:1.4.4-3
+ This patch has been created by dpkg-source during the package build.
+ Here's the last changelog entry, hopefully it gives details on why
+ those changes were made:
+ .
+ mongodb (1:1.4.4-3) unstable; urgency=low
+ .
+   * [1576744] added libreadline-dev to build-deps (Closes: #589163)
+ .
+ The person named in the Author field signed this changelog entry.
+Author: Antonin Kral <A.Kral@sh.cvut.cz>
+Bug-Debian: http://bugs.debian.org/589163
+
+---
+The information above should follow the Patch Tagging Guidelines, please
+checkout http://dep.debian.net/deps/dep3/ to learn about the format. Here
+are templates for supplementary fields that you might want to add:
+
+Origin: <vendor|upstream|other>, <url of original patch>
+Bug: <url in upstream bugtracker>
+Bug-Debian: http://bugs.debian.org/<bugnumber>
+Bug-Ubuntu: https://launchpad.net/bugs/<bugnumber>
+Forwarded: <no|not-needed|url proving that it has been forwarded>
+Reviewed-By: <name and email of someone who approved the patch>
+Last-Update: <YYYY-MM-DD>
+
+--- mongodb-1.4.4.orig/SConstruct
++++ mongodb-1.4.4/SConstruct
+@@ -510,7 +510,7 @@ elif "linux2" == os.sys.platform:
+     if os.uname()[4] == "x86_64" and not force32:
+         linux64 = True
+         javaVersion = "amd64"
+-        nixLibPrefix = "lib64"
++        nixLibPrefix = "lib"
+         env.Append( LIBPATH=["/usr/lib64" , "/lib64" ] )
+         env.Append( LIBS=["pthread"] )
+ 
+@@ -1229,15 +1229,15 @@ def ensureDir( name ):
+             Exit( 1 )
+ 
+ def ensureTestDirs():
+-    ensureDir( "/tmp/unittest/" )
+-    ensureDir( "/data/" )
+-    ensureDir( "/data/db/" )
++    ensureDir( installDir + "/tmp/unittest/" )
++    ensureDir( installDir + "/data/" )
++    ensureDir( installDir + "/data/db/" )
+ 
+ def testSetup( env , target , source ):
+     ensureTestDirs()
+ 
+ if len( COMMAND_LINE_TARGETS ) == 1 and str( COMMAND_LINE_TARGETS[0] ) == "test":
+-    ensureDir( "/tmp/unittest/" );
++    ensureDir( installDir +  "/tmp/unittest/" );
+ 
+ addSmoketest( "smoke", [ add_exe( "test" ) ] , [ test[ 0 ].abspath ] )
+ addSmoketest( "smokePerf", [ "perftest" ] , [ perftest[ 0 ].abspath ] )
+@@ -1315,7 +1315,7 @@ def startMongodWithArgs(*args):
+     mongodForTestsPort = "32000"
+     import os
+     ensureTestDirs()
+-    dirName = "/data/db/sconsTests/"
++    dirName = installDir + "/data/db/sconsTests/"
+     ensureDir( dirName )
+     from subprocess import Popen
+     mongodForTests = Popen([mongod[0].abspath, "--port", mongodForTestsPort,

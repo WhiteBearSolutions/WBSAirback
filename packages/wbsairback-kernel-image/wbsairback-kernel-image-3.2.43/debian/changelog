@@ -1,0 +1,5 @@
+wbsairback-kernel-image (3.2.43) unstable; urgency=medium
+
+  * Initial compile for new wbsairback kernel
+  
+ -- Jorge Gea Martínez <jorge.gea@wbsgo.com>  Tue, 30 Oct 2012 13:30:00 +0200

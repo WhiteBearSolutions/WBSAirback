@@ -1,0 +1,15 @@
+Package: wbsairback-kernel-image
+Version: 3.2.43
+Architecture: amd64
+Maintainer: Jorge Gea Martínez <jorge.gea@wbsgo.com>
+Installed-Size: 43580
+Depends: initramfs-tools (>= 0.55), module-init-tools (>= 0.9.13), wbsairback-plymouth-theme
+Conflicts: firmware-qlogic
+Replaces: firmware-qlogic
+Provides: firmware-qlogic, linux-image, linux-image-2.6
+Section: admin
+Priority: optional
+Homepage: http://www.kernel.org
+Description: WBSAirback Linux 3.2 image for AMD64 or Intel64 processors
+ This package provides the binary image and pre-built loadable modules for
+ WBSAirback Linux kernel 3.2 for AMD64 or Intel64 processors.

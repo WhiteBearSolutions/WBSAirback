@@ -1,0 +1,133 @@
+This patch adds a --source-backup option that backs up source files
+removed due to --remove-source-files.
+
+To use this patch, run these commands for a successful build:
+
+    patch -p1 <patches/source-backup.diff
+    ./configure                         (optional if already run)
+    make
+
+-- Matt McCutchen <hashproduct@gmail.com>
+
+based-on: 54f00c3f89fc147f2f9cba89d26a5bb1d20e783b
+diff --git a/options.c b/options.c
+--- a/options.c
++++ b/options.c
+@@ -33,6 +33,7 @@ extern struct filter_list_struct filter_list;
+ extern struct filter_list_struct daemon_filter_list;
+ 
+ int make_backups = 0;
++int make_source_backups = 0;
+ 
+ /**
+  * If 1, send the whole file as literal data rather than trying to
+@@ -367,6 +368,7 @@ void usage(enum logcode F)
+   rprintf(F,"     --existing              skip creating new files on receiver\n");
+   rprintf(F,"     --ignore-existing       skip updating files that already exist on receiver\n");
+   rprintf(F,"     --remove-source-files   sender removes synchronized files (non-dirs)\n");
++  rprintf(F,"     --source-backup         ... and backs up those files\n");
+   rprintf(F,"     --del                   an alias for --delete-during\n");
+   rprintf(F,"     --delete                delete extraneous files from destination dirs\n");
+   rprintf(F,"     --delete-before         receiver deletes before transfer, not during\n");
+@@ -607,6 +609,7 @@ static struct poptOption long_options[] = {
+   {"bwlimit",          0,  POPT_ARG_INT,    &bwlimit, 0, 0, 0 },
+   {"no-bwlimit",       0,  POPT_ARG_VAL,    &bwlimit, 0, 0, 0 },
+   {"backup",          'b', POPT_ARG_VAL,    &make_backups, 1, 0, 0 },
++  {"source-backup",    0,  POPT_ARG_NONE,   &make_source_backups, 0, 0, 0},
+   {"no-backup",        0,  POPT_ARG_VAL,    &make_backups, 0, 0, 0 },
+   {"backup-dir",       0,  POPT_ARG_STRING, &backup_dir, 0, 0, 0 },
+   {"suffix",           0,  POPT_ARG_STRING, &backup_suffix, 0, 0, 0 },
+@@ -1973,6 +1976,8 @@ void server_options(char **args, int *argc_p)
+ 				goto oom;
+ 			args[ac++] = arg;
+ 		}
++		if (make_source_backups)
++			args[ac++] = "--source-backup";
+ 	}
+ 
+ 	if (modify_window_set) {
+diff --git a/rsync.yo b/rsync.yo
+--- a/rsync.yo
++++ b/rsync.yo
+@@ -365,6 +365,7 @@ to the detailed description below for a complete description.  verb(
+      --existing              skip creating new files on receiver
+      --ignore-existing       skip updating files that exist on receiver
+      --remove-source-files   sender removes synchronized files (non-dir)
++     --source-backup         ... and backs up those files
+      --del                   an alias for --delete-during
+      --delete                delete extraneous files from dest dirs
+      --delete-before         receiver deletes before transfer (default)
+@@ -1131,6 +1132,14 @@ dit(bf(--remove-source-files)) This tells rsync to remove from the sending
+ side the files (meaning non-directories) that are a part of the transfer
+ and have been successfully duplicated on the receiving side.
+ 
++dit(bf(--source-backup)) Makes the sender back up the source files it removes
++due to bf(--remove-source-files).  This option is independent of
++bf(--backup) but uses the same bf(--backup-dir) and bf(--suffix) settings,
++if any.  With bf(--backup-dir), rsync looks for each file's backup dir relative
++to the source argument the file came from.  Consequently, if the
++bf(--backup-dir) path is relative, each source argument gets a separate backup
++dir at that path relative to the argument.
++
+ dit(bf(--delete)) This tells rsync to delete extraneous files from the
+ receiving side (ones that aren't on the sending side), but only for the
+ directories that are being synchronized.  You must have asked rsync to
+diff --git a/sender.c b/sender.c
+--- a/sender.c
++++ b/sender.c
+@@ -38,6 +38,7 @@ extern int protocol_version;
+ extern int remove_source_files;
+ extern int updating_basis_file;
+ extern int make_backups;
++extern int make_source_backups;
+ extern int do_progress;
+ extern int inplace;
+ extern int batch_fd;
+@@ -122,6 +123,7 @@ void successful_send(int ndx)
+ 	char fname[MAXPATHLEN];
+ 	struct file_struct *file;
+ 	struct file_list *flist;
++	int result;
+ 
+ 	if (!remove_source_files)
+ 		return;
+@@ -132,7 +134,11 @@ void successful_send(int ndx)
+ 		return;
+ 	f_name(file, fname);
+ 
+-	if (do_unlink(fname) == 0) {
++	if (make_source_backups)
++		result = !make_backup(fname);
++	else
++		result = do_unlink(fname);
++	if (result == 0) {
+ 		if (verbose > 1)
+ 			rprintf(FINFO, "sender removed %s\n", fname);
+ 	} else
+diff -up a/rsync.1 b/rsync.1
+--- a/rsync.1
++++ b/rsync.1
+@@ -440,6 +440,7 @@ to the detailed description below for a 
+      \-\-existing              skip creating new files on receiver
+      \-\-ignore\-existing       skip updating files that exist on receiver
+      \-\-remove\-source\-files   sender removes synchronized files (non-dir)
++     \-\-source\-backup         ... and backs up those files
+      \-\-del                   an alias for \-\-delete\-during
+      \-\-delete                delete extraneous files from dest dirs
+      \-\-delete\-before         receiver deletes before transfer (default)
+@@ -1294,6 +1295,15 @@ This tells rsync to remove from the send
+ side the files (meaning non-directories) that are a part of the transfer
+ and have been successfully duplicated on the receiving side.
+ .IP 
++.IP "\fB\-\-source\-backup\fP"
++Makes the sender back up the source files it removes
++due to \fB\-\-remove\-source\-files\fP.  This option is independent of
++\fB\-\-backup\fP but uses the same \fB\-\-backup\-dir\fP and \fB\-\-suffix\fP settings,
++if any.  With \fB\-\-backup\-dir\fP, rsync looks for each file\(cq\&s backup dir relative
++to the source argument the file came from.  Consequently, if the
++\fB\-\-backup\-dir\fP path is relative, each source argument gets a separate backup
++dir at that path relative to the argument.
++.IP 
+ .IP "\fB\-\-delete\fP"
+ This tells rsync to delete extraneous files from the
+ receiving side (ones that aren\(cq\&t on the sending side), but only for the

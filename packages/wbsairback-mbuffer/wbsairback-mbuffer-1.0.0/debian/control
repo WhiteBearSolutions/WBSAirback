@@ -1,0 +1,19 @@
+Source: wbsairback-mbuffer
+Section: admin
+Maintainer: Jorge Gea Martínez <jorge.gea@wbsgo.com>
+Priority: optional
+Homepage: http://www.wbslabs.com/wbslabs/live/proyectos/wbsairback.html
+
+Package: wbsairback-mbuffer
+Architecture: any
+Depends: wbsairback-kernel-image, libmhash2
+Description: WBSAirback mbuffer tool
+  mbuffer is a tool for buffering data streams with a large set of unique features:
+    direct support for TCP based network targets (IPv4 and IPv6)
+    ability to send to multiple targets in parallel (distribution mode)
+    support for multiple volumes
+    I/O rate limitation
+    high/low watermark based restart criteria
+    configurable buffer size
+    on the fly MD5 hash calculation
+    highly efficient, multi-threaded implementation 

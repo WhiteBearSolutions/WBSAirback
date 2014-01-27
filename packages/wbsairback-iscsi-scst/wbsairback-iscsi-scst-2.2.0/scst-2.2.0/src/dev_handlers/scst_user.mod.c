@@ -1,0 +1,126 @@
+#include <linux/module.h>
+#include <linux/vermagic.h>
+#include <linux/compiler.h>
+
+MODULE_INFO(vermagic, VERMAGIC_STRING);
+
+struct module __this_module
+__attribute__((section(".gnu.linkonce.this_module"))) = {
+ .name = KBUILD_MODNAME,
+ .init = init_module,
+#ifdef CONFIG_MODULE_UNLOAD
+ .exit = cleanup_module,
+#endif
+ .arch = MODULE_ARCH_INIT,
+};
+
+static const struct modversion_info ____versions[]
+__used
+__attribute__((section("__versions"))) = {
+	{ 0x22137d7e, "module_layout" },
+	{ 0xf9a482f9, "msleep" },
+	{ 0xee46885d, "add_wait_queue_exclusive" },
+	{ 0xd2965f6f, "kthread_should_stop" },
+	{ 0x449b8adc, "scst_unregister_dev_driver" },
+	{ 0x70b15c8b, "device_create" },
+	{ 0x1afb4a05, "__class_create" },
+	{ 0x2d7edeb4, "kmem_cache_create" },
+	{ 0xdc2fe0b7, "__register_chrdev" },
+	{ 0x33a55491, "kmalloc_caches" },
+	{ 0xf781bca8, "scst_register_virtual_device" },
+	{ 0x83280944, "sgv_pool_get" },
+	{ 0xcbcf7abc, "sgv_pool_set_allocator" },
+	{ 0x8ee9849, "sgv_pool_create" },
+	{ 0xeb469430, "scst_init_mem_lim" },
+	{ 0x34a0a055, "scst_init_threads" },
+	{ 0x2a6e6109, "__init_rwsem" },
+	{ 0xbbbb4d6f, "scst_calc_block_shift" },
+	{ 0x4434f76a, "__scst_register_virtual_dev_driver" },
+	{ 0x779cb7b8, "scst_capacity_data_changed" },
+	{ 0xf0fdf6cb, "__stack_chk_fail" },
+	{ 0x536ee951, "scst_cmd_put" },
+	{ 0xfd2bc271, "scst_cmd_get" },
+	{ 0x62ce9188, "scst_set_resp_data_len" },
+	{ 0x6ef96f3e, "scst_set_cmd_error_status" },
+	{ 0x3946a0d4, "scst_alloc_sense" },
+	{ 0x77e2f33, "_copy_from_user" },
+	{ 0xffbeec1b, "scst_resume_activity" },
+	{ 0x3b4ceb4a, "up_write" },
+	{ 0xe6e3b875, "down_write" },
+	{ 0x962f18ee, "scst_suspend_activity" },
+	{ 0x53f6ffbc, "wait_for_completion_timeout" },
+	{ 0x672144bd, "strlcpy" },
+	{ 0x53dd8f81, "scst_prepare_async_mcmd" },
+	{ 0xa9b843ce, "scst_block_generic_dev_done" },
+	{ 0x51812cf9, "scst_tape_generic_dev_done" },
+	{ 0x6395be94, "__init_waitqueue_head" },
+	{ 0xe2d5255a, "strcmp" },
+	{ 0x28343bad, "scnprintf" },
+	{ 0x21c56277, "get_user_pages" },
+	{ 0x5a34a45c, "__kmalloc" },
+	{ 0xb5dcab5b, "remove_wait_queue" },
+	{ 0x1000e51, "schedule" },
+	{ 0x4cbd921, "scst_check_local_events" },
+	{ 0xc278c13e, "scst_process_active_cmd" },
+	{ 0xe2eaf501, "scst_post_alloc_data_buf" },
+	{ 0x7533d0bd, "scst_post_parse" },
+	{ 0xd0c67933, "scst_set_cmd_abnormal_done_state" },
+	{ 0x6eb12e0, "scst_set_cmd_error" },
+	{ 0x386f0094, "scst_set_busy" },
+	{ 0x43261dca, "_raw_spin_lock_irq" },
+	{ 0xf5893abf, "up_read" },
+	{ 0x71de9b3f, "_copy_to_user" },
+	{ 0x57a6ccd0, "down_read" },
+	{ 0xde2b1c1, "mutex_unlock" },
+	{ 0xb3704504, "mutex_lock" },
+	{ 0x40256835, "complete_all" },
+	{ 0xedcf8df7, "scst_async_mcmd_completed" },
+	{ 0x8fc7e5c8, "sgv_pool_free" },
+	{ 0x337cb9a2, "kmem_cache_free" },
+	{ 0x9327f5ce, "_raw_spin_lock_irqsave" },
+	{ 0x8f64aa4, "_raw_spin_unlock_irqrestore" },
+	{ 0xbc24dff7, "sgv_get_priv" },
+	{ 0xd2a7992b, "sgv_pool_alloc" },
+	{ 0x6b2dc060, "dump_stack" },
+	{ 0xfd3eae83, "put_page" },
+	{ 0x6df38750, "kmem_cache_alloc" },
+	{ 0x4ac809e7, "debug_print_buffer" },
+	{ 0x6a8f27f7, "wake_up_process" },
+	{ 0x7983668f, "kthread_create_on_node" },
+	{ 0x37a0cba, "kfree" },
+	{ 0xf0beabdf, "module_put" },
+	{ 0xe746bfb2, "scst_deinit_threads" },
+	{ 0xa2483c11, "sgv_pool_del" },
+	{ 0x6d0aba34, "wait_for_completion" },
+	{ 0xac3dab23, "sgv_pool_flush" },
+	{ 0x8388e758, "scst_unregister_virtual_device" },
+	{ 0xcf21d241, "__wake_up" },
+	{ 0xd52bf1ce, "_raw_spin_lock" },
+	{ 0xc3c35a41, "kmem_cache_destroy" },
+	{ 0xe37001c8, "scst_unregister_virtual_dev_driver" },
+	{ 0xd6778457, "class_destroy" },
+	{ 0x3b3a4065, "device_destroy" },
+	{ 0x2e33c40f, "kthread_stop" },
+	{ 0x6bc3fbc0, "__unregister_chrdev" },
+	{ 0x799aca4, "local_bh_enable" },
+	{ 0x5474e078, "scst_raid_generic_parse" },
+	{ 0xfd873b2c, "scst_processor_generic_parse" },
+	{ 0x7574f91f, "scst_changer_generic_parse" },
+	{ 0x971f8bb5, "scst_cdrom_generic_parse" },
+	{ 0x42a3b2fb, "scst_modisk_generic_parse" },
+	{ 0x6ca615f2, "scst_tape_generic_parse" },
+	{ 0x42b05117, "scst_sbc_generic_parse" },
+	{ 0x273d1a8a, "debug_print_prefix" },
+	{ 0x27e1a049, "printk" },
+	{ 0xb511f740, "current_task" },
+	{ 0xffd5a395, "default_wake_function" },
+	{ 0x4c4fef19, "kernel_stack" },
+};
+
+static const char __module_depends[]
+__used
+__attribute__((section(".modinfo"))) =
+"depends=scst";
+
+
+MODULE_INFO(srcversion, "D1CC7C1723155708EAC52DB");
