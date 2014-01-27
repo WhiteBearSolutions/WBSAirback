@@ -1,0 +1,58 @@
+#!/bin/sh
+#
+# Fichero de gestion de la rutas directas
+# para LVS.
+#
+# Author: Ricardo Lorenzo <ricardo.lorenzo@whitebearsolutions.com>
+# Whitebearsolutions - Madrid Spain
+#
+
+CONFIG_FILE=/etc/ha.d/ldirectord.cf
+IPVSADM=/sbin/ipvsadm
+HA_DIR=/etc/ha.d
+PROTOCOL_LINES=$(grep -v ^# $CONFIG_FILE | grep protocol | awk 'BEGIN{FS="="}{print $2}')
+VIP_LINES=$(grep ^virtual $CONFIG_FILE | awk 'BEGIN{FS="="}{print $2}')
+
+iptables -F -t nat;
+
+server_up() {
+   echo 1 > /proc/sys/net/ipv4/ip_forward;
+   iptables -t nat -F
+}
+
+server_down() {
+   if [ -x $IPVSADM ] ; then
+       COUNT=1
+       for LINE in $VIP_LINES; do
+           VIP=$(echo $LINE | awk 'BEGIN{FS=":"}{print $1}')
+           SERVICE=$(echo $LINE | awk 'BEGIN{FS=":"}{print $2}')
+           PROTOCOL=$(echo $PROTOCOL_LINES | awk '{ print $'$COUNT' }')
+           iptables -t nat -A PREROUTING -p $PROTOCOL -d $VIP --dport $SERVICE -j REDIRECT --to-port $SERVICE
+           COUNT=`expr "$COUNT" + 1`
+       done
+       $IPVSADM -C
+   fi
+}
+
+case "$1" in
+    start)
+        echo -n "Starting LVS services:"
+        server_up
+        echo " done"
+        ;;
+    stop)
+        echo -n "Stopping LVS services:"
+        server_down
+        echo " done"
+        ;;
+    status)
+        if [ -x $IPVSADM ]
+        then
+            $IPVSADM -L -n
+        fi
+        ;;
+    *)
+        echo "Usage: lvs {start|stop|status}"
+        exit 1
+esac
+

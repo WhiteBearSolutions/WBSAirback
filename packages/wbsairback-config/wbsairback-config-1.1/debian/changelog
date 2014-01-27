@@ -1,0 +1,107 @@
+wbsairback-config (14-com.00.00) 1.2; urgency=medium
+
+  * First community version
+
+ -- Jorge Gea Martínez <jorge.gea@wbsgo.com>  Tue, 2 Nov 2010 00:25:59 +0200
+ 
+wbsairback-config (14.00.03) 1.2; urgency=medium
+
+  * Added ntfs dependency
+
+ -- Jorge Gea Martínez <jorge.gea@wbsgo.com>  Tue, 2 Nov 2010 00:25:59 +0200
+ 
+wbsairback-config (14.00.02) 1.2; urgency=medium
+
+  * Updated udev rules for sg autochangers proper detection
+
+ -- Jorge Gea Martínez <jorge.gea@wbsgo.com>  Tue, 2 Nov 2010 00:25:59 +0200
+ 
+wbsairback-config (14.00.01) 1.2; urgency=medium
+
+  * Updated udev rules for proper tapes recognition
+  * Updated bacula mt script for changing tapes error resolution
+  * Updated default package repository to 1.4
+
+ -- Jorge Gea Martínez <jorge.gea@wbsgo.com>  Tue, 2 Nov 2010 00:25:59 +0200
+ 
+wbsairback-config (14.00.00) 1.2; urgency=medium
+
+  * Updated scripts for new bacula 6.4.2
+
+ -- Jorge Gea Martínez <jorge.gea@wbsgo.com>  Tue, 2 Nov 2010 00:25:59 +0200
+ 
+wbsairback-config (12.0.28) 1.2; urgency=medium
+
+  * Added ntpdate dependency
+
+ -- Jorge Gea Martínez <jorge.gea@wbsgo.com>  Tue, 2 Nov 2010 00:25:59 +0200
+ 
+wbsairback-config (12.0.27) 1.2; urgency=medium
+
+  * Re-updated scripts of BD for bacula 6.4
+
+ -- Jorge Gea Martínez <jorge.gea@wbsgo.com>  Tue, 2 Nov 2010 00:25:59 +0200
+ 
+wbsairback-config (12.0.26) 1.2; urgency=medium
+
+  * Updated udev rules for zfs block mode devices
+
+ -- Jorge Gea Martínez <jorge.gea@wbsgo.com>  Tue, 2 Nov 2010 00:25:59 +0200
+ 
+wbsairback-config (12.0.25) 1.2; urgency=medium
+
+  * Updated postgresql scripts to new bacula version
+  * Updated vsphere-ctl script for vmware plugin
+
+ -- Jorge Gea Martínez <jorge.gea@wbsgo.com>  Tue, 2 Nov 2010 00:25:59 +0200
+ 
+wbsairback-config (12.0.24) 1.2; urgency=medium
+
+  * Mongodb init replacement in postinst
+
+ -- Jorge Gea Martínez <jorge.gea@wbsgo.com>  Tue, 2 Nov 2010 00:25:59 +0200
+ 
+wbsairback-config (12.0.23) 1.2; urgency=medium
+
+  * Snmp traps working: changed /etc/default/snmpd
+
+ -- Jorge Gea Martínez <jorge.gea@wbsgo.com>  Tue, 2 Nov 2010 00:25:59 +0200
+ 
+wbsairback-config (12.0.22) 1.2; urgency=medium
+
+  * Changed snmpd.conf => Deleted final bars (/boot /rdata)
+
+ -- Jorge Gea Martínez <jorge.gea@wbsgo.com>  Tue, 2 Nov 2010 00:25:59 +0200
+ 
+wbsairback-config (12.0.21) 1.2; urgency=medium
+
+  * Added -f option on zpool import command of make_aggregate.sh script
+  * Solved root password issue on main console
+
+ -- Jorge Gea Martínez <jorge.gea@wbsgo.com>  Tue, 2 Nov 2010 00:25:59 +0200
+ 
+wbsairback-config (12.0.20) 1.2; urgency=medium
+
+  * Removed TSO script
+  * Added -f option on zpool create command of make_aggregate.sh script
+
+ -- Jorge Gea Martínez <jorge.gea@wbsgo.com>  Tue, 2 Nov 2010 00:25:59 +0200
+ 
+wbsairback-config (12.0.19) 1.2; urgency=medium
+
+  * Added zfs scripts (zpool create from zfs-fuse, etc)
+
+ -- Jorge Gea Martínez <jorge.gea@wbsgo.com>  Tue, 2 Nov 2010 00:25:59 +0200
+ 
+wbsairback-config (12.0.18) 1.2; urgency=medium
+
+  * Changed java scripts. Now Library path is general and dinamically obtained
+
+ -- Jorge Gea Martínez <jorge.gea@wbsgo.com>  Tue, 2 Nov 2010 00:25:59 +0200
+ 
+wbsairback-config (12.0.17) 1.2; urgency=medium
+
+  * Initial release.
+
+ -- Jorge Gea Martínez <jorge.gea@wbsgo.com>  Tue, 2 Nov 2010 00:25:59 +0200
+

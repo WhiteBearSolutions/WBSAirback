@@ -1,0 +1,79 @@
+#! /bin/sh
+#########################################
+#.        .__--------___.         .     #
+# \.     /             C \       / \.  /#
+#   \   /           \__ ' \  .  /    \/ #
+#    \_|  \   |-\   / \ \C'_/ \/        #
+#------/ /-| /---| /-\ \----------------#
+#      '_))'_))  '_)) '_))              #
+#                                       #
+#########################################
+#        (c)WHITEBEARSOLUTIONS          #
+#      GNU Generic Public License       #
+#########################################
+#
+### BEGIN INIT INFO
+# Provides:          wbsairback-drbd
+# Required-Start:    $syslog
+# Required-Stop:     $syslog
+# Default-Start:     2 3 4 5
+# Default-Stop:      0 1 6
+# Short-Description: Start WBSAirback drbd daemon at boot time
+# Description:       Enable WBSAirback drbd.
+### END INIT INFO
+#
+
+if [ -f /etc/default/functions ]; then
+  . /etc/default/functions
+fi
+
+DISK_FILE=/var/lib/drbd/meta-disk.raw
+DAEMON_STATUS=0
+
+start() {
+    echo -n "Starting WBSAirback DRBD ["
+    if [ ! -f $DISK_FILE ]; then
+      touch $DISK_FILE
+      dd if=/dev/zero of=$DISK_FILE bs=1k count=307200
+    fi
+    OUTPUT=$(losetup -a | grep /dev/loop0 | wc -l)
+    if [ $OUTPUT -eq 0 ]; then
+      losetup /dev/loop0 $DISK_FILE
+    fi
+    service_wait 2
+    echo -n "] "
+    print_done
+}
+
+stop() {
+    echo -n "Stopping WBSAirback DRBD ["
+    OUTPUT=$(losetup -a | grep /dev/loop0 | wc -l)
+    if [ $OUTPUT -gt 0 ]; then
+      losetup -d /dev/loop0
+    fi
+    service_wait 2
+    echo -n "] "
+    print_done
+}
+
+case "$1" in
+  start)
+    start
+    ;;
+
+  stop)
+    stop
+    ;;
+
+ restart)
+    stop
+    sleep 1
+    start
+    ;;
+  *)
+    echo "Usage: /etc/init.d/wbsairback-drbd {start|stop|restart}"
+    exit 1
+    ;;
+esac
+
+exit 0

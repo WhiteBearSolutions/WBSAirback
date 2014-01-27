@@ -1,0 +1,9 @@
+<?xml version="1.0" standalone='no'?><!--*-nxml-*-->
+<!DOCTYPE service-group SYSTEM "avahi-service.dtd">
+<service-group>
+<name replace-wildcards="yes">%h Bacula Storage</name>
+<service>
+<type>_bacula-sd._tcp</type>
+<port>9103</port>
+</service>
+</service-group>

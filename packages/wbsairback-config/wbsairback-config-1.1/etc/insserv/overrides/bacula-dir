@@ -1,0 +1,13 @@
+#! /bin/sh
+#
+### BEGIN INIT INFO
+# Provides:	     bacula-dir
+# Required-Start:    $network +wbsairback-volumes
+# Required-Stop:     $network
+# Default-Start:     2 3 4 5
+# Default-Stop:      0 1 6
+# Short-Description: Start Bacula Enterprise Director daemon at boot time
+# Description:	     Enable Bacula Enterprise Director.
+### END INIT INFO
+#
+

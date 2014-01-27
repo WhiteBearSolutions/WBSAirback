@@ -1,0 +1,46 @@
+#!/bin/sh
+#
+# Inicia postgresql si /rdata está montado (para maestro de cluster)
+#
+# Author: Jorge Gea <jorge.gea@whitebearsolutions.com>
+# Whitebearsolutions - Madrid Spain
+#
+
+DAEMON_STATUS=0
+
+if [ -f /etc/default/functions ]; then
+  . /etc/default/functions
+fi
+
+POSTGRESQL_SERVICE=/etc/init.d/postgresql
+
+case "$1" in
+    start)
+       if mount | grep -q ' /rdata '; then
+		   echo "Rdata mounted, starting psql ..."
+		   $POSTGRESQL_SERVICE restart
+	   else
+		   echo "Rdata not mounted, doing nothing"
+		   exit 0
+	   fi
+       print_done
+       ;;
+    stop)
+       if mount | grep -q ' /rdata '; then
+		  echo "Rdata mounted, stopping psql ..."
+		  $POSTGRESQL_SERVICE stop
+	   else
+		   echo "Rdata not mounted, doing nothing"
+		   exit 0
+	   fi
+       print_done
+       ;;
+    status)
+	   print_done
+       ;;
+    *)
+        echo "Usage: PostgreIfRdata {start|stop|status}"
+        exit 1
+esac
+
+exit 0

@@ -1,0 +1,14 @@
+Source: wbsairback-config
+Section: admin
+Priority: important
+Maintainer: Ricardo Lorenzo Rodríguez <ricardo.lorenzo@wbsgo.com>
+Build-Depends: debhelper (>= 7)
+Standards-Version: 3.7.3
+Homepage: http://www.wbslabs.com/wbsairback
+
+Package: wbsairback-config
+Architecture: any
+Depends: bc (>= 1.0), openssh-server, openssh-client, ntp, snmp-mibs-downloader, snmpd, rrdtool, avahi-utils, nscd, wbsairback-admin, ntpdate, ntfs-3g
+Replaces: bacula-enterprise-vsphere
+Description: WBSAirback base configurations
+  WBSAirback base configurations.

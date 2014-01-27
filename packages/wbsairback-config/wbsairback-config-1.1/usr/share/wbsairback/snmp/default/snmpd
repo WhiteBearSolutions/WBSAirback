@@ -1,0 +1,9 @@
+# Comentamos esta linea. SINO NO FUNCIONA!!
+#export MIBDIRS=/usr/share/mibs
+# Hacemos que el demonio de snmp se ejecute al arrancar
+SNMPDRUN=yes
+SNMPDOPTS='-Lsd -Lf /dev/null -u snmp -I -smux -p /var/run/snmpd.pid'
+# Hacemos que el demonio de snmp se ejecute al arrancar
+TRAPDRUN=yes
+TRAPDOPTS='-Lsd -p /var/run/snmptrapd.pid'
+SNMPDCOMPAT=yes

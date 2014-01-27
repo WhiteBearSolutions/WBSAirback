@@ -1,0 +1,12 @@
+#! /bin/sh
+#
+### BEGIN INIT INFO
+# Provides:	     bacula-sd
+# Required-Start:    $network +wbsairback-volumes +bacula-dir
+# Required-Stop:     $network
+# Default-Start:     2 3 4 5
+# Default-Stop:      0 1 6
+# Short-Description: Start Bacula Enterprise Storage daemon at boot time
+# Description:	     Enable Bacula Enterprise Storage daemon.
+### END INIT INFO
+

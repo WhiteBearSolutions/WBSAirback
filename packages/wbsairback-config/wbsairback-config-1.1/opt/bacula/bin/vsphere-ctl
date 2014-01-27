@@ -1,0 +1,69 @@
+#!/bin/sh
+
+# use cache "update" during
+UPDATE_REFRESH=300
+USE_CACHE=no
+
+cd `dirname $0`
+
+OPT=
+if [ -f vsphere_global.conf ]; then
+    OPT="vsphere_global.conf"
+
+elif [ -f ../etc/vsphere_global.conf ]; then
+    OPT="../etc/vsphere_global.conf"
+
+elif [ -f /opt/bacula/etc/vsphere_global.conf ]; then
+    OPT="/opt/bacula/etc/vsphere_global.conf"
+
+else 
+    echo "ERROR: Unable to find /opt/bacula/etc/vsphere_global.conf"
+    echo "  The file should define connexion information to the vSphere"
+    echo "  server.  See the vSphere Plugin documentation to create it."
+fi
+
+if [ "$1" = "clean" -a "$2" != "" ]; then
+
+    if [ $2 -lt 2 ]; then
+        echo "WARNING: Not a good idea to clean files after less than 2 days"
+        exit
+    fi
+
+    root_directory=`awk -F= '/^[\t ]*root_directory[\t ]*=/ { print $2 }' $OPT`
+    root_directory=`echo $root_directory`
+    root_directory=${root_directory:-/opt/bacula/working/vsphere}
+
+    if [ -f "$root_directory/vsphere_all_vm.profile" ]; then
+        find $root_directory/ -mtime +$2 -exec rm -rf {} \;
+        exit $?
+    else 
+        echo "ERROR: Can't find '$root_directory/vsphere_all_vm.profile' file"
+        exit 2
+    fi
+fi
+
+# Quick fix for #5486, don't run update every 10s
+if [ "$USE_CACHE" = yes ]; then
+    if [ "$1" = "update" -a "$2" = "" ] || [ "$3" = "update" -a "$4" = "" ]; then
+    
+        root_directory=`awk -F= '/^[\t ]*root_directory[\t ]*=/ { print $2 }' $OPT`
+        root_directory=`echo $root_directory`
+        root_directory=${root_directory:-/opt/bacula/working/vsphere}
+        
+        if [ -f "$root_directory/vsphere_all_vm.profile" ]; then
+        # check if the vsphere_all_vm.profile is already up to date
+            now=`date +%s`
+            mtime=`stat -c %Y "$root_directory/vsphere_all_vm.profile"`
+            mtime=`expr $mtime + $UPDATE_REFRESH`
+            if [ $mtime -ge $now ]; then
+                echo "0: up-to date"
+                exit 0
+            fi
+        fi
+    fi
+fi
+
+OPT="--conf $OPT"
+JAVA=/usr/share/wbsairback/java/bin/java
+$JAVA -ea -server -jar vsphere-ctl.jar $OPT "$@"
+exit $?

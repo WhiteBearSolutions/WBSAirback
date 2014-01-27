@@ -1,0 +1,9 @@
+<?xml version="1.0" standalone='no'?><!--*-nxml-*-->
+<!DOCTYPE service-group SYSTEM "avahi-service.dtd">
+<service-group>
+<name replace-wildcards="yes">%h Bacula Director</name>
+<service>
+<type>_bacula-dir._tcp</type>
+<port>9101</port>
+</service>
+</service-group>

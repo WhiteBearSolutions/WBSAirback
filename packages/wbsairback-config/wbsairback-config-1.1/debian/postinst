@@ -1,0 +1,287 @@
+#!/bin/sh
+# postinst script for wbsairback-config
+#
+# see: dh_installdeb(1)
+
+set -e
+
+# summary of how this script can be called:
+#        * <postinst> `configure' <most-recently-configured-version>
+#        * <old-postinst> `abort-upgrade' <new version>
+#        * <conflictor's-postinst> `abort-remove' `in-favour' <package>
+#          <new-version>
+#        * <postinst> `abort-remove'
+#        * <deconfigured's-postinst> `abort-deconfigure' `in-favour'
+#          <failed-install-package> <version> `removing'
+#          <conflicting-package> <version>
+# for details, see http://www.debian.org/doc/debian-policy/ or
+# the debian-policy package
+
+config_all() {
+  echo -n "Inicializing WBSAirback configurations: "
+  if [ ! -f /etc/hostname ]; then
+     echo "wbsairback" > /etc/hostname
+  fi
+  if [ -f /usr/share/wbsairback/inittab.wbsairback ]; then
+      cp /usr/share/wbsairback/inittab.wbsairback /etc/inittab >/dev/null
+  fi
+  if [ -f /etc/drbd.conf ]; then
+      if [ ! -e /etc/wbsairback-admin/config.xml ]; then
+	 insserv -r wbsairback-drbd
+         rm -f /etc/drbd.conf
+      fi
+  fi
+  if [ ! -L /etc/locale.gen ]; then
+      if [ -f /usr/share/wbsairback/locale/locale.gen ]; then
+         if [ -e /etc/locale.gen ]; then
+             rm /etc/locale.gen
+         fi
+         ln -s /usr/share/wbsairback/locale/locale.gen /etc/locale.gen
+         locale-gen
+      fi
+  fi
+  if [ -x /etc/init.d/wbsairback-drbd ]; then
+	insserv wbsairback-drbd
+  fi
+  if [ -x /etc/init.d/wbsairback-volumes ]; then
+	insserv wbsairback-volumes
+  fi
+  if [ ! -x /etc/init.d/wbsairback-volumes-ha ]; then
+	     chmod 755 /etc/init.d/wbsairback-volumes-ha
+  fi
+  if [ ! -x /etc/init.d/wbsairback-volumes-multipath ]; then
+	     chmod 755 /etc/init.d/wbsairback-volumes-multipath
+  fi
+  if [ -f /usr/share/wbsairback/nfs/nfs-kernel-server.wbsairback ]; then
+	/bin/cp /usr/share/wbsairback/nfs/nfs-kernel-server.wbsairback /etc/init.d/nfs-kernel-server
+  fi
+  if [ ! -d /rdata ]; then
+        mkdir /rdata
+  fi
+  insserv -r openvpn || echo -n ""
+  echo "done"
+  echo -n "Configuring WBSAriback cron tasks: "
+  cat /dev/null > /etc/crontab
+  if [ -e /usr/share/wbsairback/bin/hourly-tasks ]; then
+	if [ ! -x /usr/share/wbsairback/bin/hourly-tasks ]; then
+	     chmod 755 /usr/share/wbsairback/bin/hourly-tasks
+	fi
+	if [ ! -e /etc/cron.hourly ]; then
+             mkdir /etc/cron.hourly
+	fi
+	if [ -e /etc/cron.hourly/hourly-tasks ]; then
+	     rm /etc/cron.hourly/hourly-tasks
+	fi
+ 	ln -s /usr/share/wbsairback/bin/hourly-tasks /etc/cron.hourly/hourly-tasks
+  fi
+  echo "done"
+  echo -n "Configuring Watchdog: "
+  if [ -e /usr/share/wbsairback/bin/watchdog ]; then
+	if [ ! -x /usr/share/wbsairback/bin/watchdog ]; then
+	     chmod 755 /usr/share/wbsairback/bin/watchdog
+	fi
+  fi
+  echo "done"
+  
+  echo -n "Configuring Volumes Daemon: "
+  if [ -e /usr/share/wbsairback/bin/volumes ]; then
+	if [ ! -x /usr/share/wbsairback/bin/volumes ]; then
+	     chmod 755 /usr/share/wbsairback/bin/volumes
+	fi
+  fi
+  echo "done"
+
+  echo -n "Configuring WBSAirback zfs: "
+  chmod 777 /usr/share/wbsairback/bin/zfs/*
+  echo "done"
+       
+  echo -n "Configuring UDEV: "
+  if [ -f /usr/share/wbsairback/udev/60-persistent-storage-tape.rules ]; then
+        cp /usr/share/wbsairback/udev/60-persistent-storage-tape.rules /etc/udev/rules.d/60-persistent-storage-tape.rules
+  fi
+  echo "done"
+  echo -n "Configuring Bacula Enterprise: "
+  if [ ! -e /rdata/bacula ]; then
+        mkdir /rdata/bacula
+  fi
+  if [ ! -e /rdata/working ]; then
+        mkdir /rdata/working
+  fi
+  if [ ! -L /etc/bacula ]; then
+        if [ -d /etc/bacula ]; then
+             mv /etc/bacula/* /rdata/bacula
+             rm -fr /etc/bacula
+        fi
+        ln -s /rdata/bacula /etc/bacula
+  fi
+  if [ ! -L /opt/bacula/etc ]; then
+        if [ -d /opt/bacula/etc ]; then
+             mv /opt/bacula/etc/* /rdata/bacula
+             rm -fr /opt/bacula/etc
+        fi
+        /bin/ln -s /rdata/bacula /opt/bacula/etc
+  fi
+  if [ ! -L /opt/bacula/working ]; then
+        if [ -d /opt/bacula/working ]; then
+             rm -fr /opt/bacula/working
+        fi
+	ln -s /rdata/working /opt/bacula/working
+  fi
+  if [ ! -d /var/bacula/working ]; then
+        mkdir -p /var/bacula/working
+  fi
+  echo -n "Configuring APT: "
+  if [ -d /usr/share/wbsairback/apt -a -e /etc/apt ]; then
+      rm -fr /etc/apt >/dev/null
+      ln -s /usr/share/wbsairback/apt /etc/apt
+  fi
+  echo "done"
+  echo -n "Configuring SCSI target: "
+  if [ ! -L /etc/scst.conf ]; then
+        if [ ! -e /rdata/scst ]; then
+             mkdir -p /rdata/scst
+        fi
+        if [ -d /etc/scst ]; then
+             rm -fr /etc/scst
+        fi
+        if [ -e /etc/scst.conf ]; then
+             mv /etc/scst.conf /rdata/scst/scst.conf
+        fi
+        if [ ! -e /rdata/scst/scst.conf ]; then
+             touch /rdata/scst/scst.conf
+        fi
+        ln -s /rdata/scst/scst.conf /etc/scst.conf
+        ln -s /rdata/scst /etc/scst
+  fi
+  echo "done"
+  echo -n "Configuring iSCSI initiator: "
+  if [ -L /etc/iscsi ]; then
+  		rm /etc/iscsi
+        if [ ! -e /etc/iscsi ]; then
+             mkdir /etc/iscsi
+        fi
+        if [ -d /rdata/iscsi ]; then
+            cp -r /rdata/iscsi/* /etc/iscsi/
+        fi
+        if [ -e /rdata/iscsi ]; then
+            rm -fr /rdata/iscsi
+        fi
+  fi
+  insserv open-iscsi
+  echo "done"
+  echo -n "Configuring OpenSSH: "
+  if [ ! -L /etc/ssh/sshd_config ]; then
+      if [ -e /etc/ssh/sshd_config  ]; then
+           rm /etc/ssh/sshd_config
+      fi
+      ln -s /usr/share/wbsairback/ssh/sshd_config /etc/ssh/sshd_config
+  fi
+  echo "done"
+  echo -n "Configuring NFS server: "
+  if [ ! -L /etc/exports ]; then
+        if [ ! -e /rdata/nfs ]; then
+             mkdir /rdata/nfs
+        fi
+        if [ -f /etc/exports ]; then
+             mv /etc/exports /rdata/nfs/exports
+        else
+             touch /rdata/nfs/exports
+        fi
+        ln -s /rdata/nfs/exports /etc/exports
+  fi
+  echo "done"
+  echo -n "Configuring Samba: "
+  if [ ! -L /etc/samba ]; then
+        if [ -d /etc/samba ]; then
+             mv /etc/samba /rdata/
+        else
+             mkdir /rdata/samba
+        fi
+        ln -s /rdata/samba /etc/samba
+  fi
+  echo "done"
+  echo -n "Configuring ProFTPd: "
+  if [ ! -L /etc/proftpd ]; then
+        if [ -d /etc/proftpd ]; then
+             mv /etc/proftpd /rdata/
+        else
+             mkdir /rdata/proftpd
+        fi
+        ln -s /rdata/proftpd /etc/proftpd
+  fi
+  echo "done"
+  echo -n "Configuring SNMP daemon: "
+  if [ ! -L /etc/snmp/snmp.conf ]; then
+      if [ -e /etc/snmp/snmp.conf ]; then
+           rm /etc/snmp/snmp.conf
+      fi
+      ln -s /usr/share/wbsairback/snmp/snmp.conf /etc/snmp/snmp.conf
+  fi
+  if [ ! -L /etc/snmp/snmpd.conf ]; then
+      if [ -e /etc/snmp/snmpd.conf ]; then
+           rm /etc/snmp/snmpd.conf
+      fi
+      ln -s /usr/share/wbsairback/snmp/snmpd.conf /etc/snmp/snmpd.conf
+  fi
+  if [ ! -L /etc/default/snmpd ]; then
+      if [ -e /etc/default/snmpd ]; then
+           rm /etc/default/snmpd
+      fi
+      ln -s /usr/share/wbsairback/snmp/default/snmpd /etc/default/snmpd
+  fi
+  echo "done"
+  echo -n "Configuring AVAHI: "
+  if [ -d /usr/share/wbsairback/avahi -a -r /etc/avahi ]; then
+      rm -fr /etc/avahi
+      ln -s /usr/share/wbsairback/avahi /etc/avahi
+  fi
+  echo "done"
+  echo -n "Configuring MongoDB: "
+  if [ -e /usr/share/wbsairback/bin/mongodb ]; then
+  	cp /usr/share/wbsairback/bin/mongodb /etc/init.d/
+  	chmod 755 /etc/init.d/mongodb
+  fi
+  echo "done"
+  echo -n "Configuring HA services: "
+  if [ -e /etc/init.d/ldirectord ]; then
+    if [ -L /etc/ha.d/resource.d/ldirectord ]; then
+       rm -f /etc/ha.d/resource.d/ldirectord;
+    fi
+    ln -s /etc/init.d/ldirectord /etc/ha.d/resource.d/ldirectord;
+  fi
+  if [ -e /etc/ha.d/resource.d/PostgreIfRdata ]; then
+	if [ ! -x /etc/ha.d/resource.d/PostgreIfRdata ]; then
+	     chmod 755 /etc/ha.d/resource.d/PostgreIfRdata
+	fi
+  fi
+  if [ -e /etc/ha.d/resource.d/LVS-DR ]; then
+	if [ ! -x /etc/ha.d/resource.d/LVS-DR ]; then
+	     chmod 755 /etc/ha.d/resource.d/LVS-DR
+	fi
+  fi
+  echo "done"
+  /bin/rm -fr /tmp/config >/dev/null
+}
+
+case "$1" in
+    configure)
+    	config_all
+    ;;
+
+    abort-upgrade|abort-remove|abort-deconfigure)
+    ;;
+
+    *)
+        echo "postinst called with unknown argument \`$1'" >&2
+        exit 1
+    ;;
+esac
+
+# dh_installdeb will replace this with shell code automatically
+# generated by other debhelper scripts.
+
+
+
+exit 0
+
+

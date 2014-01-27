@@ -1,0 +1,15 @@
+#!/bin/sh
+#
+# shell script to drop Bacula database(s)
+#
+
+bindir=/usr/lib/postgresql/8.4/bin
+db_name=airback
+
+if $bindir/dropdb ${db_name}
+then
+   echo "Drop of ${db_name} database succeeded."
+else
+   echo "Drop of ${db_name} database failed."
+fi
+exit 0
